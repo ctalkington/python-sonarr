@@ -59,7 +59,7 @@ class Sonarr:
         headers = {
             "User-Agent": self.user_agent,
             "Accept": "application/json, text/plain, */*",
-            "X-Api-Key": self.api_key
+            "X-Api-Key": self.api_key,
         }
 
         if self._session is None:
@@ -82,8 +82,7 @@ class Sonarr:
 
         if response.status == 403:
             raise SonarrAccessRestricted(
-                "Access restricted. Please ensure valid API Key is provided",
-                {},
+                "Access restricted. Please ensure valid API Key is provided", {}
             )
 
         content_type = response.headers.get("Content-Type")
