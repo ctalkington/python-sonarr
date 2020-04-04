@@ -104,6 +104,24 @@ async def test_request_port(aresponses):
 
 
 @pytest.mark.asyncio
+async def test_request_base_path(aresponses):
+    """Test API running on different base path."""
+    aresponses.add(
+        MATCH_HOST,
+        "/api/v3/system/status",
+        "GET",
+        aresponses.Response(text="GOTCHA!", status=200),
+    )
+
+    async with aiohttp.ClientSession() as session:
+        client = Sonarr(
+            HOST, API_KEY, base_path="/api/v3/", session=session
+        )
+        response = await client._request("system/status")
+        assert response == "GOTCHA!"
+
+
+@pytest.mark.asyncio
 async def test_timeout(aresponses):
     """Test request timeout from the API."""
     # Faking a timeout by sleeping
