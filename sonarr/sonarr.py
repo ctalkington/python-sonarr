@@ -22,7 +22,7 @@ class Sonarr:
         self,
         host: str,
         api_key: str,
-        base_path: str = "/",
+        base_path: str = "/api",
         port: int = 8989,
         request_timeout: int = 8,
         session: aiohttp.client.ClientSession = None,
