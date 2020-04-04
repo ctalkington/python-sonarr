@@ -1,8 +1,10 @@
 """Tests for Sonarr Models."""
 import json
 import pytest
-from sonarr import SonarrError
 import sonarr.models as models
+from sonarr import SonarrError
+
+from . import load_fixture
 
 INFO = json.loads(load_fixture("system-status.json"))
 DISKSPACE = json.loads(load_fixture("diskspace.json"))
@@ -18,7 +20,7 @@ def test_application() -> None:
     assert isinstance(app.info, models.Info)
 
     assert app.disks
-    assert len(device.disks) == 1
+    assert len(app.disks) == 1
     assert isinstance(app.disks.locations[0], models.Disk)
 
 
