@@ -69,13 +69,10 @@ async def test_internal_session(aresponses):
 async def test_post_request(aresponses):
     """Test POST requests are handled correctly."""
     aresponses.add(
-        MATCH_HOST,
-        "/api/post",
-        "POST",
-        aresponses.Response(status=200, text="OK"),
+        MATCH_HOST, "/api/post", "POST", aresponses.Response(status=200, text="OK")
     )
 
-    async with aiohttp.ClientSession() as session:
+    async with ClientSession() as session:
         client = Sonarr(HOST, API_KEY, session=session)
         response = await client._request("post", method="POST")
         assert response == "OK"
@@ -113,10 +110,8 @@ async def test_request_base_path(aresponses):
         aresponses.Response(text="GOTCHA!", status=200),
     )
 
-    async with aiohttp.ClientSession() as session:
-        client = Sonarr(
-            HOST, API_KEY, base_path="/api/v3/", session=session
-        )
+    async with ClientSession() as session:
+        client = Sonarr(HOST, API_KEY, base_path="/api/v3/", session=session)
         response = await client._request("system/status")
         assert response == "GOTCHA!"
 
