@@ -23,7 +23,7 @@ def test_application() -> None:
 
     assert app.disks
     assert len(app.disks) == 1
-    assert isinstance(app.disks.locations[0], models.Disk)
+    assert isinstance(app.disks[0], models.Disk)
 
 
 def test_application_no_data() -> None:
