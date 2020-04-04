@@ -16,7 +16,7 @@ NON_STANDARD_PORT = 3333
 
 @pytest.mark.asyncio
 async def test_json_request(aresponses):
-    """Test Sonarr response is handled correctly."""
+    """Test JSON response is handled correctly."""
     aresponses.add(
         MATCH_HOST,
         "/api/system/status",
@@ -38,17 +38,17 @@ async def test_json_request(aresponses):
 async def test_text_request(aresponses):
     """Test non JSON response is handled correctly."""
     aresponses.add(
-        MATCH_HOST, "/api", "GET", aresponses.Response(status=200, text="OK"),
+        MATCH_HOST, "/api/text", "GET", aresponses.Response(status=200, text="OK"),
     )
     async with ClientSession() as session:
         client = Sonarr(HOST, API_KEY, session=session)
-        response = await client._request("/")
+        response = await client._request("text")
         assert response == "OK"
 
 
 @pytest.mark.asyncio
 async def test_internal_session(aresponses):
-    """Test DIRECTV response is handled correctly."""
+    """Test JSON response is handled correctly with internal session."""
     aresponses.add(
         MATCH_HOST,
         "/api/system/status",
@@ -67,7 +67,7 @@ async def test_internal_session(aresponses):
 
 @pytest.mark.asyncio
 async def test_request_port(aresponses):
-    """Test the API running on non-standard port."""
+    """Test the handling of non-standard API port."""
     aresponses.add(
         f"{HOST}:{NON_STANDARD_PORT}",
         "/api/system/status",
@@ -105,7 +105,7 @@ async def test_timeout(aresponses):
 
 @pytest.mark.asyncio
 async def test_client_error():
-    """Test http client error."""
+    """Test HTTP client error."""
     async with ClientSession() as session:
         client = Sonarr("#", API_KEY, session=session)
         with pytest.raises(SonarrConnectionError):
