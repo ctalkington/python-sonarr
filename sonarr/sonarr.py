@@ -22,7 +22,7 @@ class Sonarr:
         self,
         host: str,
         api_key: str,
-        base_path: str = "/api",
+        base_path: str = "/api/",
         port: int = 8989,
         request_timeout: int = 8,
         session: aiohttp.client.ClientSession = None,
@@ -41,6 +41,9 @@ class Sonarr:
 
         if user_agent is None:
             self.user_agent = f"PythonSonarr/{__version__}"
+
+        if self.base_path[-1] != "/":
+            self.base_path += "/"
 
     async def _request(
         self,
