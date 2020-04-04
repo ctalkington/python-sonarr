@@ -118,8 +118,8 @@ class Sonarr:
         return self._application
 
     async def update(self, full_update: bool = False) -> Application:
-        """Get all information about the device in a single call."""
-        if self._device is None or full_update:
+        """Get all information about the application in a single call."""
+        if self._application is None or full_update:
             status = await self._request("system/status")
             if status is None:
                 raise SonarrError("Sonarr returned an empty API response")
