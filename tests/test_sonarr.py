@@ -4,11 +4,7 @@ import asyncio
 import pytest
 from aiohttp import ClientSession
 from sonarr import Sonarr
-from sonarr.exceptions import (
-    SonarrAccessRestricted,
-    SonarrConnectionError,
-    SonarrError,
-)
+from sonarr.exceptions import SonarrAccessRestricted, SonarrConnectionError, SonarrError
 
 API_KEY = "MOCK_API_KEY"
 HOST = "192.168.1.89"
@@ -84,7 +80,9 @@ async def test_request_port(aresponses):
     )
 
     async with ClientSession() as session:
-        client = Sonarr(host=HOST, api_key=API_KEY, port=NON_STANDARD_PORT, session=session)
+        client = Sonarr(
+            host=HOST, api_key=API_KEY, port=NON_STANDARD_PORT, session=session
+        )
         response = await client._request("system/status")
         assert response["status"] == "OK"
 
@@ -97,9 +95,7 @@ async def test_timeout(aresponses):
         await asyncio.sleep(2)
         return aresponses.Response(body="Timeout!")
 
-    aresponses.add(
-        MATCH_HOST, "/api/system/status", "GET", response_handler
-    )
+    aresponses.add(MATCH_HOST, "/api/system/status", "GET", response_handler)
 
     async with ClientSession() as session:
         client = Sonarr(HOST, API_KEY, session=session, request_timeout=1)
