@@ -28,21 +28,21 @@ async def test_json_request(aresponses):
         aresponses.Response(
             status=200,
             headers={"Content-Type": "application/json"},
-            text='{"status": "ok"}',
+            text='{"status": "OK"}',
         ),
     )
 
     async with ClientSession() as session:
         client = Sonarr(HOST, API_KEY, session=session)
         response = await client._request("system/status")
-        assert response["status"] == "ok"
+        assert response["status"] == "OK"
 
 
 @pytest.mark.asyncio
 async def test_text_request(aresponses):
     """Test non JSON response is handled correctly."""
     aresponses.add(
-        MATCH_HOST, "/", "GET", aresponses.Response(status=200, text="OK"),
+        MATCH_HOST, "/api", "GET", aresponses.Response(status=200, text="OK"),
     )
     async with ClientSession() as session:
         client = Sonarr(HOST, API_KEY, session=session)
@@ -174,7 +174,7 @@ async def test_http_error500_json(aresponses):
         aresponses.Response(
             status=500,
             headers={"Content-Type": "application/json"},
-            body="{"status": "NOK"},
+            body='{"status": "NOK"}',
         ),
     )
 
