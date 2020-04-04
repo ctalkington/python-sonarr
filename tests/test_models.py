@@ -11,6 +11,7 @@ INFO = json.loads(load_fixture("system-status.json"))
 DISKSPACE = json.loads(load_fixture("diskspace.json"))
 APPLICATION = {"info": INFO, "diskspace": DISKSPACE}
 
+
 def test_application() -> None:
     """Test the Application model."""
     app = models.Application(APPLICATION)
