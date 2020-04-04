@@ -3,7 +3,7 @@ from typing import List
 
 import pytest
 from aiohttp import ClientSession
-from sonarr import Sonarr, SonarrError
+from sonarr import Sonarr
 from sonarr.models import Application, Info
 
 from . import load_fixture
