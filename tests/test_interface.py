@@ -40,6 +40,17 @@ async def test_app(aresponses):
         ),
     )
 
+    aresponses.add(
+        MATCH_HOST,
+        "/api/diskspace",
+        "GET",
+        aresponses.Response(
+            status=200,
+            headers={"Content-Type": "application/json"},
+            text=load_fixture("diskspace.json"),
+        ),
+    )
+
     async with ClientSession() as session:
         client = Sonarr(HOST, API_KEY, session=session)
         await client.update()
