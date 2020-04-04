@@ -44,3 +44,5 @@ def test_disk() -> None:
     assert disk
     assert disk.path == "C:\\"
     assert disk.label == ""
+    assert disk.free == 282500067328
+    assert disk.total == 499738734592
