@@ -36,10 +36,7 @@ class Info:
     @staticmethod
     def from_dict(data: dict):
         """Return Info object from Sonarr API response."""
-        return Info(
-            brand="Sonarr",
-            version=data.get("version", "Unknown"),
-        )
+        return Info(brand="Sonarr", version=data.get("version", "Unknown"))
 
 
 class Application:
@@ -52,9 +49,7 @@ class Application:
         """Initialize an empty Sonarr application class."""
         # Check if all elements are in the passed dict, else raise an Error
         if any(k not in data for k in ["info", "diskspace"]):
-            raise SonarrError(
-                "Sonarr data is incomplete, cannot construct object"
-            )
+            raise SonarrError("Sonarr data is incomplete, cannot construct object")
         self.update_from_dict(data)
 
     def update_from_dict(self, data: dict) -> "Application":
