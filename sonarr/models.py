@@ -19,8 +19,8 @@ class Disk:
     def from_dict(data: dict):
         """Return Disk object from Sonarr API response."""
         return Disk(
-            label=data.get("label"),
-            path=data.get("path"),
+            label=data.get("label", ""),
+            path=data.get("path", ""),
             free=data.get("freeSpace", 0),
             total=data.get("totalSpace", 0),
         )
