@@ -1,5 +1,6 @@
 """Tests for Sonarr Models."""
 import json
+
 import pytest
 import sonarr.models as models
 from sonarr import SonarrError
