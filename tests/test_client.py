@@ -66,6 +66,22 @@ async def test_internal_session(aresponses):
 
 
 @pytest.mark.asyncio
+async def test_post_request(aresponses):
+    """Test POST requests are handled correctly."""
+    aresponses.add(
+        MATCH_HOST,
+        "/api/post",
+        "POST",
+        aresponses.Response(status=200, text="OK"),
+    )
+
+    async with aiohttp.ClientSession() as session:
+        client = Sonarr(HOST, API_KEY, session=session)
+        response = await client._request("post", method="POST")
+        assert response == "OK"
+
+
+@pytest.mark.asyncio
 async def test_request_port(aresponses):
     """Test the handling of non-standard API port."""
     aresponses.add(
