@@ -111,7 +111,7 @@ async def test_request_base_path(aresponses):
     )
 
     async with ClientSession() as session:
-        client = Sonarr(HOST, API_KEY, base_path="/api/v3/", session=session)
+        client = Sonarr(HOST, API_KEY, base_path="/api/v3", session=session)
         response = await client._request("system/status")
         assert response == "GOTCHA!"
 
