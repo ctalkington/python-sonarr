@@ -39,6 +39,7 @@ class Series:
     title: str
     overview: str
     certification: str
+    genres: List[str]
     network: str
     runtime: int
     timeslot: str
@@ -78,6 +79,7 @@ class Series:
             title=data.get("title", ""),
             overview=data.get("overview", ""),
             certification=data.get("certification", "None"),
+            genres=data.get("generes", []),
             network=data.get("network", "Unknown"),
             runtime=data.get("runtime", 0),
             timeslot=data.get("airTime", ""),
