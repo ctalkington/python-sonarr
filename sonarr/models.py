@@ -1,6 +1,7 @@
 """Models for DirecTV."""
 
 from dataclasses import dataclass
+from datetime import datetime
 from typing import List
 
 from .exceptions import SonarrError
@@ -27,16 +28,92 @@ class Disk:
 
 
 @dataclass(frozen=True)
+class Series:
+    """Object holding series information from Sonarr."""
+
+    tvdb_id: int
+    series_id: int
+    series_type: str
+    slug: str
+    status: str
+    title: str
+    overview: str
+    network: str
+    runtime: int
+    timeslot: str
+    premieres: datetime
+    path: str
+    monitored: bool
+
+    @staticmethod
+    def from_dict(data: dict):
+        """Return Series object from Sonarr API response."""
+        premieres = data.get("firstAired", None)
+        if premieres is not None:
+            premieres = datetime.strptime(premieres, "%Y-%m-%dT%H:%M:%S%z")
+
+        return Series(
+            tvdb_id=data.get("tvdbId", 0),
+            series_id=data.get("id", 0),
+            series_type=data.get("seriesType", "unknown"),
+            slug=data.get("titleSlug", ""),
+            status=data.get("status", "unknown"),
+            title=data.get("title", ""),
+            overview=data.get("overview", ""),
+            network=data.get("network", "Unknown"),
+            runtime=data.get("runtime", 0),
+            timeslot=data.get("airTime", ""),
+            premieres=premieres,
+            path=data.get("path", ""),
+            monitored=data.get("monitored", False),
+        )
+
+
+@dataclass(frozen=True)
+class Episode:
+    """Object holding episode information from Sonarr."""
+
+    tvdb_id: int
+    episode_id: int
+    episode_number: int
+    season_number: int
+    title: str
+    overview: str
+    airs: datetime
+    downloading: bool
+    series: Series
+
+    @staticmethod
+    def from_dict(data: dict):
+        """Return Episode object from Sonarr API response."""
+        airs = data.get("airDateUtc", None)
+        if airs is not None:
+            airs = datetime.strptime(airs, "%Y-%m-%dT%H:%M:%S%z")
+
+        return Episode(
+            tvdb_id=data.get("tvDbEpisodeId", 0),
+            episode_id=data.get("id", 0),
+            episode_number=data.get("episodeNumber", 0),
+            season_number=data.get("seasonNumber", 0),
+            title=data.get("title", ""),
+            overview=data.get("overview", ""),
+            airs=airs,
+            downloading=data.get("downloading", False),
+            series=Series.from_dict(data.get("series", {})),
+        )
+
+
+@dataclass(frozen=True)
 class Info:
     """Object holding information from Sonarr."""
 
-    brand: str
+    app_name: str
     version: str
 
     @staticmethod
     def from_dict(data: dict):
         """Return Info object from Sonarr API response."""
-        return Info(brand="Sonarr", version=data.get("version", "Unknown"))
+        return Info(app_name="Sonarr", version=data.get("version", "Unknown"))
 
 
 class Application:

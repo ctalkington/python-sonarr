@@ -2,7 +2,7 @@
 import asyncio
 import json
 from socket import gaierror as SocketGIAError
-from typing import Any, Mapping, Optional
+from typing import Any, List, Mapping, Optional
 
 import aiohttp
 import async_timeout
@@ -10,7 +10,7 @@ from yarl import URL
 
 from .__version__ import __version__
 from .exceptions import SonarrAccessRestricted, SonarrConnectionError, SonarrError
-from .models import Application
+from .models import Application, Episode
 
 
 class Sonarr:
@@ -136,6 +136,24 @@ class Sonarr:
         diskspace = await self._request("diskspace")
         self._application.update_from_dict({"diskspace": diskspace})
         return self._application
+
+    async def calendar(self, start: int = None, end: int = None) -> List[Episode]:
+        """Get upcoming episodes.
+
+        If start/end are not supplied, episodes airing
+        today and tomorrow will be returned.
+        """
+        params = {}
+
+        if start is not None:
+            params["start"] = str(start)
+
+        if end is not None:
+            params["end"] = str(end)
+
+        results = await self._request("calendar", params=params)
+
+        return [Episode.from_dict(result) for result in results]
 
     async def close(self) -> None:
         """Close open client session."""
