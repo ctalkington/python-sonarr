@@ -99,4 +99,4 @@ determined to make Bob's Burgers \"grand re-re-re-opening\" a success."""
     assert series.runtime == 30
     assert series.timeslot == "5:30pm"
     assert series.premieres == datetime(2011, 1, 10, 1, 30, tzinfo=timezone.utc)
-    assert series path == "T:\\Bob's Burgers"
+    assert series.path == "T:\\Bob's Burgers"
