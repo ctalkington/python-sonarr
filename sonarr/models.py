@@ -37,6 +37,7 @@ class Series:
     slug: str
     status: str
     title: str
+    seasons: int
     overview: str
     certification: str
     genres: List[str]
@@ -77,6 +78,7 @@ class Series:
             slug=data.get("titleSlug", ""),
             status=data.get("status", "unknown"),
             title=data.get("title", ""),
+            seasons=data.get("seasonCount", 0),
             overview=data.get("overview", ""),
             certification=data.get("certification", "None"),
             genres=data.get("genres", []),
