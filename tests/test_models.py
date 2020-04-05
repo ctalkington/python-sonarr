@@ -114,5 +114,6 @@ determined to make Bob's Burgers \"grand re-re-re-opening\" a success."""
     assert series.path == "T:\\Bob's Burgers"
     assert series.poster == "http://slurm.trakt.us/images/posters/1387.6-300.jpg"
     assert series.certification == "TV-14"
+    assert series.genres == ["Comedy"]
     assert series.added == datetime(2011, 1, 26, 19, 25, 55, 455594, tzinfo=timezone.utc)
     assert series.synced == datetime(2011, 1, 26, 19, 25, 55, 455594, tzinfo=timezone.utc)
