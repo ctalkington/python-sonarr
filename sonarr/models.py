@@ -154,6 +154,7 @@ class QueueItem:
 
     queue_id: int
     download_id: str
+    download_status: str
     episode: Episode
     protocol: str
     size_remaining: int
@@ -177,6 +178,7 @@ class QueueItem:
         return QueueItem(
             queue_id=data.get("id", 0),
             download_id=data.get("downloadId", ""),
+            download_status=data.get("trackedDownloadStatus", "Unknown"),
             episode=episode,
             protocol=data.get("protocol", "unknown"),
             size=data.get("size", 0),
