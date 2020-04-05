@@ -49,7 +49,7 @@ async def test_app(aresponses):
 
 
 @pytest.mark.asyncio
-async def test_update(aresponses):
+async def test_queue(aresponses):
     """Test update is handled correctly."""
     aresponses.add(
         MATCH_HOST,
