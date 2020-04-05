@@ -11,8 +11,9 @@ from . import load_fixture
 INFO = json.loads(load_fixture("system-status.json"))
 CALENDAR = json.loads(load_fixture("calendar.json"))
 DISKSPACE = json.loads(load_fixture("diskspace.json"))
-APPLICATION = {"info": INFO, "diskspace": DISKSPACE}
+QUEUE = json.loads(load_fixture("queue.json"))
 
+APPLICATION = {"info": INFO, "diskspace": DISKSPACE}
 
 def test_application() -> None:
     """Test the Application model."""
