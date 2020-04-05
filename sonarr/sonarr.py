@@ -152,7 +152,7 @@ class Sonarr:
 
         results = await self._request("calendar", params=params)
 
-        rerurn [Episode.from_dict(result) for result in results]
+        return [Episode.from_dict(result) for result in results]
 
     async def close(self) -> None:
         """Close open client session."""
