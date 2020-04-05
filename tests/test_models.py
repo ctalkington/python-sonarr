@@ -86,7 +86,7 @@ def test_series() -> None:
         short on service and sophistication. Despite the greasy counters,
         lousy location and a dearth of customers, Bob and his family are
         determined to make Bob's Burgers \"grand re-re-re-opening\" a success."""
-    
+
     assert series
     assert series.tvdb_id == 194031
     assert series.series_id == 3
