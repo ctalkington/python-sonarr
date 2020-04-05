@@ -28,6 +28,32 @@ class Disk:
 
 
 @dataclass(frozen=True)
+class Season:
+    """Object holding season information from Sonarr."""
+
+    number: int
+    monitored: bool
+    downloaded: Optional[int] = 0
+    aired: Optional[int] = 0
+    episodes: Optional[int] = 0
+    progress: Optional[int] = 0
+    diskspace: Optional[int] = 0
+    
+    @staticmethod
+    def from_dict(data: dict):
+        """Return Season object from Sonarr API response."""
+        return Season(
+            number=data.get("seasonNumber", 0),
+            monitored=data.get("monitored", False),
+            downloaded=data.get("episodeFileCount", 0),
+            aired=data.get("episodeCount", 0),
+            episodes=data.get("totalEpisodeCount", 0),
+            progress=data.get("percentOfEpisodes", 0),
+            diskspace=data.get("sizeOnDisk", 0),
+        )
+
+
+@dataclass(frozen=True)
 class Series:
     """Object holding series information from Sonarr."""
 
@@ -37,7 +63,7 @@ class Series:
     slug: str
     status: str
     title: str
-    seasons: int
+    seasons: List[Season]
     overview: str
     certification: str
     genres: List[str]
@@ -71,6 +97,8 @@ class Series:
         if "poster" in images:
             poster = images["poster"]
 
+        seasons = [Season.from_dict(season) for season in data.get("seasons", [])]
+
         return Series(
             tvdb_id=data.get("tvdbId", 0),
             series_id=data.get("id", 0),
@@ -78,7 +106,7 @@ class Series:
             slug=data.get("titleSlug", ""),
             status=data.get("status", "unknown"),
             title=data.get("title", ""),
-            seasons=data.get("seasonCount", 0),
+            seasons=seasons,
             overview=data.get("overview", ""),
             certification=data.get("certification", "None"),
             genres=data.get("genres", []),
