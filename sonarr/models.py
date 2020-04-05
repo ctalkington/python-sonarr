@@ -55,7 +55,7 @@ class Episode:
             title=data.get("title", ""),
             overview=data.get("overview", ""),
             aired=aired,
-            downloading=data.get("downloading", False",
+            downloading=data.get("downloading", False),
         )
 
 
