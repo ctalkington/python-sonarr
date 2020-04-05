@@ -42,6 +42,7 @@ class Series:
     network: str
     runtime: int
     timeslot: str
+    year: int
     premieres: datetime
     path: str
     monitored: bool
@@ -51,9 +52,9 @@ class Series:
     @staticmethod
     def from_dict(data: dict):
         """Return Series object from Sonarr API response."""
-        premieres = data.get("firstAired", None)
-        if premieres is not None:
-            premieres = datetime.strptime(premieres, "%Y-%m-%dT%H:%M:%S%z")
+        premiere = data.get("firstAired", None)
+        if premiere is not None:
+            premiere = datetime.strptime(premiere, "%Y-%m-%dT%H:%M:%S%z")
 
         added = data.get("added", None)
         if added is not None:
@@ -75,7 +76,8 @@ class Series:
             network=data.get("network", "Unknown"),
             runtime=data.get("runtime", 0),
             timeslot=data.get("airTime", ""),
-            premieres=premieres,
+            year=data.get("year", 0),
+            premiere=premiere,
             path=data.get("path", ""),
             added=added,
             synced=synced,
@@ -159,7 +161,7 @@ class QueueItem:
             queue_id=data.get("id", 0),
             download_id=data.get("downloadId", ""),
             episode=episode,
-            protocol=data.get("protocol, "unknown"),
+            protocol=data.get("protocol", "unknown"),
             size=data.get("size", 0),
             size_remaining=data.get("sizeleft", 0),
             status=data.get("status", "Unknown"),
