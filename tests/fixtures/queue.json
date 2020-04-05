@@ -2,7 +2,7 @@
   {
     "series": {
       "title": "The Andy Griffith Show",
-      "sortTitle": "the andy griffith show",
+      "sortTitle": "andy griffith show",
       "seasonCount": 8,
       "status": "ended",
       "overview": "Down-home humor and an endearing cast of characters helped make The Andy Griffith Show one of the most beloved comedies in the history of TV. The show centered around widower Andy Taylor, who divided his time between raising his young son Opie, and his job as sheriff of the sleepy North Carolina town, Mayberry. Andy and Opie live with Andy's Aunt Bee, who serves as a surrogate mother to both father and son. Andy's nervous cousin, Barney Fife, is his deputy sheriff whose incompetence is tolerated because Mayberry is virtually crime-free.",
@@ -68,9 +68,9 @@
       "useSceneNumbering": false,
       "runtime": 25,
       "tvdbId": 77754,
-      "tvRageId": 0,
+      "tvRageId": 5574,
       "tvMazeId": 3853,
-      "firstAired": "1960-10-03T21:30:00Z",
+      "firstAired": "1960-02-15T06:00:00Z",
       "lastInfoSync": "2016-02-05T16:40:11.614176Z",
       "seriesType": "standard",
       "cleanTitle": "theandygriffithshow",
@@ -83,8 +83,8 @@
       "tags": [],
       "added": "2008-02-04T13:44:24.204583Z",
       "ratings": {
-        "votes": 5,
-        "value": 8.8
+        "votes": 547,
+        "value": 8.6
       },
       "qualityProfileId": 5,
       "id": 17
