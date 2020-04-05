@@ -104,7 +104,7 @@ def test_queue_item() -> None:
 
 def test_season() -> None:
     """Test the Season model."""
-    season = models.Series.from_dict(SERIES[0]["seasons"][1])
+    season = models.Season.from_dict(SERIES[0]["seasons"][1])
  
     assert season
     assert season.number == 1
