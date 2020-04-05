@@ -52,7 +52,7 @@ def test_episode() -> None:
     assert episode.episode_id == 1
     assert episode.episode_number == 1
     assert episode.season_number == 1
-    assert isinstance(episode.series, Series)
+    assert isinstance(episode.series, models.Series)
     assert episode.title == ""
     assert episode.overview == ""
     assert episode.airs == datetime(2010, 7, 5, 15, 0, 8, tzinfo=timezone.utc)
