@@ -75,12 +75,12 @@ async def test_queue(aresponses):
 
     aresponses.add(
         MATCH_HOST,
-        "/api/diskspace",
+        "/api/queue",
         "GET",
         aresponses.Response(
             status=200,
             headers={"Content-Type": "application/json"},
-            text=load_fixture("diskspace.json"),
+            text=load_fixture("queue.json"),
         ),
     )
 
