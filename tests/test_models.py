@@ -87,4 +87,4 @@ def test_series() -> None:
     assert series.network == "Fox"
     assert series.runtime == 20
     assert series.timeslot == "5:30pm"
-    assert series.premiered == datetime(2010, 7, 5, 15, 0, 8, tzinfo=timezone.utc)
+    assert series.premieres == datetime(2010, 7, 5, 15, 0, 8, tzinfo=timezone.utc)
