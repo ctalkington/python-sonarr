@@ -33,6 +33,7 @@ class Series:
 
     tvdb_id: int
     series_id: int
+    slug: str
     status: str
     title: str
     network: str
@@ -49,6 +50,7 @@ class Series:
         return Series(
             tvdb_id=data.get("tvdbId", 0),
             series_id=data.get("id", 0),
+            slug=data.get("titleSlug", ""),
             status=data.get("status", "unknown"),
             title=data.get("title", ""),
             network=data.get("network", "Unknown"),
