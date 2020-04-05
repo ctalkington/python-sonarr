@@ -111,6 +111,7 @@ def test_season() -> None:
     assert season.downloaded == 0
     assert season.total_episodes == 32
     assert season.progress == 0
+    assert season.diskspace == 0
 
 
 def test_series() -> None:
@@ -149,3 +150,22 @@ determined to make Bob's Burgers \"grand re-re-re-opening\" a success."""
     assert series.synced == datetime(
         2014, 1, 26, 19, 25, 55, 455594, tzinfo=timezone.utc
     )
+
+
+def test_series_item() -> None:
+    """Test the SeriesItem model."""
+    item = models.SeriesItem.from_dict(SERIES[0])
+
+    assert item.episodes == 0
+    assert item.downloaded == 0
+    assert item.total_episodes == 253
+    assert item.diskspace == 0
+
+    assert item.series
+    assert isinstance(item.series, models.Series)
+
+    assert item.seasons
+    assert isinstance(item.seasons, List)
+
+    assert item.seasons[1]
+    assert isinstance(item.seasons[1], models.Season)
