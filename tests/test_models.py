@@ -50,7 +50,8 @@ def test_episode() -> None:
     overview = """To compete with fellow \"restaurateur,\" Jimmy Pesto,
 and his blowout Super Bowl event. Bob is determined to create a
 Bob’s Burgers commercial to air during the \"big game.\"
-In an effort to outshine Pesto, the Belchers recruit Randy   a documentarian, to assist with the filmmaking and hire on
+In an effort to outshine Pesto, the Belchers recruit Randy
+a documentarian, to assist with the filmmaking and hire on
 former pro football star Connie Frye to be the celebrity endorser."""
 
     assert episode
