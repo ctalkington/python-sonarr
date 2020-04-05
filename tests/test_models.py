@@ -70,6 +70,7 @@ former pro football star Connie Frye to be the celebrity endorser."""
     assert not episode.downloaded
     assert not episode.downloading
 
+
 def test_disk() -> None:
     """Test the Disk model."""
     disk = models.Disk.from_dict(DISKSPACE[0])
@@ -103,7 +104,7 @@ def test_queue_item() -> None:
 def test_season() -> None:
     """Test the Season model."""
     season = models.Series.from_dict(SERIES[0]["seasons"][1])
-    
+ 
     assert season
     assert season.number == 1
     assert not season.monitored
