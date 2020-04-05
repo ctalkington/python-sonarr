@@ -61,6 +61,7 @@ former pro football star Connie Frye to be the celebrity endorser."""
     assert episode.episode_id == 14402
     assert episode.episode_number == 11
     assert episode.season_number == 4
+    assert episide.identifier == "S04E11"
     assert isinstance(episode.series, models.Series)
     assert episode.title == "Easy Com-mercial, Easy Go-mercial"
     assert episode.overview == overview.replace("\n", " ")
