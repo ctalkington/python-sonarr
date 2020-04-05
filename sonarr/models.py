@@ -63,7 +63,7 @@ class Series:
     slug: str
     status: str
     title: str
-    seasons: List[Season]
+    seasons: int
     overview: str
     certification: str
     genres: List[str]
@@ -97,8 +97,6 @@ class Series:
         if "poster" in images:
             poster = images["poster"]
 
-        seasons = [Season.from_dict(season) for season in data.get("seasons", [])]
-
         return Series(
             tvdb_id=data.get("tvdbId", 0),
             series_id=data.get("id", 0),
@@ -106,7 +104,7 @@ class Series:
             slug=data.get("titleSlug", ""),
             status=data.get("status", "unknown"),
             title=data.get("title", ""),
-            seasons=seasons,
+            seasons=data.get("seasonCount", 0),
             overview=data.get("overview", ""),
             certification=data.get("certification", "None"),
             genres=data.get("genres", []),
