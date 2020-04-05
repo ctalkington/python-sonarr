@@ -145,7 +145,7 @@ class Sonarr:
         """
         params = {
             "start": start if start is not None,
-            "end": end if end is not None
+            "end": end if end is not None,
         }
 
         results = await self._request("calendar", params=params)
