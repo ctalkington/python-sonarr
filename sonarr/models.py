@@ -222,7 +222,7 @@ class QueueItem:
 @dataclass(frozen=True)
 class SeriesItem:
     """Object holding series item information from Sonarr."""
-    
+
     series: Series
     seasons: List[Season]
     downloaded: int
