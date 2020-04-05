@@ -97,4 +97,4 @@ determined to make Bob's Burgers \"grand re-re-re-opening\" a success."""
     assert series.network == "FOX"
     assert series.runtime == 30
     assert series.timeslot == "5:30pm"
-    assert series.premieres == datetime(2010, 7, 5, 15, 0, 8, tzinfo=timezone.utc)
+    assert series.premieres == datetime(2011, 1, 10, 1, 30, tzinfo=timezone.utc)
