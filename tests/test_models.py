@@ -104,7 +104,7 @@ determined to make Bob's Burgers \"grand re-re-re-opening\" a success."""
     assert series.series_id == 66
     assert series.series_type == "standard"
     assert series.status == "continuing"
-    assert series.seasons == 6
+    assert series.seasons == 4
     assert series.slug == "bobs-burgers"
     assert series.title == "Bob's Burgers"
     assert series.overview == overview.replace("\n", " ")
