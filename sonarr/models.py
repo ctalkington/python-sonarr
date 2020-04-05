@@ -45,6 +45,7 @@ class Series:
     year: int
     premieres: datetime
     path: str
+    poster:str
     monitored: bool
     added: datetime
     synced: datetime
@@ -64,6 +65,10 @@ class Series:
         if synced is not None:
             synced = datetime.strptime(synced, "%Y-%m-%dT%H:%M:%S.%f%z")
 
+        images = {image["coverType"]: image["url"] for image in data.get("images")}
+        if "poster" in images:
+            poster = images["poster"]
+
         return Series(
             tvdb_id=data.get("tvdbId", 0),
             series_id=data.get("id", 0),
@@ -79,6 +84,7 @@ class Series:
             year=data.get("year", 0),
             premiere=premiere,
             path=data.get("path", ""),
+            poster=poster,
             added=added,
             synced=synced,
             monitored=data.get("monitored", False),
@@ -131,6 +137,7 @@ class Info:
         """Return Info object from Sonarr API response."""
         return Info(app_name="Sonarr", version=data.get("version", "Unknown"))
 
+
 @dataclass(frozen=True)
 class QueueItem:
     """Object holding queue item information from Sonarr."""
@@ -150,7 +157,7 @@ class QueueItem:
         """Return QueueItem object from Sonarr API response."""
         episode_data = data.get("episode", {})
         episode_data["series"] = data.get("series", {})
-        
+
         episode = Episode.from_dict(episode_data)
 
         eta = data.get("estimatedCompletionTime", None)
