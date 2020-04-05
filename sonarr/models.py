@@ -38,12 +38,15 @@ class Series:
     status: str
     title: str
     overview: str
+    certification: str
     network: str
     runtime: int
     timeslot: str
     premieres: datetime
     path: str
     monitored: bool
+    added: datetime
+    synced: datetime
 
     @staticmethod
     def from_dict(data: dict):
@@ -51,6 +54,14 @@ class Series:
         premieres = data.get("firstAired", None)
         if premieres is not None:
             premieres = datetime.strptime(premieres, "%Y-%m-%dT%H:%M:%S%z")
+
+        added = data.get("added", None)
+        if added is not None:
+            added = datetime.strptime(added, "%Y-%m-%dT%H:%M:%S.%f%z")
+
+        synced = data.get("lastInfoSync", None)
+        if synced is not None:
+            synced = datetime.strptime(synced, "%Y-%m-%dT%H:%M:%S.%f%z")
 
         return Series(
             tvdb_id=data.get("tvdbId", 0),
@@ -60,11 +71,14 @@ class Series:
             status=data.get("status", "unknown"),
             title=data.get("title", ""),
             overview=data.get("overview", ""),
+            certification=data.get("certification", "None"),
             network=data.get("network", "Unknown"),
             runtime=data.get("runtime", 0),
             timeslot=data.get("airTime", ""),
             premieres=premieres,
             path=data.get("path", ""),
+            added=added,
+            synced=synced,
             monitored=data.get("monitored", False),
         )
 
@@ -123,9 +137,11 @@ class QueueItem:
     download_id: str
     episode: Episode
     protocol: str
-    remaining: int
+    size_remaining: int
     size: int
     status: str
+    eta: datetime
+    time_remaining: str
 
     @staticmethod
     def from_dict(data: dict):
@@ -135,14 +151,20 @@ class QueueItem:
         
         episode = Episode.from_dict(episode_data)
 
+        eta = data.get("estimatedCompletionTime", None)
+        if eta is not None:
+            eta = datetime.strptime(eta, "%Y-%m-%dT%H:%M:%S.%f%z")
+
         return QueueItem(
             queue_id=data.get("id", 0),
             download_id=data.get("downloadId", ""),
             episode=episode,
             protocol=data.get("protocol, "unknown"),
-            remaining=data.get("sizeleft", 0),
             size=data.get("size", 0),
+            size_remaining=data.get("sizeleft", 0),
             status=data.get("status", "Unknown"),
+            eta=eta,
+            time_remaining=data.get("timeleft", "00:00:00"),
         )
 
 
