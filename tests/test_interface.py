@@ -91,8 +91,8 @@ async def test_queue(aresponses):
         assert response
         assert isinstance(response, List)
 
-        assert response.episode
-        assert isinstance(response.episode, models.Episode)
+        assert response[0]
+        assert isinstance(response[0], models.Episode)
 
 
 @pytest.mark.asyncio
