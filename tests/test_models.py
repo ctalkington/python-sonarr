@@ -156,6 +156,7 @@ def test_series_item() -> None:
     """Test the SeriesItem model."""
     item = models.SeriesItem.from_dict(SERIES[0])
 
+    assert item
     assert item.episodes == 0
     assert item.downloaded == 0
     assert item.total_episodes == 253
@@ -166,6 +167,7 @@ def test_series_item() -> None:
 
     assert item.seasons
     assert isinstance(item.seasons, List)
+    assert len(items.seasons) == 9
 
     assert item.seasons[1]
     assert isinstance(item.seasons[1], models.Season)
