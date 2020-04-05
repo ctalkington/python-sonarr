@@ -43,9 +43,9 @@ class Series:
     runtime: int
     timeslot: str
     year: int
-    premieres: datetime
+    premiere: datetime
     path: str
-    poster:str
+    poster: str
     monitored: bool
     added: datetime
     synced: datetime
@@ -65,7 +65,7 @@ class Series:
         if synced is not None:
             synced = datetime.strptime(synced, "%Y-%m-%dT%H:%M:%S.%f%z")
 
-        images = {image["coverType"]: image["url"] for image in data.get("images")}
+        images = {image["coverType"]: image["url"] for image in data.get("images", [])}
         if "poster" in images:
             poster = images["poster"]
 
