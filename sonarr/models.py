@@ -28,6 +28,32 @@ class Disk:
 
 
 @dataclass(frozen=True)
+class Series:
+    """Object holding series information from Sonarr."""
+
+    tvdb_id: int
+    series_id: int
+    status: str
+    title: str
+    network: str
+    runtime: int
+    timeslot: str
+
+    @staticmethod
+    def from_dict(data: dict):
+        """Return Series object from Sonarr API response."""
+        return Series(
+            tvdb_id=data.get("tvdbId", 0),
+            series_id=data.get("id", 0),
+            status=data.get("status", "unknown"),
+            title=data.get("title", ""),
+            network=data.get("network", "Unknown"),
+            runtime=data.get("runtime", 0),
+            timeslot=data.get("airTime", ""),
+        )
+
+
+@dataclass(frozen=True)
 class Episode:
     """Object holding episode information from Sonarr."""
 
@@ -37,15 +63,16 @@ class Episode:
     season_number: int
     title: str
     overview: str
-    aired: datetime
+    airs: datetime
     downloading: bool
+    series: Series
 
     @staticmethod
     def from_dict(data: dict):
         """Return Episode object from Sonarr API response."""
         aired = data.get("airDateUtc", None)
-        if aired:
-            aired = datetime.strptime(aired)
+        if aired is not None:
+            aired = datetime.strptime(aired, "%Y-%m-%dT%H:%M:%S%z")
         
         return Episode(
             tvdb_id=data.get("tvDbEpisodeId", 0),
@@ -56,6 +83,7 @@ class Episode:
             overview=data.get("overview", ""),
             aired=aired,
             downloading=data.get("downloading", False),
+            series=Series.from_dict(data.get("series", {})),
         )
 
 
