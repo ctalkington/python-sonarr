@@ -43,6 +43,7 @@ class Series:
     timeslot: str
     premieres: datetime
     path: str
+    monitored: bool
 
     @staticmethod
     def from_dict(data: dict):
@@ -64,6 +65,7 @@ class Series:
             timeslot=data.get("airTime", ""),
             premieres=premieres,
             path=data.get("path", ""),
+            monitored=data.get("monitored", False),
         )
 
 
