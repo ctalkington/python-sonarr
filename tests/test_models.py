@@ -1,6 +1,6 @@
 """Tests for Sonarr Models."""
-from datetime import datetime, timezone
 import json
+from datetime import datetime, timezone
 
 import pytest
 import sonarr.models as models
@@ -45,7 +45,7 @@ def test_info() -> None:
 
 def test_episode() -> None:
     """Test the Episode model."""
-    episode = models.Info.from_dict(CALENDAR[1])
+    episode = models.Episode.from_dict(CALENDAR[1])
 
     assert episode
     assert episode.tvdb_id == 1
