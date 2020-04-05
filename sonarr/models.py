@@ -85,7 +85,7 @@ class Episode:
             tvdb_id=data.get("tvDbEpisodeId", 0),
             episode_id=data.get("id", 0),
             episode_number=data.get("episodeNumber", 0),
-            season_number=data.get("seasonNumber",0), 
+            season_number=data.get("seasonNumber", 0), 
             title=data.get("title", ""),
             overview=data.get("overview", ""),
             aired=aired,
