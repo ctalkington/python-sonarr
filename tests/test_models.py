@@ -76,6 +76,14 @@ def test_disk() -> None:
     assert disk.total == 499738734592
 
 
+def test_queue_item() -> None:
+    """Test the QueueItem model."""
+    item = models.QueueItem.from_dict(QUEUE[0])
+
+    assert item.episode
+    assert isinstance(item.episode, models.Episode)
+
+
 def test_series() -> None:
     """Test the Series model."""
     series = models.Series.from_dict(CALENDAR[0]["series"])
