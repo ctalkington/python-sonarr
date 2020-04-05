@@ -120,6 +120,6 @@ determined to make Bob's Burgers \"grand re-re-re-opening\" a success."""
     assert series.added == datetime(
         2011, 1, 26, 19, 25, 55, 455594, tzinfo=timezone.utc
     )
-    assert series.synced == datetime.datetime(
-        2014, 1, 26, 19, 25, 55, 455594, tzinfo=datetime.timezone.utc
+    assert series.synced == datetime(
+        2014, 1, 26, 19, 25, 55, 455594, tzinfo=timezone.utc
     )
