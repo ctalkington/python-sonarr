@@ -50,7 +50,7 @@ def test_episode() -> None:
     overview = """To compete with fellow \"restaurateur,\" Jimmy Pesto,
 and his blowout Super Bowl event, Bob is determined to create a
 Bob’s Burgers commercial to air during the \"big game.\"
-In an effort to outshine Pesto, the Belchers recruit Randy
+In an effort to outshine Pesto, the Belchers recruit Randy,
 a documentarian, to assist with the filmmaking and hire on
 former pro football star Connie Frye to be the celebrity endorser."""
 
@@ -95,6 +95,6 @@ determined to make Bob's Burgers \"grand re-re-re-opening\" a success."""
     assert series.title == "Bob's Burgers"
     assert series.overview == overview.replace("\n", " ")
     assert series.network == "FOX"
-    assert series.runtime == 20
+    assert series.runtime == 30
     assert series.timeslot == "5:30pm"
     assert series.premieres == datetime(2010, 7, 5, 15, 0, 8, tzinfo=timezone.utc)
