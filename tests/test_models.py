@@ -48,11 +48,11 @@ def test_episode() -> None:
     episode = models.Episode.from_dict(CALENDAR[0])
 
     overview = """To compete with fellow \"restaurateur,\" Jimmy Pesto,
-        and his blowout Super Bowl event. Bob is determined to create a
-        Bob’s Burgers commercial to air during the \"big game.\"
-        In an effort to outshine Pesto, the Belchers recruit Randy,
-        a documentarian, to assist with the filmmaking and hire on
-        former pro football star Connie Frye to be the celebrity endorser."""
+     and his blowout Super Bowl event. Bob is determined to create a
+     Bob’s Burgers commercial to air during the \"big game.\"
+     In an effort to outshine Pesto, the Belchers recruit Randy,
+     a documentarian, to assist with the filmmaking and hire on
+     former pro football star Connie Frye to be the celebrity endorser."""
 
     assert episode
     assert episode.tvdb_id == 0
@@ -91,7 +91,7 @@ def test_series() -> None:
     assert series.tvdb_id == 194031
     assert series.series_id == 66
     assert series.status == "continuing"
-    assert series.slug == "bobs-burger"
+    assert series.slug == "bobs-burgers"
     assert series.title == "Bob's Burgers"
     assert series.overview == overview
     assert series.network == "Fox"
