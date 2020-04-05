@@ -42,6 +42,10 @@ class Series:
     @staticmethod
     def from_dict(data: dict):
         """Return Series object from Sonarr API response."""
+        premiered = data.get("firstAired", None)
+        if premiered is not None:
+            premiered = datetime.strptime(premiered, "%Y-%m-%dT%H:%M:%S%z")
+
         return Series(
             tvdb_id=data.get("tvdbId", 0),
             series_id=data.get("id", 0),
@@ -50,6 +54,7 @@ class Series:
             network=data.get("network", "Unknown"),
             runtime=data.get("runtime", 0),
             timeslot=data.get("airTime", ""),
+            premiered=premiered,
         )
 
 
@@ -73,7 +78,7 @@ class Episode:
         aired = data.get("airDateUtc", None)
         if aired is not None:
             aired = datetime.strptime(aired, "%Y-%m-%dT%H:%M:%S%z")
-        
+
         return Episode(
             tvdb_id=data.get("tvDbEpisodeId", 0),
             episode_id=data.get("id", 0),
@@ -91,13 +96,13 @@ class Episode:
 class Info:
     """Object holding information from Sonarr."""
 
-    brand: str
+    app_name: str
     version: str
 
     @staticmethod
     def from_dict(data: dict):
         """Return Info object from Sonarr API response."""
-        return Info(brand="Sonarr", version=data.get("version", "Unknown"))
+        return Info(app_name="Sonarr", version=data.get("version", "Unknown"))
 
 
 class Application:
