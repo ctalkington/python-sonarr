@@ -88,6 +88,7 @@ lousy location and a dearth of customers, Bob and his family are
 determined to make Bob's Burgers \"grand re-re-re-opening\" a success."""
 
     assert series
+    assert series.monitored
     assert series.tvdb_id == 194031
     assert series.series_id == 66
     assert series.series_type == "standard"
