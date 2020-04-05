@@ -117,7 +117,7 @@ class Episode:
 
         episode_number = data.get("episodeNumber", 0)
         season_number = data.get("seasonNumber", 0)
-        identifier = "S{:02d}E{:02d}".format(season_number, episode_number)
+        identifier = f"S{season_number:02d}E{episode_number:02d}"
 
         return Episode(
             tvdb_id=data.get("tvDbEpisodeId", 0),
