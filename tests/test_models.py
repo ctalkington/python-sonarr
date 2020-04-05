@@ -45,11 +45,17 @@ def test_info() -> None:
 
 def test_episode() -> None:
     """Test the Episode model."""
-    info = models.Info.from_dict(CALENDAR[1])
+    episode = models.Info.from_dict(CALENDAR[1])
 
-    assert info
-    assert info.app_name == "Sonarr"
-    assert info.version == "2.0.0.1121"
+    assert episode
+    assert episode.tvdb_id == 1
+    assert episode.episode_id == 1
+    assert episode.episode_number == 1
+    assert episode.season_number == 1
+    assert isinstance(episode.series, Series)
+    assert episode.title == ""
+    assert episode.overview == ""
+    assert episode.airs == datetime(2010, 7, 5, 15, 0, 8, tzinfo=timezone.utc)
 
 
 def test_disk() -> None:
