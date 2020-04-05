@@ -89,11 +89,11 @@ def test_series() -> None:
     assert series.title == "Bob's Burgers"
     assert (
         series.overview == """Bob's Burgers follows a third-generation restaurateur,
-           Bob, as he runs Bob's Burgers with the help of his wife and their three
-           kids. Bob and his quirky family have big ideas about burgers, but fall
-           short on service and sophistication. Despite the greasy counters,
-           lousy location and a dearth of customers, Bob and his family are
-           determined to make Bob's Burgers \"grand re-re-re-opening\" a success."""
+            Bob, as he runs Bob's Burgers with the help of his wife and their three
+            kids. Bob and his quirky family have big ideas about burgers, but fall
+            short on service and sophistication. Despite the greasy counters,
+            lousy location and a dearth of customers, Bob and his family are
+            determined to make Bob's Burgers \"grand re-re-re-opening\" a success."""
     )
     assert series.network == "Fox"
     assert series.runtime == 20
