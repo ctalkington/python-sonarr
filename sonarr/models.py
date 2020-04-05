@@ -1,4 +1,4 @@
-"""Models for DirecTV."""
+"""Models for Sonarr."""
 
 from dataclasses import dataclass
 from datetime import datetime
