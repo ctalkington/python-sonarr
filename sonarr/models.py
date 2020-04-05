@@ -101,6 +101,7 @@ class Episode:
     episode_id: int
     episode_number: int
     season_number: int
+    identifier: str
     title: str
     overview: str
     airs: datetime
@@ -114,11 +115,16 @@ class Episode:
         if airs is not None:
             airs = datetime.strptime(airs, "%Y-%m-%dT%H:%M:%S%z")
 
+        episode_number = data.get("episodeNumber", 0)
+        season_number = data.get("seasonNumber", 0)
+        identifer = "S{:02d}E{:02d}".format(season_number, episode_number)
+
         return Episode(
             tvdb_id=data.get("tvDbEpisodeId", 0),
             episode_id=data.get("id", 0),
-            episode_number=data.get("episodeNumber", 0),
-            season_number=data.get("seasonNumber", 0),
+            episode_number=episode_number,
+            season_number=season_number,
+            identifier=identifer,
             title=data.get("title", ""),
             overview=data.get("overview", ""),
             airs=airs,
