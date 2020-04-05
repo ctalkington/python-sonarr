@@ -47,7 +47,7 @@ def test_episode() -> None:
     """Test the Episode model."""
     episode = models.Episode.from_dict(CALENDAR[1])
 
-    overview = ""To compete with fellow \"restaurateur,\" Jimmy Pesto,
+    overview = """To compete with fellow \"restaurateur,\" Jimmy Pesto,
         and his blowout Super Bowl event. Bob is determined to create a
         Bob’s Burgers commercial to air during the \"big game.\"
         In an effort to outshine Pesto, the Belchers recruit Randy,
