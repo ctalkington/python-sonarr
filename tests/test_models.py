@@ -1,6 +1,7 @@
 """Tests for Sonarr Models."""
 import json
 from datetime import datetime, timezone
+from typing impprt List
 
 import pytest
 import sonarr.models as models
@@ -168,7 +169,7 @@ def test_series_item() -> None:
 
     assert item.seasons
     assert isinstance(item.seasons, List)
-    assert len(items.seasons) == 9
+    assert len(item.seasons) == 9
 
     assert item.seasons[1]
     assert isinstance(item.seasons[1], models.Season)
