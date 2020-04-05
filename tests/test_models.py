@@ -12,6 +12,7 @@ INFO = json.loads(load_fixture("system-status.json"))
 CALENDAR = json.loads(load_fixture("calendar.json"))
 DISKSPACE = json.loads(load_fixture("diskspace.json"))
 QUEUE = json.loads(load_fixture("queue.json"))
+SERIES = json.loads(load_fixture("series.json"))
 
 APPLICATION = {"info": INFO, "diskspace": DISKSPACE}
 
@@ -96,6 +97,19 @@ def test_queue_item() -> None:
 
     assert item.episode
     assert isinstance(item.episode, models.Episode)
+
+
+def test_season() -> None:
+    """Test the Season model.""
+    season = models.Series.from_dict(SERIES[0]["seasons"][0])
+    
+    assert season
+    assert season.number == 0
+    assert season.monitored == 0
+    assert season.aired == 0
+    assert season.downloaded == 0
+    assert season.episodes == 0
+    assert season.progress == 0
 
 
 def test_series() -> None:
