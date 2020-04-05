@@ -106,9 +106,9 @@ def test_season() -> None:
     assert season
     assert season.number == 1
     assert not season.monitored
-    assert season.aired == 0
+    assert season.episodes == 0
     assert season.downloaded == 0
-    assert season.episodes == 32
+    assert season.total_episodes == 32
     assert season.progress == 0
 
 
