@@ -1,6 +1,7 @@
 """Models for DirecTV."""
 
 from dataclasses import dataclass
+from datetime import datetime, timezone
 from typing import List
 
 from .exceptions import SonarrError
@@ -23,6 +24,38 @@ class Disk:
             path=data.get("path", ""),
             free=data.get("freeSpace", 0),
             total=data.get("totalSpace", 0),
+        )
+
+
+@dataclass(frozen=True)
+class Episode:
+    """Object holding episode information from Sonarr."""
+
+    tvdb_id: int
+    episode_id: int
+    episode_number: int
+    season_number: int
+    title: str
+    overview: str
+    aired: datetime
+    downloading: bool
+
+    @staticmethod
+    def from_dict(data: dict):
+        """Return Episode object from Sonarr API response."""
+        aired = data.get("airDateUtc", None)
+        if aired:
+            aired = datetime.strptime(aired)
+        
+        return Episode(
+            tvdb_id=data.get("tvDbEpisodeId", 0),
+            episode_id=data.get("id", 0),
+            episode_number=data.get("episodeNumber", 0),
+            season_number=data.get("seasonNumber",0), 
+            title=data.get("title", ""),
+            overview=data.get("overview", ""),
+            aired=aired,
+            downloading=data.get("downloading", False",
         )
 
 
