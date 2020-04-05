@@ -40,13 +40,14 @@ class Series:
     network: str
     runtime: int
     timeslot: str
+    premieres: datetime
 
     @staticmethod
     def from_dict(data: dict):
         """Return Series object from Sonarr API response."""
-        premiered = data.get("firstAired", None)
-        if premiered is not None:
-            premiered = datetime.strptime(premiered, "%Y-%m-%dT%H:%M:%S%z")
+        premieres = data.get("firstAired", None)
+        if premieres is not None:
+            premieres = datetime.strptime(premieres, "%Y-%m-%dT%H:%M:%S%z")
 
         return Series(
             tvdb_id=data.get("tvdbId", 0),
@@ -58,7 +59,7 @@ class Series:
             network=data.get("network", "Unknown"),
             runtime=data.get("runtime", 0),
             timeslot=data.get("airTime", ""),
-            premiered=premiered,
+            premieres=premieres,
         )
 
 
