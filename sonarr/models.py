@@ -36,6 +36,7 @@ class Series:
     slug: str
     status: str
     title: str
+    overview: str
     network: str
     runtime: int
     timeslot: str
@@ -53,6 +54,7 @@ class Series:
             slug=data.get("titleSlug", ""),
             status=data.get("status", "unknown"),
             title=data.get("title", ""),
+            overview=data.get("overview", ""),
             network=data.get("network", "Unknown"),
             runtime=data.get("runtime", 0),
             timeslot=data.get("airTime", ""),
@@ -77,9 +79,9 @@ class Episode:
     @staticmethod
     def from_dict(data: dict):
         """Return Episode object from Sonarr API response."""
-        aired = data.get("airDateUtc", None)
-        if aired is not None:
-            aired = datetime.strptime(aired, "%Y-%m-%dT%H:%M:%S%z")
+        airs = data.get("airDateUtc", None)
+        if airs is not None:
+            airs = datetime.strptime(airs, "%Y-%m-%dT%H:%M:%S%z")
 
         return Episode(
             tvdb_id=data.get("tvDbEpisodeId", 0),
@@ -88,7 +90,7 @@ class Episode:
             season_number=data.get("seasonNumber", 0), 
             title=data.get("title", ""),
             overview=data.get("overview", ""),
-            aired=aired,
+            airs=airs,
             downloading=data.get("downloading", False),
             series=Series.from_dict(data.get("series", {})),
         )
