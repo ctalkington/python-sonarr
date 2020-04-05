@@ -33,8 +33,8 @@ class Season:
 
     number: int
     monitored: bool
-    downloaded: Optional[int] = 0
     aired: Optional[int] = 0
+    downloaded: Optional[int] = 0
     episodes: Optional[int] = 0
     progress: Optional[int] = 0
     diskspace: Optional[int] = 0
