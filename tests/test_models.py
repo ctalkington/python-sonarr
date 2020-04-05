@@ -108,7 +108,7 @@ determined to make Bob's Burgers \"grand re-re-re-opening\" a success."""
     assert series.overview == overview.replace("\n", " ")
     assert series.network == "FOX"
     assert series.runtime == 30
-    assert series.timeslot == "5:30pm"
+    assert series.timeslot == "17:30"
     assert series.year == 2011
     assert series.premiere == datetime(2011, 1, 10, 1, 30, tzinfo=timezone.utc)
     assert series.path == "T:\\Bob's Burgers"
