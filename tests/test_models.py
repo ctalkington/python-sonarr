@@ -48,11 +48,10 @@ def test_episode() -> None:
     episode = models.Episode.from_dict(CALENDAR[0])
 
     overview = """To compete with fellow \"restaurateur,\" Jimmy Pesto,
-    and his blowout Super Bowl event. Bob is determined to create a
-    Bob’s Burgers commercial to air during the \"big game.\"
-    In an effort to outshine Pesto, the Belchers recruit Randy,
-    a documentarian, to assist with the filmmaking and hire on
-    former pro football star Connie Frye to be the celebrity endorser."""
+and his blowout Super Bowl event. Bob is determined to create a
+Bob’s Burgers commercial to air during the \"big game.\"
+In an effort to outshine Pesto, the Belchers recruit Randy   a documentarian, to assist with the filmmaking and hire on
+former pro football star Connie Frye to be the celebrity endorser."""
 
     assert episode
     assert episode.tvdb_id == 0
@@ -61,7 +60,7 @@ def test_episode() -> None:
     assert episode.season_number == 4
     assert isinstance(episode.series, models.Series)
     assert episode.title == "Easy Com-mercial, Easy Go-mercial"
-    assert episode.overview == overview
+    assert episode.overview == overview.replace("\n", " ")
     assert episode.airs == datetime(2010, 7, 5, 15, 0, 8, tzinfo=timezone.utc)
 
 
@@ -81,11 +80,11 @@ def test_series() -> None:
     series = models.Series.from_dict(CALENDAR[0]["series"])
 
     overview = """Bob's Burgers follows a third-generation restaurateur,
-    Bob, as he runs Bob's Burgers with the help of his wife and their three
-    kids. Bob and his quirky family have big ideas about burgers, but fall
-    short on service and sophistication. Despite the greasy counters,
-    lousy location and a dearth of customers, Bob and his family are
-    determined to make Bob's Burgers \"grand re-re-re-opening\" a success."""
+Bob, as he runs Bob's Burgers with the help of his wife and their three
+kids. Bob and his quirky family have big ideas about burgers, but fall
+short on service and sophistication. Despite the greasy counters,
+lousy location and a dearth of customers, Bob and his family are
+determined to make Bob's Burgers \"grand re-re-re-opening\" a success."""
 
     assert series
     assert series.tvdb_id == 194031
@@ -93,7 +92,7 @@ def test_series() -> None:
     assert series.status == "continuing"
     assert series.slug == "bobs-burgers"
     assert series.title == "Bob's Burgers"
-    assert series.overview == overview
+    assert series.overview == overview.replace("\n", " ")
     assert series.network == "Fox"
     assert series.runtime == 20
     assert series.timeslot == "5:30pm"
