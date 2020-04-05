@@ -38,7 +38,7 @@ class Season:
     total_episodes: Optional[int] = 0
     progress: Optional[int] = 0
     diskspace: Optional[int] = 0
-    
+
     @staticmethod
     def from_dict(data: dict):
         """Return Season object from Sonarr API response."""
@@ -183,6 +183,7 @@ class QueueItem:
     queue_id: int
     download_id: str
     download_status: str
+    title: str
     episode: Episode
     protocol: str
     size_remaining: int
@@ -207,6 +208,7 @@ class QueueItem:
             queue_id=data.get("id", 0),
             download_id=data.get("downloadId", ""),
             download_status=data.get("trackedDownloadStatus", "Unknown"),
+            title=data.get("title", "Unknown"),
             episode=episode,
             protocol=data.get("protocol", "unknown"),
             size=data.get("size", 0),
@@ -215,6 +217,7 @@ class QueueItem:
             eta=eta,
             time_remaining=data.get("timeleft", "00:00:00"),
         )
+
 
 @dataclass(frozen=True)
 class SeriesItem:
