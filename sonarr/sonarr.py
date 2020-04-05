@@ -2,7 +2,7 @@
 import asyncio
 import json
 from socket import gaierror as SocketGIAError
-from typing import Any, Mapping, Optional
+from typing import Any, List, Mapping, Optional
 
 import aiohttp
 import async_timeout
@@ -138,9 +138,10 @@ class Sonarr:
         return self._application
 
     async def calendar(self, start: int = None, end: int = None) -> List[Episode]:
-        """Gets upcoming episodes.
+        """Get upcoming episodes.
 
-        If start/end are not supplied, episodes airing today and tomorrow will be returned.
+        If start/end are not supplied, episodes airing
+        today and tomorrow will be returned.
         """
         params = {}
 
