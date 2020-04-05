@@ -115,6 +115,36 @@ class Info:
         """Return Info object from Sonarr API response."""
         return Info(app_name="Sonarr", version=data.get("version", "Unknown"))
 
+@dataclass(frozen=True)
+class QueueItem:
+    """Object holding queue item information from Sonarr."""
+
+    queue_id: int
+    download_id: str
+    episode: Episode
+    protocol: str
+    remaining: int
+    size: int
+    status: str
+
+    @staticmethod
+    def from_dict(data: dict):
+        """Return QueueItem object from Sonarr API response."""
+        episode_data = data.get("episode", {})
+        episode_data["series"] = data.get("series", {})
+        
+        episode = Episode.from_dict(episode_data)
+
+        return QueueItem(
+            queue_id=data.get("id", 0),
+            download_id=data.get("downloadId", ""),
+            episode=episode,
+            protocol=data.get("protocol, "unknown"),
+            remaining=data.get("sizeleft", 0),
+            size=data.get("size", 0),
+            status=data.get("status", "Unknown"),
+        )
+
 
 class Application:
     """Object holding all information of the Sonarr Application."""
