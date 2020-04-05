@@ -90,6 +90,7 @@ determined to make Bob's Burgers \"grand re-re-re-opening\" a success."""
     assert series
     assert series.tvdb_id == 194031
     assert series.series_id == 66
+    assert series.series_type == "standard"
     assert series.status == "continuing"
     assert series.slug == "bobs-burgers"
     assert series.title == "Bob's Burgers"
@@ -98,3 +99,4 @@ determined to make Bob's Burgers \"grand re-re-re-opening\" a success."""
     assert series.runtime == 30
     assert series.timeslot == "5:30pm"
     assert series.premieres == datetime(2011, 1, 10, 1, 30, tzinfo=timezone.utc)
+    assert series path == "T:\\Bob's Burgers"
