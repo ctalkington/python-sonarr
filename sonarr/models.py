@@ -33,6 +33,7 @@ class Series:
 
     tvdb_id: int
     series_id: int
+    series_type: str
     slug: str
     status: str
     title: str
@@ -41,6 +42,7 @@ class Series:
     runtime: int
     timeslot: str
     premieres: datetime
+    path: str
 
     @staticmethod
     def from_dict(data: dict):
@@ -52,6 +54,7 @@ class Series:
         return Series(
             tvdb_id=data.get("tvdbId", 0),
             series_id=data.get("id", 0),
+            series_type=data.get("seriesType", "unknown"),
             slug=data.get("titleSlug", ""),
             status=data.get("status", "unknown"),
             title=data.get("title", ""),
@@ -60,6 +63,7 @@ class Series:
             runtime=data.get("runtime", 0),
             timeslot=data.get("airTime", ""),
             premieres=premieres,
+            path=data.get("path", ""),
         )
 
 
