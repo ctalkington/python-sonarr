@@ -104,6 +104,7 @@ determined to make Bob's Burgers \"grand re-re-re-opening\" a success."""
     assert series.series_id == 66
     assert series.series_type == "standard"
     assert series.status == "continuing"
+    asserr series.seasons == 6
     assert series.slug == "bobs-burgers"
     assert series.title == "Bob's Burgers"
     assert series.overview == overview.replace("\n", " ")
@@ -119,6 +120,6 @@ determined to make Bob's Burgers \"grand re-re-re-opening\" a success."""
     assert series.added == datetime(
         2011, 1, 26, 19, 25, 55, 455594, tzinfo=timezone.utc
     )
-    assert series.synced == datetime(
-        2011, 1, 26, 19, 25, 55, 455594, tzinfo=timezone.utc
+    assert series.synced == datetime.datetime(
+        2014, 1, 26, 19, 25, 55, 455594, tzinfo=datetime.timezone.utc
     )
