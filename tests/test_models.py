@@ -53,7 +53,7 @@ def test_episode() -> None:
     assert episode.episode_number == 11
     assert episode.season_number == 4
     assert isinstance(episode.series, models.Series)
-    assert episode.title == "Easy Com-mercial, Easy Go-mercial",
+    assert episode.title == "Easy Com-mercial, Easy Go-mercial"
     assert (
         episode.overview
         == """To compete with fellow \"restaurateur,\" Jimmy Pesto,
@@ -61,7 +61,7 @@ def test_episode() -> None:
            Bob’s Burgers commercial to air during the \"big game.\" 
            In an effort to outshine Pesto, the Belchers recruit Randy,
            a documentarian, to assist with the filmmaking and hire on
-           former pro football star Connie Frye to be the celebrity endorser.""",
+           former pro football star Connie Frye to be the celebrity endorser."""
     )
     assert episode.airs == datetime(2010, 7, 5, 15, 0, 8, tzinfo=timezone.utc)
 
