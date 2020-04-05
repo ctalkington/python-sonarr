@@ -79,7 +79,7 @@ class Series:
             title=data.get("title", ""),
             overview=data.get("overview", ""),
             certification=data.get("certification", "None"),
-            genres=data.get("generes", []),
+            genres=data.get("genres", []),
             network=data.get("network", "Unknown"),
             runtime=data.get("runtime", 0),
             timeslot=data.get("airTime", ""),
