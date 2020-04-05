@@ -83,15 +83,15 @@ def test_queue_item() -> None:
     """Test the QueueItem model."""
     item = models.QueueItem.from_dict(QUEUE[0])
 
-    assert item.queue_id == 0
-    assert item.download_id == ""
-    assert item.download_status == ""
-    assert item.status == ""
-    assert item.title == ""
-    assert item.protocol == ""
-    assert item.size == 0
+    assert item.queue_id == 1503378561
+    assert item.download_id == "SABnzbd_nzo_Mq2f_b"
+    assert item.download_status == "Ok"
+    assert item.status == "Downloading"
+    assert item.title == "The.Andy.Griffith.Show.S01E01.x264-GROUP"
+    assert item.protocol == "usenet"
+    assert item.size == 4472186820
     assert item.size_remaining == 0
-    assert item.eta == datetime(2014, 1, 27, 1, 30, tzinfo=timezone.utc)
+    assert item.eta == datetime(2016, 2, 5, 22, 46, tzinfo=timezone.utc)
     assert item.time_remaining == "00:00:00"
 
     assert item.episode
