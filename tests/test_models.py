@@ -45,7 +45,7 @@ def test_info() -> None:
 
 def test_episode() -> None:
     """Test the Episode model."""
-    episode = models.Episode.from_dict(CALENDAR[1])
+    episode = models.Episode.from_dict(CALENDAR[0])
 
     overview = """To compete with fellow \"restaurateur,\" Jimmy Pesto,
         and his blowout Super Bowl event. Bob is determined to create a
@@ -78,7 +78,7 @@ def test_disk() -> None:
 
 def test_series() -> None:
     """Test the Series model."""
-    series = models.Series.from_dict(CALENDAR[1]["series"])
+    series = models.Series.from_dict(CALENDAR[0]["series"])
 
     overview = """Bob's Burgers follows a third-generation restaurateur,
         Bob, as he runs Bob's Burgers with the help of his wife and their three
