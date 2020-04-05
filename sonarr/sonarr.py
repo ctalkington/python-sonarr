@@ -144,9 +144,15 @@ class Sonarr:
         today and tomorrow will be returned.
         """
         params = {
-            "start": start if start is not None,
-            "end": end if end is not None,
+            "start": start,
+            "end": end,
         }
+
+        if start is None:
+            del params["start"]
+
+        if end is None:
+            del params["end"]
 
         results = await self._request("calendar", params=params)
 
