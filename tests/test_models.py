@@ -83,7 +83,7 @@ def test_queue_item() -> None:
     """Test the QueueItem model."""
     item = models.QueueItem.from_dict(QUEUE[0])
 
-    assert item.episode
+    assert item.queue_id == 0
     assert item.download_id == ""
     assert item.download_status == ""
     assert item.status == ""
@@ -94,6 +94,7 @@ def test_queue_item() -> None:
     assert item.eta == datetime(2014, 1, 27, 1, 30, tzinfo=timezone.utc)
     assert item.time_remaining == "00:00:00"
 
+    assert item.episode
     assert isinstance(item.episode, models.Episode)
 
 
