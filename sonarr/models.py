@@ -133,6 +133,7 @@ class Episode:
     title: str
     overview: str
     airs: datetime
+    downloaded: bool
     downloading: bool
     series: Series
 
@@ -156,6 +157,7 @@ class Episode:
             title=data.get("title", ""),
             overview=data.get("overview", ""),
             airs=airs,
+            downloaded=data.get("hasFile", False),
             downloading=data.get("downloading", False),
             series=Series.from_dict(data.get("series", {})),
         )
@@ -212,6 +214,31 @@ class QueueItem:
             status=data.get("status", "Unknown"),
             eta=eta,
             time_remaining=data.get("timeleft", "00:00:00"),
+        )
+
+@dataclass(frozen=True)
+class SeriesItem:
+    """Object holding series item information from Sonarr."""
+    
+    series: Series
+    seasons: List[Season]
+    downloaded: int
+    episodes: int
+    total_episodes: int
+    diskspace: int
+
+    @staticmethod
+    def from_dict(data: dict):
+        """Return QueueItem object from Sonarr API response."""
+        seasons = [Season.from_dict(season) for season in data.get("seasons", [])]
+
+        return SeriesItem(
+            series=Series.from_dict(data),
+            seasons=seasons,
+            downloaded=data.get("episodeFileCount", 0),
+            episodes=data.get("episodeCount", 0),
+            total_episodes=data.get("totalEpisodeCount", 0),
+            diskspace=data.get("sizeOnDisk", 0),
         )
 
 
