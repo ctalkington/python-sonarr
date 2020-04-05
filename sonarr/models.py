@@ -42,14 +42,16 @@ class Season:
     @staticmethod
     def from_dict(data: dict):
         """Return Season object from Sonarr API response."""
+        stats = data.get("statistics", {})
+
         return Season(
             number=data.get("seasonNumber", 0),
             monitored=data.get("monitored", False),
-            downloaded=data.get("episodeFileCount", 0),
-            episodes=data.get("episodeCount", 0),
-            total_episodes=data.get("totalEpisodeCount", 0),
-            progress=data.get("percentOfEpisodes", 0),
-            diskspace=data.get("sizeOnDisk", 0),
+            downloaded=stats.get("episodeFileCount", 0),
+            episodes=stats.get("episodeCount", 0),
+            total_episodes=stats.get("totalEpisodeCount", 0),
+            progress=stats.get("percentOfEpisodes", 0),
+            diskspace=stats.get("sizeOnDisk", 0),
         )
 
 
