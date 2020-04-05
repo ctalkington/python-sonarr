@@ -33,9 +33,9 @@ class Season:
 
     number: int
     monitored: bool
-    aired: Optional[int] = 0
     downloaded: Optional[int] = 0
     episodes: Optional[int] = 0
+    total_episodes: Optional[int] = 0
     progress: Optional[int] = 0
     diskspace: Optional[int] = 0
     
@@ -46,8 +46,8 @@ class Season:
             number=data.get("seasonNumber", 0),
             monitored=data.get("monitored", False),
             downloaded=data.get("episodeFileCount", 0),
-            aired=data.get("episodeCount", 0),
-            episodes=data.get("totalEpisodeCount", 0),
+            episodes=data.get("episodeCount", 0),
+            total_episodes=data.get("totalEpisodeCount", 0),
             progress=data.get("percentOfEpisodes", 0),
             diskspace=data.get("sizeOnDisk", 0),
         )
