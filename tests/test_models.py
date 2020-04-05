@@ -1,7 +1,7 @@
 """Tests for Sonarr Models."""
 import json
 from datetime import datetime, timezone
-from typing impprt List
+from typing import List
 
 import pytest
 import sonarr.models as models
