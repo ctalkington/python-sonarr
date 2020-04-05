@@ -95,7 +95,7 @@ def test_queue_item() -> None:
     assert item.protocol == "usenet"
     assert item.size == 4472186820
     assert item.size_remaining == 0
-    assert item.eta == datetime.datetime(2016, 2, 5, 22, 46, 52, 440104, tzinfo=datetime.timezone.utc)
+    assert item.eta == datetime(2016, 2, 5, 22, 46, 52, 440104, tzinfo=timezone.utc)
     assert item.time_remaining == "00:00:00"
 
     assert item.episode
