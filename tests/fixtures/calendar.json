@@ -18,14 +18,16 @@
       "tvRageId": 24607,
       "imdbId": "tt1561755",
       "title": "Bob's Burgers",
+      "sortTitle": "bob burgers",
       "cleanTitle": "bobsburgers",
+      "seasonCount": 4,
       "status": "continuing",
       "overview": "Bob's Burgers follows a third-generation restaurateur, Bob, as he runs Bob's Burgers with the help of his wife and their three kids. Bob and his quirky family have big ideas about burgers, but fall short on service and sophistication. Despite the greasy counters, lousy location and a dearth of customers, Bob and his family are determined to make Bob's Burgers \"grand re-re-re-opening\" a success.",
-      "airTime": "5:30pm",
+      "airTime": "17:30",
       "monitored": true,
       "qualityProfileId": 1,
       "seasonFolder": true,
-      "lastInfoSync": "2014-01-26T19:25:55.4555946Z",
+      "lastInfoSync": "2014-01-26T19:25:55.455594Z",
       "runtime": 30,
       "images": [
         {
@@ -45,9 +47,16 @@
       "network": "FOX",
       "useSceneNumbering": false,
       "titleSlug": "bobs-burgers",
+      "certification": "TV-14",
       "path": "T:\\Bob's Burgers",
-      "year": 0,
+      "year": 2011,
       "firstAired": "2011-01-10T01:30:00Z",
+      "genres": [
+        "Animation",
+        "Comedy"
+      ],
+      "tags": [],
+      "added": "2011-01-26T19:25:55.455594Z",
       "qualityProfile": {
         "value": {
           "name": "SD",

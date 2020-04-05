@@ -10,7 +10,7 @@ from yarl import URL
 
 from .__version__ import __version__
 from .exceptions import SonarrAccessRestricted, SonarrConnectionError, SonarrError
-from .models import Application, Episode
+from .models import Application, Episode, QueueItem
 
 
 class Sonarr:
@@ -154,6 +154,12 @@ class Sonarr:
         results = await self._request("calendar", params=params)
 
         return [Episode.from_dict(result) for result in results]
+
+    async def queue(self) -> List[QueueItem]:
+        """Get currently downloading info."""
+        results = await self._request("queue")
+
+        return [QueueItem.from_dict(result) for result in results]
 
     async def close(self) -> None:
         """Close open client session."""
