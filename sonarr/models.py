@@ -190,12 +190,12 @@ class CommandItem:
     command_id: int
     name: int
     state: str
-    priority: str = "unknown"
-    trigger: str = "unknown"
-    message: str = "Not Provided"
     queued: datetime
     started: datetime
     changed: datetime
+    priority: str = "unknown"
+    trigger: str = "unknown"
+    message: str = "Not Provided"
     send_to_client: bool = False
 
     @staticmethod
@@ -212,7 +212,7 @@ class CommandItem:
             queued = started
         
         if started is not None:
-            started = datetime.strptime(stated, "%Y-%m-%dT%H:%M:%S%z")
+            started = datetime.strptime(started, "%Y-%m-%dT%H:%M:%S%z")
 
         if queued is not None:
             queued = datetime.strptime(queued, "%Y-%m-%dT%H:%M:%S%z")
@@ -231,7 +231,7 @@ class CommandItem:
             send_to_client=data.get("sendUpdatesToClient", False),
             queued=queued,
             started=started,
-            changed=updated,
+            changed=changed,
         )
 
 
