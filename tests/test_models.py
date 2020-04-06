@@ -55,7 +55,7 @@ def test_command_item() -> None:
 
     assert item
     assert item.name == "RefreshSeries"
-    assert item.message == ""
+    assert item.message == "Not Provided"
     assert item.state == ""
     assert item.priority == ""
     assert item.trigger == ""
