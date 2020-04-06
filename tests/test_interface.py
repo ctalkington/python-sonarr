@@ -190,13 +190,14 @@ async def test_wanted(aresponses):
     """Test queue is handled correctly."""
     aresponses.add(
         MATCH_HOST,
-        "/api/wanted/missing",
+        "/api/wanted/missing?sortKey=airDateUtc&page=1&pageSize=10&sortDir=desc",
         "GET",
         aresponses.Response(
             status=200,
             headers={"Content-Type": "application/json"},
             text=load_fixture("wanted-missing.json"),
         ),
+        match_querystring=True,
     )
 
     async with ClientSession() as session:
