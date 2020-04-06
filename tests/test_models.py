@@ -50,13 +50,13 @@ def test_info() -> None:
 
 
 def test_command_item() -> None:
-    """Test the Info model."""
+    """Test the CommandItem model."""
     item = models.CommandItem.from_dict(COMMAND[0])
 
     assert item
     assert item.name == "RefreshSeries"
     assert item.message == "Not Provided"
-    assert item.state == ""
+    assert item.state == "started"
     assert item.priority == ""
     assert item.trigger == ""
     assert item.started == datetime(2014, 1, 27, 1, 30, tzinfo=timezone.utc)
