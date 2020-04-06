@@ -79,12 +79,12 @@ async def test_commands(aresponses):
     """Test commands method is handled correctly."""
     aresponses.add(
         MATCH_HOST,
-        "/api/commands",
+        "/api/command",
         "GET",
         aresponses.Response(
             status=200,
             headers={"Content-Type": "application/json"},
-            text=load_fixture("commands.json"),
+            text=load_fixture("command.json"),
         ),
     )
 
@@ -97,6 +97,28 @@ async def test_commands(aresponses):
 
         assert response[0]
         assert isinstance(response[0], models.CommandItem)
+
+
+@pytest.mark.asyncio
+async def test_command_status(aresponses):
+    """Test command_status method is handled correctly."""
+    aresponses.add(
+        MATCH_HOST,
+        "/api/command/368690",
+        "GET",
+        aresponses.Response(
+            status=200,
+            headers={"Content-Type": "application/json"},
+            text=load_fixture("command-id.json"),
+        ),
+    )
+
+    async with ClientSession() as session:
+        client = Sonarr(HOST, API_KEY, session=session)
+        response = await client.command_status(368630)
+
+        assert response
+        assert isinstance(response, models.CommandItem)
 
 
 @pytest.mark.asyncio
