@@ -184,6 +184,38 @@ class Info:
 
 
 @dataclass(frozen=True)
+class CommandItem:
+    """Object holding command item information from Sonarr."""
+
+    command_id: int
+    name: int
+    state: str
+    started: datetime
+    changed: datetime
+    send_to_client: bool
+
+    @staticmethod
+    def from_dict(data: dict):
+        """Return CommandItem object from Sonarr API response."""
+        started = data.get("startedOn", None)
+        if started is not None:
+            started = datetime.strptime(stated, "%Y-%m-%dT%H:%M:%S%z")
+
+        changed = data.get("stateChangeTime", None)
+        if changed is not None:
+            changed = datetime.strptime(changed, "%Y-%m-%dT%H:%M:%S.%f%z")
+
+        return CommandItem(
+            command_id=data.get("id", 0),
+            name=data.get("name", ""),
+            state=data.get("state", "unknown"),
+            send_to_client=data.get("sendUpdatesToClient", False),
+            started=started,
+            changed=updated,
+        )
+
+
+@dataclass(frozen=True)
 class QueueItem:
     """Object holding queue item information from Sonarr."""
 
