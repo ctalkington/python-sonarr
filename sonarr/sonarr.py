@@ -168,7 +168,11 @@ class Sonarr:
         return [SeriesItem.from_dict(result) for result in results]
 
     async def wanted(
-        self, sort_key: str = "airDateUtc", page: int = 1, page_size: int = 10, sort_dir: str = "asc"
+        self,
+        sort_key: str = "airDateUtc",
+        page: int = 1,
+        page_size: int = 10,
+        sort_dir: str = "asc"
     ) -> WantedResults:
         """Get wanted missing episodes."""
         params = {
