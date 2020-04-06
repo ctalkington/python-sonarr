@@ -192,17 +192,30 @@ class CommandItem:
     state: str
     priority: Optional[str] = "unknown"
     trigger: Optional[str] = "unknown"
-    message: Optional[str] = ""
+    message: Optional[str] = "Not Provided"
+    queued: datetime
     started: datetime
     changed: datetime
-    send_to_client: bool
+    send_to_client: Optional[bool] = False
 
     @staticmethod
     def from_dict(data: dict):
         """Return CommandItem object from Sonarr API response."""
-        started = data.get("startedOn", None)
+        if "started" in data:
+            started = data.get("started", None)
+        else:
+            started = data.get("startedOn", None)
+
+        if "queued" in data:
+            queued = data.get("queued", None)
+        else:
+            queued = started
+        
         if started is not None:
             started = datetime.strptime(stated, "%Y-%m-%dT%H:%M:%S%z")
+
+        if queued is not None:
+            queued = datetime.strptime(queued, "%Y-%m-%dT%H:%M:%S%z")
 
         changed = data.get("stateChangeTime", None)
         if changed is not None:
@@ -210,12 +223,13 @@ class CommandItem:
 
         return CommandItem(
             command_id=data.get("id", 0),
-            name=data.get("name", ""),
+            name=data.get("name", "Unknown"),
             state=data.get("state", "unknown"),
             priority=data.get("prioirty", "unknown"),
             trigger=data.get("trigger", "unknown"),
-            message=data.get("message", ""),
+            message=data.get("message", "Not Provided"),
             send_to_client=data.get("sendUpdatesToClient", False),
+            queued=queued,
             started=started,
             changed=updated,
         )
