@@ -190,6 +190,9 @@ class CommandItem:
     command_id: int
     name: int
     state: str
+    priority: Optional[str] = "unknown"
+    trigger: Optional[str] = "unknown"
+    message: Optional[str] = ""
     started: datetime
     changed: datetime
     send_to_client: bool
@@ -209,6 +212,9 @@ class CommandItem:
             command_id=data.get("id", 0),
             name=data.get("name", ""),
             state=data.get("state", "unknown"),
+            priority=data.get("prioirty", "unknown"),
+            trigger=data.get("trigger", "unknown"),
+            message=data.get("message", ""),
             send_to_client=data.get("sendUpdatesToClient", False),
             started=started,
             changed=updated,
