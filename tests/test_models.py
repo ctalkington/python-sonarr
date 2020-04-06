@@ -50,7 +50,7 @@ def test_info() -> None:
 
 def test_command_item() -> None:
     """Test the Info model."""
-    iten = models.CommandItem.from_dict(COMMAND[0])
+    item = models.CommandItem.from_dict(COMMAND[0])
 
     assert item
     assert item.name == ""
