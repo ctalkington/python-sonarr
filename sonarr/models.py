@@ -95,9 +95,14 @@ class Series:
         if synced is not None:
             synced = datetime.strptime(synced, "%Y-%m-%dT%H:%M:%S.%f%z")
 
-        images = {image["coverType"]: image["url"] for image in data.get("images", [])}
-        if "poster" in images:
-            poster = images["poster"]
+        for image in data.get("images", []):
+            if "poster" not in image["coverType"]:
+                continue
+
+            if "remoteUrl" in image:
+                poster = image["remoteUrl"]
+            else:
+                poster = image["url"]
 
         return Series(
             tvdb_id=data.get("tvdbId", 0),

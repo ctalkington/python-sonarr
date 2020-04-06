@@ -167,9 +167,51 @@ def test_series_item() -> None:
     assert item.series
     assert isinstance(item.series, models.Series)
 
+    overview = """Down-home humor and an endearing cast of characters
+helped make The Andy Griffith Show one of the most beloved comedies
+in the history of TV. The show centered around widower Andy Taylor,
+who divided his time between raising his young son Opie, and his job
+as sheriff of the sleepy North Carolina town, Mayberry. Andy and Opie
+live with Andy's Aunt Bee, who serves as a surrogate mother to both
+father and son. Andy's nervous cousin, Barney Fife, is his deputy
+sheriff whose incompetence is tolerated because Mayberry is virtually
+crime-free."""
+
+    assert item.series.monitored
+    assert item.series.tvdb_id == 77754
+    assert item.series.series_id == 105
+    assert item.series.series_type == "standard"
+    assert item.series.status == "ended"
+    assert item.series.seasons == 8
+    assert item.series.slug == "the-andy-griffith-show"
+    assert item.series.title == "The Andy Griffith Show"
+    assert item.series.overview == overview.replace("\n", " ")
+    assert item.series.network == "CBS"
+    assert item.series.runtime == 25
+    assert item.series.timeslot == "21:30"
+    assert item.series.year == 1960
+    assert item.series.premiere == datetime(1960, 2, 15, 6, 0, tzinfo=timezone.utc)
+    assert item.series.path == "F:\\The Andy Griffith Show"
+    assert (
+        item.series.poster == "https://artworks.thetvdb.com/banners/posters/77754-1.jpg"
+    )
+    assert item.series.certification == "TV-G"
+    assert item.series.genres == ["Comedy"]
+    assert item.series.added == datetime(
+        2020, 4, 5, 20, 40, 20, 50044, tzinfo=timezone.utc
+    )
+    assert item.series.synced == datetime(
+        2020, 4, 5, 20, 40, 21, 545669, tzinfo=timezone.utc
+    )
+
     assert item.seasons
     assert isinstance(item.seasons, List)
     assert len(item.seasons) == 9
 
-    assert item.seasons[1]
-    assert isinstance(item.seasons[1], models.Season)
+    assert item.seasons[3]
+    assert isinstance(item.seasons[3], models.Season)
+    assert item.seasons[3].episodes == 8
+    assert item.seasons[3].downloaded == 8
+    assert item.seasons[3].total_episodes == 32
+    assert item.seasons[3].progress == 100
+    assert item.seasons[3].diskspace == 8000000000
