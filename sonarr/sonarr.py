@@ -162,7 +162,7 @@ class Sonarr:
         return [QueueItem.from_dict(result) for result in results]
 
     async def series(self) -> List[SeriesItem]:
-        """Returns all series in your collection."""
+        """Return all series."""
         results = await self._request("series")
 
         return [SeriesItem.from_dict(result) for result in results]
