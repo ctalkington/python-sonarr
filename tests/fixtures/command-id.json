@@ -1,0 +1,27 @@
+{
+  "name": "RefreshSeries",
+  "message": "Updating The Andy Griffith Show",
+  "body": {
+    "isNewSeries": false,
+    "sendUpdatesToClient": true,
+    "updateScheduledTask": true,
+    "completionMessage": "Completed",
+    "requiresDiskAccess": false,
+    "isExclusive": false,
+    "name": "RefreshSeries",
+    "trigger": "manual",
+    "suppressMessages": false
+  },
+  "priority": "normal",
+  "status": "started",
+  "queued": "2020-04-06T16:57:51.406504Z",
+  "started": "2020-04-06T16:57:51.417931Z",
+  "trigger": "manual",
+  "state": "started",
+  "manual": true,
+  "startedOn": "2020-04-06T16:57:51.406504Z",
+  "stateChangeTime": "2020-04-06T16:57:51.417931Z",
+  "sendUpdatesToClient": true,
+  "updateScheduledTask": true,
+  "id": 368630
+}
