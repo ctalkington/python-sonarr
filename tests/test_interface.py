@@ -104,7 +104,7 @@ async def test_command_status(aresponses):
     """Test command_status method is handled correctly."""
     aresponses.add(
         MATCH_HOST,
-        "/api/command/368690",
+        "/api/command/368630",
         "GET",
         aresponses.Response(
             status=200,
