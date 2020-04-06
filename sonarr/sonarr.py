@@ -10,8 +10,14 @@ from yarl import URL
 
 from .__version__ import __version__
 from .exceptions import SonarrAccessRestricted, SonarrConnectionError, SonarrError
-from .models import Application, CommandItem, Episode, QueueItem, SeriesItem, WantedResults
-
+from .models import (
+    Application,
+    CommandItem,
+    Episode,
+    QueueItem,
+    SeriesItem,
+    WantedResults,
+)
 
 class Sonarr:
     """Main class for handling connections with Sonarr API."""
