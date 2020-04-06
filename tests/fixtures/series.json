@@ -67,11 +67,11 @@
         "seasonNumber": 3,
         "monitored": false,
         "statistics": {
-          "episodeFileCount": 0,
-          "episodeCount": 0,
+          "episodeFileCount": 8,
+          "episodeCount": 8,
           "totalEpisodeCount": 32,
-          "sizeOnDisk": 0,
-          "percentOfEpisodes": 0.0
+          "sizeOnDisk": 8000000000,
+          "percentOfEpisodes": 25.0
         }
       },
       {
