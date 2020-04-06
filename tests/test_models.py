@@ -167,6 +167,41 @@ def test_series_item() -> None:
     assert item.series
     assert isinstance(item.series, models.Series)
 
+    overview = """Down-home humor and an endearing cast of characters
+helped make The Andy Griffith Show one of the most beloved comedies
+in the history of TV. The show centered around widower Andy Taylor,
+Who divided his time between raising his young son Opie, and his job
+as sheriff of the sleepy North Carolina town, Mayberry. Andy and Opie
+live with Andy's Aunt Bee, who serves as a surrogate mother to both
+father and son. Andy's nervous cousin, Barney Fife, is his deputy
+sheriff whose incompetence is tolerated because Mayberry is virtually
+crime-free."""
+
+    assert item.series.monitored
+    assert item.series.tvdb_id == 77754
+    assert item.series.series_id == 105
+    assert item.series.series_type == "standard"
+    assert item.series.status == "ended"
+    assert item.series.seasons == 8
+    assert item.series.slug == "the-andy-griffith-show"
+    assert item.series.title == "The Andy Griffith Show"
+    assert item.series.overview == overview.replace("\n", " ")
+    assert item.series.network == "CBS"
+    assert item.series.runtime == 30
+    assert item.series.timeslot == "21:30"
+    assert item.series.year == 1960
+    assert item.series.premiere == datetime(2011, 1, 10, 1, 30, tzinfo=timezone.utc)
+    assert item.series.path == "F:\\The Andy Griffith Show"
+    assert item.series.poster == "http://slurm.trakt.us/images/posters/1387.6-300.jpg"
+    assert item.series.certification == "TV-G"
+    assert item.series.genres == ["Comedy"]
+    assert item.series.added == datetime(
+        2011, 1, 26, 19, 25, 55, 455594, tzinfo=timezone.utc
+    )
+    assert item.series.synced == datetime(
+        2014, 1, 26, 19, 25, 55, 455594, tzinfo=timezone.utc
+    )
+
     assert item.seasons
     assert isinstance(item.seasons, List)
     assert len(item.seasons) == 9
