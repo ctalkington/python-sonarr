@@ -39,6 +39,7 @@ def test_application_no_data() -> None:
     with pytest.raises(SonarrError):
         models.Application({})
 
+
 def test_info() -> None:
     """Test the Info model."""
     info = models.Info.from_dict(INFO)
