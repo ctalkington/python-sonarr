@@ -53,28 +53,6 @@ async def test_calendar(aresponses):
     """Test calendar is handled correctly."""
     aresponses.add(
         MATCH_HOST,
-        "/api/system/status",
-        "GET",
-        aresponses.Response(
-            status=200,
-            headers={"Content-Type": "application/json"},
-            text=load_fixture("system-status.json"),
-        ),
-    )
-
-    aresponses.add(
-        MATCH_HOST,
-        "/api/diskspace",
-        "GET",
-        aresponses.Response(
-            status=200,
-            headers={"Content-Type": "application/json"},
-            text=load_fixture("diskspace.json"),
-        ),
-    )
-
-    aresponses.add(
-        MATCH_HOST,
         "/api/calendar?start=2014-01-26&end=2014-01-27",
         "GET",
         aresponses.Response(
@@ -99,28 +77,6 @@ async def test_calendar(aresponses):
 @pytest.mark.asyncio
 async def test_queue(aresponses):
     """Test queue is handled correctly."""
-    aresponses.add(
-        MATCH_HOST,
-        "/api/system/status",
-        "GET",
-        aresponses.Response(
-            status=200,
-            headers={"Content-Type": "application/json"},
-            text=load_fixture("system-status.json"),
-        ),
-    )
-
-    aresponses.add(
-        MATCH_HOST,
-        "/api/diskspace",
-        "GET",
-        aresponses.Response(
-            status=200,
-            headers={"Content-Type": "application/json"},
-            text=load_fixture("diskspace.json"),
-        ),
-    )
-
     aresponses.add(
         MATCH_HOST,
         "/api/queue",
@@ -148,28 +104,6 @@ async def test_queue(aresponses):
 @pytest.mark.asyncio
 async def test_series(aresponses):
     """Test series is handled correctly."""
-    aresponses.add(
-        MATCH_HOST,
-        "/api/system/status",
-        "GET",
-        aresponses.Response(
-            status=200,
-            headers={"Content-Type": "application/json"},
-            text=load_fixture("system-status.json"),
-        ),
-    )
-
-    aresponses.add(
-        MATCH_HOST,
-        "/api/diskspace",
-        "GET",
-        aresponses.Response(
-            status=200,
-            headers={"Content-Type": "application/json"},
-            text=load_fixture("diskspace.json"),
-        ),
-    )
-
     aresponses.add(
         MATCH_HOST,
         "/api/series",
@@ -249,3 +183,38 @@ async def test_update(aresponses):
         assert response
         assert isinstance(response.info, models.Info)
         assert isinstance(response.disks, List)
+
+
+@pytest.mark.asyncio
+async def test_wanted(aresponses):
+    """Test queue is handled correctly."""
+    aresponses.add(
+        MATCH_HOST,
+        "/api/wanted/missing",
+        "GET",
+        aresponses.Response(
+            status=200,
+            headers={"Content-Type": "application/json"},
+            text=load_fixture("wanted-missing.json"),
+        ),
+    )
+
+    async with ClientSession() as session:
+        client = Sonarr(HOST, API_KEY, session=session)
+        response = await client.wanted()
+
+        assert response
+        assert isinstance(response, models.WantedResults)
+
+        assert response.page == 1
+        assert response.per_page == 10
+        assert response.total == 2
+        assert response.sort_key == "airDateUtc"
+        assert response.sort_dir == "descending"
+
+        assert response.episodes
+        assert isinstance(response.episodes, List)
+        assert len(response.episodes) == 2
+
+        assert response.episodes[0]
+        assert isinstance(response.episodes[0], models.Episode)

@@ -252,6 +252,32 @@ class SeriesItem:
         )
 
 
+@dataclass(frozen=True)
+class WantedResults:
+    """Object holding wanted episode results from Sonarr."""
+
+    page: int
+    per_page: int
+    total: int
+    sort_key: str
+    sort_dir: str
+    episodes: List[Episode]
+
+    @staticmethod
+    def from_dict(data: dict):
+        """Return WantedResults object from Sonarr API response."""
+        episodes = [Episode.from_dict(episode) for episode in data.get("records", [])]
+
+        return WantedResults(
+            page=data.get("page", 0),
+            per_page=data.get("pageSize", 0),
+            total=data.get("totalRecords", 0),
+            sort_key=data.get("sortKey", ""),
+            sort_dir=data.get("sortDirection", ""),
+            episodes=episodes,
+        )
+
+
 class Application:
     """Object holding all information of the Sonarr Application."""
 
