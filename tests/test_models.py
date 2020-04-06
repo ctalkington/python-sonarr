@@ -187,12 +187,12 @@ crime-free."""
     assert item.series.title == "The Andy Griffith Show"
     assert item.series.overview == overview.replace("\n", " ")
     assert item.series.network == "CBS"
-    assert item.series.runtime == 30
+    assert item.series.runtime == 25
     assert item.series.timeslot == "21:30"
     assert item.series.year == 1960
     assert item.series.premiere == datetime(2011, 1, 10, 1, 30, tzinfo=timezone.utc)
     assert item.series.path == "F:\\The Andy Griffith Show"
-    assert item.series.poster == "http://slurm.trakt.us/images/posters/1387.6-300.jpg"
+    assert item.series.poster == "https://artworks.thetvdb.com/banners/posters/77754-1.jpg"
     assert item.series.certification == "TV-G"
     assert item.series.genres == ["Comedy"]
     assert item.series.added == datetime(
