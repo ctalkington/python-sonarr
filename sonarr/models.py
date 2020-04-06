@@ -273,7 +273,7 @@ class WantedResults:
             per_page=data.get("pageSize", 0),
             total=data.get("totalRecords", 0),
             sort_key=data.get("sortKey", ""),
-            sort_dir=data.get("sortDir", ""),
+            sort_dir=data.get("sortDirection", ""),
             episodes=episodes,
         )
 
