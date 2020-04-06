@@ -14,6 +14,7 @@ CALENDAR = json.loads(load_fixture("calendar.json"))
 DISKSPACE = json.loads(load_fixture("diskspace.json"))
 QUEUE = json.loads(load_fixture("queue.json"))
 SERIES = json.loads(load_fixture("series.json"))
+WANTED = json.loads(load_fixture("wanted-missing.json"))
 
 APPLICATION = {"info": INFO, "diskspace": DISKSPACE}
 
@@ -215,3 +216,21 @@ crime-free."""
     assert item.seasons[3].total_episodes == 32
     assert item.seasons[3].progress == 100
     assert item.seasons[3].diskspace == 8000000000
+
+def test_wanted_results() -> None:
+    """Test the WantedResults model."""
+    results = WantedResults.from_dict(WANTED)
+
+    assert results
+    assert results.page == 1
+    assert results.per_page == 10
+    assert results.total == 2
+    assert results.sort_key == "airDateUtc"
+    assert results.sort_dir == "asc"
+
+    assert results.episodes
+    assert isinstance(results.episodes, List)
+    assert len(results.episodes) == 2
+
+    assert results.episodes[0]
+    assert isinstance(results.episodes[0], models.Episode)
