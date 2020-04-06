@@ -19,6 +19,7 @@ from .models import (
     WantedResults,
 )
 
+
 class Sonarr:
     """Main class for handling connections with Sonarr API."""
 
