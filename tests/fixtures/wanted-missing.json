@@ -118,6 +118,136 @@
       },
       "downloading": false,
       "id": 14402
+    },
+    {
+      "seriesId": 17,
+      "episodeFileId": 0,
+      "seasonNumber": 1,
+      "episodeNumber": 1,
+      "title": "The New Housekeeper",
+      "airDate": "1960-10-03",
+      "airDateUtc": "1960-10-03T01:00:00Z",
+      "overview": "Sheriff Andy Taylor and his young son Opie are in need of a new housekeeper. Andy's Aunt Bee looks like the perfect candidate and moves in, but her presence causes friction with Opie."",
+      "hasFile": false,
+      "monitored": true,
+      "sceneEpisodeNumber": 0,
+      "sceneSeasonNumber": 0,
+      "tvDbEpisodeId": 0,
+      "series": {
+        "imdbId": "",
+        "tvdbId": 77754,
+        "tvRageId": 5574,
+        "tvMazeId": 3853,
+        "title": "The Andy Griffith Show"",
+        "sortTitle": "andy griffith show",
+        "cleanTitle": "theandygriffithshow",
+        "seasonCount": 8,
+        "status": "ended",
+        "overview": "Down-home humor and an endearing cast of characters helped make The Andy Griffith Show one of the most beloved comedies in the history of TV. The show centered around widower Andy Taylor, who divided his time between raising his young son Opie, and his job as sheriff of the sleepy North Carolina town, Mayberry. Andy and Opie live with Andy's Aunt Bee, who serves as a surrogate mother to both father and son. Andy's nervous cousin, Barney Fife, is his deputy sheriff whose incompetence is tolerated because Mayberry is virtually crime-free.",
+        "airTime": "21:30",
+        "monitored": true,
+        "qualityProfileId": 1,
+        "seasonFolder": true,
+        "lastInfoSync": "2016-02-05T16:40:11.614176Z",
+        "runtime": 25,
+        "images": [
+          {
+            "coverType": "fanart",
+            "url": "https://artworks.thetvdb.com/banners/fanart/original/77754-5.jpg"
+          },
+          {
+            "coverType": "banner",
+            "url": "https://artworks.thetvdb.com/banners/graphical/77754-g.jpg"
+          },
+          {
+            "coverType": "poster",
+            "url": "https://artworks.thetvdb.com/banners/posters/77754-4.jpg"
+          }
+        ],
+        "seriesType": "standard",
+        "network": "CBS",
+        "useSceneNumbering": false,
+        "titleSlug": "the-andy-griffith-show",
+        "certification": "TV-G",
+        "path": "F:\\The Andy Griffith Show",
+        "year": 1960,
+        "firstAired": "1960-02-15T06:00:00Z",
+        "genres": [
+          "Comedy"
+        ],
+        "tags": [],
+        "added": "2008-02-04T13:44:24.204583Z",
+        "qualityProfile": {
+          "value": {
+            "name": "SD",
+            "allowed": [
+              {
+                "id": 1,
+                "name": "SDTV",
+                "weight": 1
+              },
+              {
+                "id": 8,
+                "name": "WEBDL-480p",
+                "weight": 2
+              },
+              {
+                "id": 2,
+                "name": "DVD",
+                "weight": 3
+              }
+            ],
+            "cutoff": {
+              "id": 1,
+              "name": "SDTV",
+              "weight": 1
+            },
+            "id": 1
+          },
+          "isLoaded": true
+        },
+        "seasons": [
+          {
+            "seasonNumber": 0,
+            "monitored": false
+          },
+          {
+            "seasonNumber": 1,
+            "monitored": false
+          },
+          {
+            "seasonNumber": 2,
+            "monitored": true
+          },
+          {
+            "seasonNumber": 3,
+            "monitored": false
+          },
+          {
+            "seasonNumber": 4,
+            "monitored": false
+          },
+          {
+            "seasonNumber": 5,
+            "monitored": true
+          },
+          {
+            "seasonNumber": 6,
+            "monitored": true
+          },
+          {
+            "seasonNumber": 7,
+            "monitored": true
+          },
+          {
+            "seasonNumber": 8,
+            "monitored": true
+          }
+        ],
+        "id": 17
+      },
+      "downloading": false,
+      "id": 889
     }
   ]
 }
