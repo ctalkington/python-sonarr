@@ -167,6 +167,19 @@ class Sonarr:
 
         return [SeriesItem.from_dict(result) for result in results]
 
+    async def wanted(self, sortKey: str = "airDateUtc", page: int = 1, page_size: int = 10, sort: str = "asc") -> List[Episode]:
+        """Get wanted missing episodes."""
+        params = {
+            "sortKey": sortKey,
+            "page": page,
+            "pageSize": page_size,
+            "sortDir": sort,
+        }
+
+        results = await self._request("wanted/missing", params=params)
+
+        return [Episode.from_dict(result) for result in results]
+
     async def close(self) -> None:
         """Close open client session."""
         if self._session and self._close_session:
