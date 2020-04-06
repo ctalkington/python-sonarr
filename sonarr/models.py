@@ -2,7 +2,7 @@
 
 from dataclasses import dataclass
 from datetime import datetime
-from typing import List, Optional
+from typing import List
 
 from .exceptions import SonarrError
 
@@ -33,11 +33,11 @@ class Season:
 
     number: int
     monitored: bool
-    downloaded: Optional[int] = 0
-    episodes: Optional[int] = 0
-    total_episodes: Optional[int] = 0
-    progress: Optional[int] = 0
-    diskspace: Optional[int] = 0
+    downloaded: int = 0
+    episodes: int = 0
+    total_episodes: int = 0
+    progress: int = 0
+    diskspace: int = 0
 
     @staticmethod
     def from_dict(data: dict):
@@ -181,6 +181,58 @@ class Info:
     def from_dict(data: dict):
         """Return Info object from Sonarr API response."""
         return Info(app_name="Sonarr", version=data.get("version", "Unknown"))
+
+
+@dataclass(frozen=True)
+class CommandItem:
+    """Object holding command item information from Sonarr."""
+
+    command_id: int
+    name: int
+    state: str
+    queued: datetime
+    started: datetime
+    changed: datetime
+    priority: str = "unknown"
+    trigger: str = "unknown"
+    message: str = "Not Provided"
+    send_to_client: bool = False
+
+    @staticmethod
+    def from_dict(data: dict):
+        """Return CommandItem object from Sonarr API response."""
+        if "started" in data:
+            started = data.get("started", None)
+        else:
+            started = data.get("startedOn", None)
+
+        if "queued" in data:
+            queued = data.get("queued", None)
+        else:
+            queued = started
+
+        if started is not None:
+            started = datetime.strptime(started, "%Y-%m-%dT%H:%M:%S.%f%z")
+
+        if queued is not None:
+            queued = datetime.strptime(queued, "%Y-%m-%dT%H:%M:%S.%f%z")
+
+        changed = data.get("stateChangeTime", None)
+        if changed is not None:
+            changed = datetime.strptime(changed, "%Y-%m-%dT%H:%M:%S.%f%z")
+
+        return CommandItem(
+            command_id=data.get("id", 0),
+            name=data.get("name", "Unknown"),
+            state=data.get("state", "unknown"),
+            priority=data.get("priority", "unknown"),
+            trigger=data.get("trigger", "unknown"),
+            message=data.get("message", "Not Provided"),
+            send_to_client=data.get("sendUpdatesToClient", False),
+            queued=queued,
+            started=started,
+            changed=changed,
+        )
 
 
 @dataclass(frozen=True)

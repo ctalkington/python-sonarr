@@ -10,7 +10,14 @@ from yarl import URL
 
 from .__version__ import __version__
 from .exceptions import SonarrAccessRestricted, SonarrConnectionError, SonarrError
-from .models import Application, Episode, QueueItem, SeriesItem, WantedResults
+from .models import (
+    Application,
+    CommandItem,
+    Episode,
+    QueueItem,
+    SeriesItem,
+    WantedResults,
+)
 
 
 class Sonarr:
@@ -154,6 +161,18 @@ class Sonarr:
         results = await self._request("calendar", params=params)
 
         return [Episode.from_dict(result) for result in results]
+
+    async def commands(self) -> List[CommandItem]:
+        """Query the status of all currently started commands."""
+        results = await self._request("command")
+
+        return [CommandItem.from_dict(result) for result in results]
+
+    async def command_status(self, command_id: int) -> CommandItem:
+        """Query the status of a previously started command."""
+        result = await self._request(f"command/{command_id}")
+
+        return CommandItem.from_dict(result)
 
     async def queue(self) -> List[QueueItem]:
         """Get currently downloading info."""

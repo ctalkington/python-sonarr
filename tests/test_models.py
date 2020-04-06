@@ -11,6 +11,7 @@ from . import load_fixture
 
 INFO = json.loads(load_fixture("system-status.json"))
 CALENDAR = json.loads(load_fixture("calendar.json"))
+COMMAND = json.loads(load_fixture("command.json"))
 DISKSPACE = json.loads(load_fixture("diskspace.json"))
 QUEUE = json.loads(load_fixture("queue.json"))
 SERIES = json.loads(load_fixture("series.json"))
@@ -46,6 +47,33 @@ def test_info() -> None:
     assert info
     assert info.app_name == "Sonarr"
     assert info.version == "2.0.0.1121"
+
+
+def test_command_item() -> None:
+    """Test the CommandItem model."""
+    item = models.CommandItem.from_dict(COMMAND[0])
+
+    assert item
+    assert item.name == "RefreshSeries"
+    assert item.message == "Not Provided"
+    assert item.state == "started"
+    assert item.priority == "normal"
+    assert item.trigger == "manual"
+    assert item.started == datetime(2020, 4, 6, 16, 54, 6, 421322, tzinfo=timezone.utc)
+    assert item.queued == datetime(2020, 4, 6, 16, 54, 6, 419450, tzinfo=timezone.utc)
+    assert item.changed == datetime(2020, 4, 6, 16, 54, 6, 421322, tzinfo=timezone.utc)
+
+    item = models.CommandItem.from_dict(COMMAND[1])
+
+    assert item
+    assert item.name == "RefreshSeries"
+    assert item.message == "Not Provided"
+    assert item.state == "started"
+    assert item.priority == "unknown"
+    assert item.trigger == "unknown"
+    assert item.started == datetime(2020, 4, 6, 16, 57, 51, 406504, tzinfo=timezone.utc)
+    assert item.queued == datetime(2020, 4, 6, 16, 57, 51, 406504, tzinfo=timezone.utc)
+    assert item.changed == datetime(2020, 4, 6, 16, 57, 51, 417931, tzinfo=timezone.utc)
 
 
 def test_episode() -> None:

@@ -50,7 +50,7 @@ async def test_app(aresponses):
 
 @pytest.mark.asyncio
 async def test_calendar(aresponses):
-    """Test calendar is handled correctly."""
+    """Test calendar method is handled correctly."""
     aresponses.add(
         MATCH_HOST,
         "/api/calendar?start=2014-01-26&end=2014-01-27",
@@ -75,8 +75,55 @@ async def test_calendar(aresponses):
 
 
 @pytest.mark.asyncio
+async def test_commands(aresponses):
+    """Test commands method is handled correctly."""
+    aresponses.add(
+        MATCH_HOST,
+        "/api/command",
+        "GET",
+        aresponses.Response(
+            status=200,
+            headers={"Content-Type": "application/json"},
+            text=load_fixture("command.json"),
+        ),
+    )
+
+    async with ClientSession() as session:
+        client = Sonarr(HOST, API_KEY, session=session)
+        response = await client.commands()
+
+        assert response
+        assert isinstance(response, List)
+
+        assert response[0]
+        assert isinstance(response[0], models.CommandItem)
+
+
+@pytest.mark.asyncio
+async def test_command_status(aresponses):
+    """Test command_status method is handled correctly."""
+    aresponses.add(
+        MATCH_HOST,
+        "/api/command/368630",
+        "GET",
+        aresponses.Response(
+            status=200,
+            headers={"Content-Type": "application/json"},
+            text=load_fixture("command-id.json"),
+        ),
+    )
+
+    async with ClientSession() as session:
+        client = Sonarr(HOST, API_KEY, session=session)
+        response = await client.command_status(368630)
+
+        assert response
+        assert isinstance(response, models.CommandItem)
+
+
+@pytest.mark.asyncio
 async def test_queue(aresponses):
-    """Test queue is handled correctly."""
+    """Test queue method is handled correctly."""
     aresponses.add(
         MATCH_HOST,
         "/api/queue",
@@ -103,7 +150,7 @@ async def test_queue(aresponses):
 
 @pytest.mark.asyncio
 async def test_series(aresponses):
-    """Test series is handled correctly."""
+    """Test series method is handled correctly."""
     aresponses.add(
         MATCH_HOST,
         "/api/series",
@@ -136,7 +183,7 @@ async def test_series(aresponses):
 
 @pytest.mark.asyncio
 async def test_update(aresponses):
-    """Test update is handled correctly."""
+    """Test update method is handled correctly."""
     aresponses.add(
         MATCH_HOST,
         "/api/system/status",
@@ -187,16 +234,17 @@ async def test_update(aresponses):
 
 @pytest.mark.asyncio
 async def test_wanted(aresponses):
-    """Test queue is handled correctly."""
+    """Test queue method is handled correctly."""
     aresponses.add(
         MATCH_HOST,
-        "/api/wanted/missing",
+        "/api/wanted/missing?sortKey=airDateUtc&page=1&pageSize=10&sortDir=desc",
         "GET",
         aresponses.Response(
             status=200,
             headers={"Content-Type": "application/json"},
             text=load_fixture("wanted-missing.json"),
         ),
+        match_querystring=True,
     )
 
     async with ClientSession() as session:
