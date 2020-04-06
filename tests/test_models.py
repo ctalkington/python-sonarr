@@ -217,9 +217,10 @@ crime-free."""
     assert item.seasons[3].progress == 100
     assert item.seasons[3].diskspace == 8000000000
 
+
 def test_wanted_results() -> None:
     """Test the WantedResults model."""
-    results = WantedResults.from_dict(WANTED)
+    results = models.WantedResults.from_dict(WANTED)
 
     assert results
     assert results.page == 1
