@@ -171,5 +171,10 @@ def test_series_item() -> None:
     assert isinstance(item.seasons, List)
     assert len(item.seasons) == 9
 
-    assert item.seasons[1]
-    assert isinstance(item.seasons[1], models.Season)
+    assert item.seasons[4]
+    assert isinstance(item.seasons[4], models.Season)
+    assert item.seasons[4].episodes == 8
+    assert item.seasons[4].downloaded == 8
+    assert item.seasons[4].total_episodes == 32
+    assert item.seasons[4].progress == 100
+    assert item.seasons[4].diskspace == 8000000000
