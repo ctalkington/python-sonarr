@@ -11,7 +11,7 @@ from . import load_fixture
 
 INFO = json.loads(load_fixture("system-status.json"))
 CALENDAR = json.loads(load_fixture("calendar.json"))
-COMMAND=json.loads(load_fixture("command.json"))
+COMMAND = json.loads(load_fixture("command.json"))
 DISKSPACE = json.loads(load_fixture("diskspace.json"))
 QUEUE = json.loads(load_fixture("queue.json"))
 SERIES = json.loads(load_fixture("series.json"))
