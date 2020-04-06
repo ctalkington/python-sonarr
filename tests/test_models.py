@@ -190,7 +190,7 @@ crime-free."""
     assert item.series.runtime == 25
     assert item.series.timeslot == "21:30"
     assert item.series.year == 1960
-    assert item.series.premiere == datetime(2011, 1, 10, 1, 30, tzinfo=timezone.utc)
+    assert item.series.premiere == datetime(1960, 2, 15, 6, 0, tzinfo=timezone.utc)
     assert item.series.path == "F:\\The Andy Griffith Show"
     assert (
         item.series.poster == "https://artworks.thetvdb.com/banners/posters/77754-1.jpg"
