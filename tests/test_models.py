@@ -54,7 +54,7 @@ def test_command_item() -> None:
     item = models.CommandItem.from_dict(COMMAND[0])
 
     assert item
-    assert item.name == ""
+    assert item.name == "RefreshSeries"
     assert item.message == ""
     assert item.state == ""
     assert item.priority == ""
