@@ -60,7 +60,7 @@ def test_command_item() -> None:
     assert item.priority == "normal"
     assert item.trigger == "manual"
     assert item.started == datetime(2020, 4, 6, 16, 54, 6, 421322, tzinfo=timezone.utc)
-    assert item.queued == datetime(2020, 4, 6, 16, 54, 6, 421322, tzinfo=timezone.utc)
+    assert item.queued == datetime(2020, 4, 6, 16, 54, 6, 419450, tzinfo=timezone.utc)
     assert item.changed == datetime(2020, 4, 6, 16, 54, 6, 421322, tzinfo=timezone.utc)
 
     item = models.CommandItem.from_dict(COMMAND[1])
