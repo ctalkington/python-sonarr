@@ -161,9 +161,9 @@ class Sonarr:
 
         return [CommandItem.from_dict(result) for result in results]
 
-    async def command_status(self, id: int) -> CommandItem:
+    async def command_status(self, command_id: int) -> CommandItem:
         """Query the status of a previously started command."""
-        result = await self._request(f"command/{id}")
+        result = await self._request(f"command/{command_id}")
 
         return CommandItem.from_dict(result)
 
