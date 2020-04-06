@@ -198,10 +198,10 @@ crime-free."""
     assert item.series.certification == "TV-G"
     assert item.series.genres == ["Comedy"]
     assert item.series.added == datetime(
-        2011, 1, 26, 19, 25, 55, 455594, tzinfo=timezone.utc
+        1960, 2, 15, 6, 0, tzinfo=timezone.utc
     )
     assert item.series.synced == datetime(
-        2014, 1, 26, 19, 25, 55, 455594, tzinfo=timezone.utc
+        2020, 4, 5, 20, 40, 21, 545669, tzinfo=timezone.utc
     )
 
     assert item.seasons
