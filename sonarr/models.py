@@ -210,7 +210,7 @@ class CommandItem:
             queued = data.get("queued", None)
         else:
             queued = started
-        
+
         if started is not None:
             started = datetime.strptime(started, "%Y-%m-%dT%H:%M:%S%z")
 
