@@ -71,8 +71,8 @@ def test_command_item() -> None:
     assert item.state == "started"
     assert item.priority == "unknown"
     assert item.trigger == "unknown"
-    assert item.started == datetime(2014, 1, 27, 1, 30, tzinfo=timezone.utc)
-    assert item.queued == datetime(2014, 1, 27, 1, 30, tzinfo=timezone.utc)
+    assert item.started == datetime(2020, 4, 6, 16, 57, 51, 406504, tzinfo=timezone.utc)
+    assert item.queued == datetime(2020, 4, 6, 16, 57, 51, 406504, tzinfo=timezone.utc)
     assert item.changed == datetime(2014, 1, 27, 1, 30, tzinfo=timezone.utc)
 
 
