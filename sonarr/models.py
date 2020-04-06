@@ -33,11 +33,11 @@ class Season:
 
     number: int
     monitored: bool
-    downloaded: Optional[int] = 0
-    episodes: Optional[int] = 0
-    total_episodes: Optional[int] = 0
-    progress: Optional[int] = 0
-    diskspace: Optional[int] = 0
+    downloaded: int = 0
+    episodes: int = 0
+    total_episodes: int = 0
+    progress: int = 0
+    diskspace: int = 0
 
     @staticmethod
     def from_dict(data: dict):
@@ -190,13 +190,13 @@ class CommandItem:
     command_id: int
     name: int
     state: str
-    priority: Optional[str] = "unknown"
-    trigger: Optional[str] = "unknown"
-    message: Optional[str] = "Not Provided"
+    priority: str = "unknown"
+    trigger: str = "unknown"
+    message: str = "Not Provided"
     queued: datetime
     started: datetime
     changed: datetime
-    send_to_client: Optional[bool] = False
+    send_to_client: bool = False
 
     @staticmethod
     def from_dict(data: dict):
