@@ -206,6 +206,7 @@ async def test_wanted(aresponses):
         assert response
         assert isinstance(response, WantedResult)
 
+        assert response.page == 1
         assert response.per_page == 10
         assert response.total == 2
         assert response.sort == "asc"
