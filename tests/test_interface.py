@@ -82,7 +82,7 @@ async def test_calendar(aresponses):
             headers={"Content-Type": "application/json"},
             text=load_fixture("calendar.json"),
         ),
-        match_querystring=true,
+        match_querystring=True,
     )
 
     async with ClientSession() as session:
