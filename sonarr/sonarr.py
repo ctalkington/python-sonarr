@@ -10,7 +10,13 @@ from yarl import URL
 
 from .__version__ import __version__
 from .exceptions import SonarrAccessRestricted, SonarrConnectionError, SonarrError
-from .models import Application, Episode, QueueItem, SeriesItem
+from .models import (
+    Application,
+    Episode,
+    QueueItem,
+    SeriesItem,
+    WantedResults,
+)
 
 
 class Sonarr:
@@ -167,18 +173,20 @@ class Sonarr:
 
         return [SeriesItem.from_dict(result) for result in results]
 
-    async def wanted(self, sortKey: str = "airDateUtc", page: int = 1, page_size: int = 10, sort: str = "asc") -> List[Episode]:
+    async def wanted(
+        self, sort_key: str = "airDateUtc", page: int = 1, page_size: int = 10, sort_dir: str = "asc"
+    ) -> WantedResults:
         """Get wanted missing episodes."""
         params = {
-            "sortKey": sortKey,
+            "sortKey": sort_key,
             "page": page,
             "pageSize": page_size,
-            "sortDir": sort,
+            "sortDir": sort_dir,
         }
 
         results = await self._request("wanted/missing", params=params)
 
-        return [Episode.from_dict(result) for result in results]
+        return WantedResults.fromt_dict(results)
 
     async def close(self) -> None:
         """Close open client session."""
