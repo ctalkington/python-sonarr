@@ -204,7 +204,7 @@ async def test_wanted(aresponses):
         response = await client.wanted()
 
         assert response
-        assert isinstance(response, WantedResult)
+        assert isinstance(response, models.WantedResults)
 
         assert response.page == 1
         assert response.per_page == 10
