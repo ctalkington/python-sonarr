@@ -225,7 +225,7 @@ class CommandItem:
             command_id=data.get("id", 0),
             name=data.get("name", "Unknown"),
             state=data.get("state", "unknown"),
-            priority=data.get("prioirty", "unknown"),
+            priority=data.get("priority", "unknown"),
             trigger=data.get("trigger", "unknown"),
             message=data.get("message", "Not Provided"),
             send_to_client=data.get("sendUpdatesToClient", False),
