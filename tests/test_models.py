@@ -227,7 +227,7 @@ def test_wanted_results() -> None:
     assert results.per_page == 10
     assert results.total == 2
     assert results.sort_key == "airDateUtc"
-    assert results.sort_dir == "asc"
+    assert results.sort_dir == "descending"
 
     assert results.episodes
     assert isinstance(results.episodes, List)
