@@ -170,7 +170,6 @@ def test_series_item() -> None:
     overview = """Down-home humor and an endearing cast of characters
 helped make The Andy Griffith Show one of the most beloved comedies
 in the history of TV. The show centered around widower Andy Taylor,
-W
 who divided his time between raising his young son Opie, and his job
 as sheriff of the sleepy North Carolina town, Mayberry. Andy and Opie
 live with Andy's Aunt Bee, who serves as a surrogate mother to both
