@@ -49,8 +49,8 @@ async def test_app(aresponses):
 
 
 @pytest.mark.asyncio
-async def test_series(aresponses):
-    """Test series is handled correctly."""
+async def test_calendar(aresponses):
+    """Test calendar is handled correctly."""
     aresponses.add(
         MATCH_HOST,
         "/api/system/status",
