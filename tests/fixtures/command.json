@@ -1,0 +1,28 @@
+[
+  {
+    "name": "RefreshSeries",
+    "body": {
+      "isNewSeries": false,
+      "sendUpdatesToClient": true,
+      "updateScheduledTask": true,
+      "completionMessage": "Completed",
+      "requiresDiskAccess": false,
+      "isExclusive": false,
+      "name": "RefreshSeries",
+      "trigger": "manual",
+      "suppressMessages": false
+    },
+    "priority": "normal",
+    "status": "started",
+    "queued": "2020-04-06T16:54:06.41945Z",
+    "started": "2020-04-06T16:54:06.421322Z",
+    "trigger": "manual",
+    "state": "started",
+    "manual": true,
+    "startedOn": "2020-04-06T16:54:06.41945Z",
+    "stateChangeTime": "2020-04-06T16:54:06.421322Z",
+    "sendUpdatesToClient": true,
+    "updateScheduledTask": true,
+    "id": 368621
+  }
+]
