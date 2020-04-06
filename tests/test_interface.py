@@ -209,7 +209,8 @@ async def test_wanted(aresponses):
         assert response.page == 1
         assert response.per_page == 10
         assert response.total == 2
-        assert response.sort == "asc"
+        assert response.sort_key == "airDateUtc"
+        assert response.sort_dir == "asc"
 
         assert response.episodes
         assert isinstance(response.episodes, List)
