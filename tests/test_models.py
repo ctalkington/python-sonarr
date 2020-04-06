@@ -11,6 +11,7 @@ from . import load_fixture
 
 INFO = json.loads(load_fixture("system-status.json"))
 CALENDAR = json.loads(load_fixture("calendar.json"))
+COMMAND=json.loads(load_fixture("command.json"))
 DISKSPACE = json.loads(load_fixture("diskspace.json"))
 QUEUE = json.loads(load_fixture("queue.json"))
 SERIES = json.loads(load_fixture("series.json"))
@@ -38,7 +39,6 @@ def test_application_no_data() -> None:
     with pytest.raises(SonarrError):
         models.Application({})
 
-
 def test_info() -> None:
     """Test the Info model."""
     info = models.Info.from_dict(INFO)
@@ -46,6 +46,21 @@ def test_info() -> None:
     assert info
     assert info.app_name == "Sonarr"
     assert info.version == "2.0.0.1121"
+
+
+def test_command_item() -> None:
+    """Test the Info model."""
+    iten = models.CommandItem.from_dict(COMMAND[0])
+
+    assert item
+    assert item.name == ""
+    assert item.message == ""
+    assert item.state == ""
+    assert item.priority == ""
+    assert item.trigger == ""
+    assert item.started == datetime(2014, 1, 27, 1, 30, tzinfo=timezone.utc)
+    assert item.queued == datetime(2014, 1, 27, 1, 30, tzinfo=timezone.utc)
+    assert item.changed == datetime(2014, 1, 27, 1, 30, tzinfo=timezone.utc)
 
 
 def test_episode() -> None:
