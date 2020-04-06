@@ -155,6 +155,18 @@ class Sonarr:
 
         return [Episode.from_dict(result) for result in results]
 
+    async def command(self, id: int) -> CommandItem:
+        """Query the status of a previously started command."""
+        result = await self._request(f"command/{id}")
+
+        return CommandItem.from_dict(result)
+
+    async def commands(self) -> List[CommandItem]:
+        """Query the status of all currently started commands."""
+        results = await self._request("command")
+
+        return [CommandItem.from_dict(result) for result in results]
+
     async def queue(self) -> List[QueueItem]:
         """Get currently downloading info."""
         results = await self._request("queue")
