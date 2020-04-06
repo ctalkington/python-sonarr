@@ -212,10 +212,10 @@ class CommandItem:
             queued = started
 
         if started is not None:
-            started = datetime.strptime(started, "%Y-%m-%dT%H:%M:%S%z")
+            started = datetime.strptime(started, "%Y-%m-%dT%H:%M:%S.%f%z")
 
         if queued is not None:
-            queued = datetime.strptime(queued, "%Y-%m-%dT%H:%M:%S%z")
+            queued = datetime.strptime(queued, "%Y-%m-%dT%H:%M:%S.%f%z")
 
         changed = data.get("stateChangeTime", None)
         if changed is not None:
