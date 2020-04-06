@@ -172,7 +172,7 @@ class Sonarr:
         sort_key: str = "airDateUtc",
         page: int = 1,
         page_size: int = 10,
-        sort_dir: str = "asc",
+        sort_dir: str = "desc",
     ) -> WantedResults:
         """Get wanted missing episodes."""
         params = {
