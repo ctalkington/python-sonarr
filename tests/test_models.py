@@ -96,6 +96,7 @@ former pro football star Connie Frye to be the celebrity endorser."""
     assert isinstance(episode.series, models.Series)
     assert episode.title == "Easy Com-mercial, Easy Go-mercial"
     assert episode.overview == overview.replace("\n", " ")
+    assert episode.airdate == "2014-01-26"
     assert episode.airs == datetime(2014, 1, 27, 1, 30, tzinfo=timezone.utc)
     assert not episode.downloaded
     assert not episode.downloading
