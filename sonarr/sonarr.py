@@ -33,6 +33,8 @@ class Sonarr:
         port: int = 8989,
         request_timeout: int = 8,
         session: aiohttp.client.ClientSession = None,
+        tls: bool = False,
+        verify_ssl: bool = True,
         user_agent: str = None,
     ) -> None:
         """Initialize connection with receiver."""
@@ -44,6 +46,8 @@ class Sonarr:
         self.host = host
         self.port = port
         self.request_timeout = request_timeout
+        self.tls = tls
+        self.verify_ssl = verify_ssl
         self.user_agent = user_agent
 
         if user_agent is None:
@@ -60,7 +64,7 @@ class Sonarr:
         params: Optional[Mapping[str, str]] = None,
     ) -> Any:
         """Handle a request to API."""
-        scheme = "http"
+        scheme = "https" if self.tls else "http"
 
         url = URL.build(
             scheme=scheme, host=self.host, port=self.port, path=self.base_path
@@ -79,7 +83,11 @@ class Sonarr:
         try:
             with async_timeout.timeout(self.request_timeout):
                 response = await self._session.request(
-                    method, url, data=data, params=params, headers=headers,
+                    method, url,
+                    data=data,
+                    params=params,
+                    headers=headers,
+                    ssl=self.verify_ssl,
                 )
         except asyncio.TimeoutError as exception:
             raise SonarrConnectionError(
