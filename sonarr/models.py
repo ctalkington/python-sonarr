@@ -139,6 +139,7 @@ class Episode:
     identifier: str
     title: str
     overview: str
+    airdate: str
     airs: datetime
     downloaded: bool
     downloading: bool
@@ -163,6 +164,7 @@ class Episode:
             identifier=identifier,
             title=data.get("title", ""),
             overview=data.get("overview", ""),
+            airdate=data.get("airDate", ""),
             airs=airs,
             downloaded=data.get("hasFile", False),
             downloading=data.get("downloading", False),
