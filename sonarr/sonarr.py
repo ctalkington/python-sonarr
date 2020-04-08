@@ -152,7 +152,7 @@ class Sonarr:
         self._application.update_from_dict({"diskspace": diskspace})
         return self._application
 
-    async def calendar(self, start: int = None, end: int = None) -> List[Episode]:
+    async def calendar(self, start: str = None, end: str = None) -> List[Episode]:
         """Get upcoming episodes.
 
         If start/end are not supplied, episodes airing
