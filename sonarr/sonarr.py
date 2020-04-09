@@ -83,7 +83,8 @@ class Sonarr:
         try:
             with async_timeout.timeout(self.request_timeout):
                 response = await self._session.request(
-                    method, url,
+                    method,
+                    url,
                     data=data,
                     params=params,
                     headers=headers,
