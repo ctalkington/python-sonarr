@@ -95,6 +95,7 @@ class Series:
         if synced is not None:
             synced = datetime.strptime(synced, "%Y-%m-%dT%H:%M:%S.%f%z")
 
+        poster = None
         for image in data.get("images", []):
             if "poster" not in image["coverType"]:
                 continue
