@@ -2,7 +2,7 @@
 
 from dataclasses import dataclass
 from datetime import datetime
-from typing import List
+from typing import List, Optional
 
 from .exceptions import SonarrError
 
@@ -75,7 +75,7 @@ class Series:
     year: int
     premiere: datetime
     path: str
-    poster: str
+    poster: Optional[str]
     monitored: bool
     added: datetime
     synced: datetime
