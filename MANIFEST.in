@@ -1,4 +1,4 @@
 include README.md
-include LICENSE.md
+include LICENSE
 graft sonarr
 recursive-exclude * *.py[co]
