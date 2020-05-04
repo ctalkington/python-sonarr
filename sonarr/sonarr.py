@@ -104,7 +104,7 @@ class Sonarr:
                 "Access restricted. Please ensure valid API Key is provided", {}
             )
 
-        content_type = response.headers.get("Content-Type")
+        content_type = response.headers.get("Content-Type", "")
 
         if (response.status // 100) in [4, 5]:
             content = await response.read()
