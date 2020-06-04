@@ -43,13 +43,13 @@ def test_application_no_data() -> None:
 def test_dt_str_to_dt() -> None:
     """Test the dt_str_to_dt method."""
     dt = models.dt_str_to_dt("2018-05-14T19:02:13.101496Z")
-    assert dt == datetime.datetime(2018, 5, 14, 19, 2, 13, 100000)
+    assert dt == datetime(2018, 5, 14, 19, 2, 13, 100000)
 
 
 def test_dt_str_to_dt_long_microseconds() -> None:
     """Test the dt_str_to_dt method with long microseconds."""
     dt = models.dt_str_to_dt("2018-05-14T19:02:13.1014986Z")
-    assert dt == datetime.datetime(2018, 5, 14, 19, 2, 13, 100000)
+    assert dt == datetime(2018, 5, 14, 19, 2, 13, 100000)
 
 
 def test_info() -> None:
