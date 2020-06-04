@@ -189,10 +189,10 @@ determined to make Bob's Burgers \"grand re-re-re-opening\" a success."""
     assert series.certification == "TV-14"
     assert series.genres == ["Animation", "Comedy"]
     assert series.added == datetime(
-        2011, 1, 26, 19, 25, 55, 455594, tzinfo=timezone.utc
+        2011, 1, 26, 19, 25, 55, 450000, tzinfo=timezone.utc
     )
     assert series.synced == datetime(
-        2014, 1, 26, 19, 25, 55, 455594, tzinfo=timezone.utc
+        2014, 1, 26, 19, 25, 55, 450000, tzinfo=timezone.utc
     )
 
 
@@ -243,7 +243,7 @@ crime-free."""
         2020, 4, 5, 20, 40, 20, 50044, tzinfo=timezone.utc
     )
     assert item.series.synced == datetime(
-        2020, 4, 5, 20, 40, 21, 545669, tzinfo=timezone.utc
+        2020, 4, 5, 20, 40, 21, 540000, tzinfo=timezone.utc
     )
 
     assert item.seasons
