@@ -40,6 +40,18 @@ def test_application_no_data() -> None:
         models.Application({})
 
 
+def test_dt_str_to_dt() -> None:
+    """Test the dt_str_to_dt method."""
+    dt = models.dt_str_to_dt("2018-05-14T19:02:13.101496Z")
+    assert dt == datetime(2018, 5, 14, 19, 2, 13, 100000, tzinfo=timezone.utc)
+
+
+def test_dt_str_to_dt_long_microseconds() -> None:
+    """Test the dt_str_to_dt method with long microseconds."""
+    dt = models.dt_str_to_dt("2018-05-14T19:02:13.1014986Z")
+    assert dt == datetime(2018, 5, 14, 19, 2, 13, 100000, tzinfo=timezone.utc)
+
+
 def test_info() -> None:
     """Test the Info model."""
     info = models.Info.from_dict(INFO)
@@ -59,9 +71,9 @@ def test_command_item() -> None:
     assert item.state == "started"
     assert item.priority == "normal"
     assert item.trigger == "manual"
-    assert item.started == datetime(2020, 4, 6, 16, 54, 6, 421322, tzinfo=timezone.utc)
-    assert item.queued == datetime(2020, 4, 6, 16, 54, 6, 419450, tzinfo=timezone.utc)
-    assert item.changed == datetime(2020, 4, 6, 16, 54, 6, 421322, tzinfo=timezone.utc)
+    assert item.started == datetime(2020, 4, 6, 16, 54, 6, 420000, tzinfo=timezone.utc)
+    assert item.queued == datetime(2020, 4, 6, 16, 54, 6, 410000, tzinfo=timezone.utc)
+    assert item.changed == datetime(2020, 4, 6, 16, 54, 6, 420000, tzinfo=timezone.utc)
 
     item = models.CommandItem.from_dict(COMMAND[1])
 
@@ -71,9 +83,9 @@ def test_command_item() -> None:
     assert item.state == "started"
     assert item.priority == "unknown"
     assert item.trigger == "unknown"
-    assert item.started == datetime(2020, 4, 6, 16, 57, 51, 406504, tzinfo=timezone.utc)
-    assert item.queued == datetime(2020, 4, 6, 16, 57, 51, 406504, tzinfo=timezone.utc)
-    assert item.changed == datetime(2020, 4, 6, 16, 57, 51, 417931, tzinfo=timezone.utc)
+    assert item.started == datetime(2020, 4, 6, 16, 57, 51, 400000, tzinfo=timezone.utc)
+    assert item.queued == datetime(2020, 4, 6, 16, 57, 51, 400000, tzinfo=timezone.utc)
+    assert item.changed == datetime(2020, 4, 6, 16, 57, 51, 410000, tzinfo=timezone.utc)
 
 
 def test_episode() -> None:
@@ -125,7 +137,7 @@ def test_queue_item() -> None:
     assert item.protocol == "usenet"
     assert item.size == 4472186820
     assert item.size_remaining == 0
-    assert item.eta == datetime(2016, 2, 5, 22, 46, 52, 440104, tzinfo=timezone.utc)
+    assert item.eta == datetime(2016, 2, 5, 22, 46, 52, 440000, tzinfo=timezone.utc)
     assert item.time_remaining == "00:00:00"
 
     assert item.episode
@@ -177,10 +189,10 @@ determined to make Bob's Burgers \"grand re-re-re-opening\" a success."""
     assert series.certification == "TV-14"
     assert series.genres == ["Animation", "Comedy"]
     assert series.added == datetime(
-        2011, 1, 26, 19, 25, 55, 455594, tzinfo=timezone.utc
+        2011, 1, 26, 19, 25, 55, 450000, tzinfo=timezone.utc
     )
     assert series.synced == datetime(
-        2014, 1, 26, 19, 25, 55, 455594, tzinfo=timezone.utc
+        2014, 1, 26, 19, 25, 55, 450000, tzinfo=timezone.utc
     )
 
 
@@ -228,10 +240,10 @@ crime-free."""
     assert item.series.certification == "TV-G"
     assert item.series.genres == ["Comedy"]
     assert item.series.added == datetime(
-        2020, 4, 5, 20, 40, 20, 50044, tzinfo=timezone.utc
+        2020, 4, 5, 20, 40, 20, 50000, tzinfo=timezone.utc
     )
     assert item.series.synced == datetime(
-        2020, 4, 5, 20, 40, 21, 545669, tzinfo=timezone.utc
+        2020, 4, 5, 20, 40, 21, 540000, tzinfo=timezone.utc
     )
 
     assert item.seasons

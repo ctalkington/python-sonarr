@@ -7,6 +7,29 @@ from typing import List, Optional
 from .exceptions import SonarrError
 
 
+def dt_str_to_dt(dt_str: str) -> datetime:
+    """Convert ISO-8601 datetime string to datetime object."""
+    utc = False
+
+    if "Z" in dt_str:
+        utc = True
+        dt_str = dt_str[:-1]
+
+    if "." in dt_str:
+        # Python doesn't support long microsecond values
+        ts_bits = dt_str.split(".", 1)
+        dt_str = "{}.{}".format(ts_bits[0], ts_bits[1][:2])
+        fmt = "%Y-%m-%dT%H:%M:%S.%f"
+    else:
+        fmt = "%Y-%m-%dT%H:%M:%S"
+
+    if utc:
+        dt_str += "Z"
+        fmt += "%z"
+
+    return datetime.strptime(dt_str, fmt)
+
+
 @dataclass(frozen=True)
 class Disk:
     """Object holding disk information from Sonarr."""
@@ -85,15 +108,15 @@ class Series:
         """Return Series object from Sonarr API response."""
         premiere = data.get("firstAired", None)
         if premiere is not None:
-            premiere = datetime.strptime(premiere, "%Y-%m-%dT%H:%M:%S%z")
+            premiere = dt_str_to_dt(premiere)
 
         added = data.get("added", None)
         if added is not None:
-            added = datetime.strptime(added, "%Y-%m-%dT%H:%M:%S.%f%z")
+            added = dt_str_to_dt(added)
 
         synced = data.get("lastInfoSync", None)
         if synced is not None:
-            synced = datetime.strptime(synced, "%Y-%m-%dT%H:%M:%S.%f%z")
+            synced = dt_str_to_dt(synced)
 
         poster = None
         for image in data.get("images", []):
@@ -151,7 +174,7 @@ class Episode:
         """Return Episode object from Sonarr API response."""
         airs = data.get("airDateUtc", None)
         if airs is not None:
-            airs = datetime.strptime(airs, "%Y-%m-%dT%H:%M:%S%z")
+            airs = dt_str_to_dt(airs)
 
         episode_number = data.get("episodeNumber", 0)
         season_number = data.get("seasonNumber", 0)
@@ -215,14 +238,14 @@ class CommandItem:
             queued = started
 
         if started is not None:
-            started = datetime.strptime(started, "%Y-%m-%dT%H:%M:%S.%f%z")
+            started = dt_str_to_dt(started)
 
         if queued is not None:
-            queued = datetime.strptime(queued, "%Y-%m-%dT%H:%M:%S.%f%z")
+            queued = dt_str_to_dt(queued)
 
         changed = data.get("stateChangeTime", None)
         if changed is not None:
-            changed = datetime.strptime(changed, "%Y-%m-%dT%H:%M:%S.%f%z")
+            changed = dt_str_to_dt(changed)
 
         return CommandItem(
             command_id=data.get("id", 0),
@@ -264,7 +287,7 @@ class QueueItem:
 
         eta = data.get("estimatedCompletionTime", None)
         if eta is not None:
-            eta = datetime.strptime(eta, "%Y-%m-%dT%H:%M:%S.%f%z")
+            eta = dt_str_to_dt(eta)
 
         return QueueItem(
             queue_id=data.get("id", 0),
