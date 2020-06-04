@@ -15,7 +15,7 @@ def dt_str_to_dt(dt_str: str) -> datetime:
     if "." in dt_str:
         # Python doesn't support long microsecond values
         ts_bits = dt_str.split(".", 1)
-        value = "%s.%s" % (ts_bits[0], ts_bits[1][:2])
+        dt_str = "%s.%s" % (ts_bits[0], ts_bits[1][:2])
         fmt = "%Y-%m-%dT%H:%M:%S.%f"
     else:
         fmt = "%Y-%m-%dT%H:%M:%S"
