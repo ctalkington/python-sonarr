@@ -240,7 +240,7 @@ crime-free."""
     assert item.series.certification == "TV-G"
     assert item.series.genres == ["Comedy"]
     assert item.series.added == datetime(
-        2020, 4, 5, 20, 40, 20, 50044, tzinfo=timezone.utc
+        2020, 4, 5, 20, 40, 20, 50000, tzinfo=timezone.utc
     )
     assert item.series.synced == datetime(
         2020, 4, 5, 20, 40, 21, 540000, tzinfo=timezone.utc
