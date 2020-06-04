@@ -9,16 +9,16 @@ from .exceptions import SonarrError
 
 def dt_str_to_dt(dt_str: str) -> datetime:
     """Convert ISO-8601 datetime string to datetime object."""
-    if 'Z' in dt_str:
+    if "Z" in dt_str:
         dt_str = dt_str[:-1]
 
-    if '.' in dt_str:
+    if "." in dt_str:
         # Python doesn't support long microsecond values
-        ts_bits = dt_str.split('.', 1)
-        value = '%s.%s' % (ts_bits[0], ts_bits[1][:2])
-        fmt = '%Y-%m-%dT%H:%M:%S.%f'
+        ts_bits = dt_str.split(".", 1)
+        value = "%s.%s" % (ts_bits[0], ts_bits[1][:2])
+        fmt = "%Y-%m-%dT%H:%M:%S.%f"
     else:
-        fmt = '%Y-%m-%dT%H:%M:%S'
+        fmt = "%Y-%m-%dT%H:%M:%S"
 
    return datetime.strptime(dt_str, fmt)
 
