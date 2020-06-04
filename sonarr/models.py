@@ -6,8 +6,9 @@ from typing import List, Optional
 
 from .exceptions import SonarrError
 
+
 def dt_str_to_dt(dt_str: str) -> datetime:
-    """Convert ISO-8801 datetime string to datetime object."""
+    """Convert ISO-8601 datetime string to datetime object."""
     if 'Z' in dt_str:
         dt_str = dt_str[:-1]
 
