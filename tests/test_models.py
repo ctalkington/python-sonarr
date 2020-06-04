@@ -43,13 +43,13 @@ def test_application_no_data() -> None:
 def test_dt_str_to_dt() -> None:
     """Test the dt_str_to_dt method."""
     dt = models.dt_str_to_dt("2018-05-14T19:02:13.101496Z")
-    assert dt == ""
+    assert dt == datetime.datetime(2018, 5, 14, 19, 2, 13, 100000)
 
 
 def test_dt_str_to_dt_long_microseconds() -> None:
     """Test the dt_str_to_dt method with long microseconds."""
     dt = models.dt_str_to_dt("2018-05-14T19:02:13.1014986Z")
-    assert dt == ""
+    assert dt == datetime.datetime(2018, 5, 14, 19, 2, 13, 100000)
 
 
 def test_info() -> None:
@@ -71,9 +71,9 @@ def test_command_item() -> None:
     assert item.state == "started"
     assert item.priority == "normal"
     assert item.trigger == "manual"
-    assert item.started == datetime(2020, 4, 6, 16, 54, 6, 421322, tzinfo=timezone.utc)
-    assert item.queued == datetime(2020, 4, 6, 16, 54, 6, 419450, tzinfo=timezone.utc)
-    assert item.changed == datetime(2020, 4, 6, 16, 54, 6, 421322, tzinfo=timezone.utc)
+    assert item.started == datetime(2020, 4, 6, 16, 54, 6, 420000, tzinfo=timezone.utc)
+    assert item.queued == datetime(2020, 4, 6, 16, 54, 6, 410000, tzinfo=timezone.utc)
+    assert item.changed == datetime(2020, 4, 6, 16, 54, 6, 420000, tzinfo=timezone.utc)
 
     item = models.CommandItem.from_dict(COMMAND[1])
 
@@ -83,9 +83,9 @@ def test_command_item() -> None:
     assert item.state == "started"
     assert item.priority == "unknown"
     assert item.trigger == "unknown"
-    assert item.started == datetime(2020, 4, 6, 16, 57, 51, 406504, tzinfo=timezone.utc)
-    assert item.queued == datetime(2020, 4, 6, 16, 57, 51, 406504, tzinfo=timezone.utc)
-    assert item.changed == datetime(2020, 4, 6, 16, 57, 51, 417931, tzinfo=timezone.utc)
+    assert item.started == datetime(2020, 4, 6, 16, 57, 51, 400000, tzinfo=timezone.utc)
+    assert item.queued == datetime(2020, 4, 6, 16, 57, 51, 400000, tzinfo=timezone.utc)
+    assert item.changed == datetime(2020, 4, 6, 16, 57, 51, 410000, tzinfo=timezone.utc)
 
 
 def test_episode() -> None:
@@ -137,7 +137,7 @@ def test_queue_item() -> None:
     assert item.protocol == "usenet"
     assert item.size == 4472186820
     assert item.size_remaining == 0
-    assert item.eta == datetime(2016, 2, 5, 22, 46, 52, 440104, tzinfo=timezone.utc)
+    assert item.eta == datetime(2016, 2, 5, 22, 46, 52, 440000, tzinfo=timezone.utc)
     assert item.time_remaining == "00:00:00"
 
     assert item.episode
