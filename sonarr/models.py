@@ -20,7 +20,7 @@ def dt_str_to_dt(dt_str: str) -> datetime:
     else:
         fmt = "%Y-%m-%dT%H:%M:%S"
 
-   return datetime.strptime(dt_str, fmt)
+    return datetime.strptime(dt_str, fmt)
 
 
 @dataclass(frozen=True)
