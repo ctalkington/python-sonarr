@@ -41,7 +41,7 @@ def test_application_no_data() -> None:
 
 
 def test_dt_str_to_dt() -> None:
-    """Test the dt_str_to_dt method with long microseconds."""
+    """Test the dt_str_to_dt method."""
     dt = models.dt_str_to_dt("2018-05-14T19:02:13.101496Z")
     assert dt == ""
 
