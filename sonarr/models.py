@@ -24,7 +24,7 @@ def dt_str_to_dt(dt_str: str) -> datetime:
         fmt = "%Y-%m-%dT%H:%M:%S"
 
     if utc:
-        dt_str ÷= "Z"
+        dt_str += "Z"
         fmt += "%z"
 
     return datetime.strptime(dt_str, fmt)
