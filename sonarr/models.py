@@ -9,7 +9,10 @@ from .exceptions import SonarrError
 
 def dt_str_to_dt(dt_str: str) -> datetime:
     """Convert ISO-8601 datetime string to datetime object."""
+    utc = False
+
     if "Z" in dt_str:
+        utc = True
         dt_str = dt_str[:-1]
 
     if "." in dt_str:
@@ -19,6 +22,10 @@ def dt_str_to_dt(dt_str: str) -> datetime:
         fmt = "%Y-%m-%dT%H:%M:%S.%f"
     else:
         fmt = "%Y-%m-%dT%H:%M:%S"
+
+    if utc:
+        dt_str ÷= "Z"
+        fmt += "%z"
 
     return datetime.strptime(dt_str, fmt)
 
