@@ -101,15 +101,15 @@ class Series:
         """Return Series object from Sonarr API response."""
         premiere = data.get("firstAired", None)
         if premiere is not None:
-            premiere = datetime.strptime(premiere, "%Y-%m-%dT%H:%M:%S%z")
+            premiere = dt_str_to_dt(premiere)
 
         added = data.get("added", None)
         if added is not None:
-            added = datetime.strptime(added, "%Y-%m-%dT%H:%M:%S.%f%z")
+            added = dt_str_to_dt(added)
 
         synced = data.get("lastInfoSync", None)
         if synced is not None:
-            synced = datetime.strptime(synced, "%Y-%m-%dT%H:%M:%S.%f%z")
+            synced = dt_str_to_dt(synced)
 
         poster = None
         for image in data.get("images", []):
@@ -167,7 +167,7 @@ class Episode:
         """Return Episode object from Sonarr API response."""
         airs = data.get("airDateUtc", None)
         if airs is not None:
-            airs = datetime.strptime(airs, "%Y-%m-%dT%H:%M:%S%z")
+            airs = dt_str_to_dt(airs)
 
         episode_number = data.get("episodeNumber", 0)
         season_number = data.get("seasonNumber", 0)
@@ -231,14 +231,14 @@ class CommandItem:
             queued = started
 
         if started is not None:
-            started = datetime.strptime(started, "%Y-%m-%dT%H:%M:%S.%f%z")
+            started = dt_str_to_dt(started)
 
         if queued is not None:
-            queued = datetime.strptime(queued, "%Y-%m-%dT%H:%M:%S.%f%z")
+            queued = dt_str_to_dt(queued)
 
         changed = data.get("stateChangeTime", None)
         if changed is not None:
-            changed = datetime.strptime(changed, "%Y-%m-%dT%H:%M:%S.%f%z")
+            changed = dt_str_to_dt(changed)
 
         return CommandItem(
             command_id=data.get("id", 0),
@@ -280,7 +280,7 @@ class QueueItem:
 
         eta = data.get("estimatedCompletionTime", None)
         if eta is not None:
-            eta = datetime.strptime(eta, "%Y-%m-%dT%H:%M:%S.%f%z")
+            eta = dt_str_to_dt(eta)
 
         return QueueItem(
             queue_id=data.get("id", 0),
