@@ -1,0 +1,101 @@
+{
+    "title": "American Gods",
+    "alternateTitles": [
+
+    ],
+    "sortTitle": "american gods",
+    "seasonCount": 2,
+    "totalEpisodeCount": 17,
+    "episodeCount": 8,
+    "episodeFileCount": 8,
+    "sizeOnDisk": 26975751528,
+    "status": "continuing",
+    "overview": "Based on Neil Gaiman's 2001 novel of the same name, ex-convict Shadow Moon becomes the traveling partner of a mysterious conman named Mr. Wednesday after his release from prison. He soon discovers Mr. Wednesday is more than he seems and becomes embroiled in an epic conflict between Old Gods and New."
+,
+    "previousAiring": "2019-04-29T01:00:00Z",
+    "network": "Starz",
+    "airTime": "21:00",
+    "images": [
+        {
+            "coverType": "fanart",
+            "url": "/MediaCover/3/fanart.jpg?lastWrite=637099968740803150"
+        },
+        {
+            "coverType": "banner",
+            "url": "/MediaCover/3/banner.jpg?lastWrite=637102995903188600"
+        },
+        {
+            "coverType": "poster",
+            "url": "/MediaCover/3/poster.jpg?lastWrite=637099968762103380"
+        }
+    ],
+    "seasons": [
+        {
+            "seasonNumber": 0,
+            "monitored": false,
+            "statistics": {
+                "episodeFileCount": 0,
+                "episodeCount": 0,
+                "totalEpisodeCount": 1,
+                "sizeOnDisk": 0,
+                "percentOfEpisodes": 0.0
+            }
+        },
+        {
+            "seasonNumber": 1,
+            "monitored": false,
+            "statistics": {
+                "episodeFileCount": 0,
+                "episodeCount": 0,
+                "totalEpisodeCount": 8,
+                "sizeOnDisk": 0,
+                "percentOfEpisodes": 0.0
+            }
+        },
+        {
+            "seasonNumber": 2,
+            "monitored": true,
+            "statistics": {
+                "previousAiring": "2019-04-29T01:00:00Z",
+                "episodeFileCount": 8,
+                "episodeCount": 8,
+                "totalEpisodeCount": 8,
+                "sizeOnDisk": 26975751528,
+                "percentOfEpisodes": 100.0
+            }
+        }
+    ],
+    "year": 2017,
+    "path": "F:\\TV_Shows\\American Gods",
+    "profileId": 6,
+    "seasonFolder": true,
+    "monitored": true,
+    "useSceneNumbering": false,
+    "runtime": 60,
+    "tvdbId": 253573,
+    "tvRageId": 28779,
+    "tvMazeId": 3182,
+    "firstAired": "2017-04-29T23:00:00Z",
+    "lastInfoSync": "2019-12-01T17:35:41.103443Z",
+    "seriesType": "standard",
+    "cleanTitle": "americangods",
+    "imdbId": "tt1898069",
+    "titleSlug": "american-gods",
+    "certification": "TV-MA",
+    "genres": [
+        "Action",
+        "Adventure",
+        "Fantasy",
+        "Suspense"
+    ],
+    "tags": [
+
+    ],
+    "added": "2019-09-13T15:50:29.325136Z",
+    "ratings": {
+        "votes": 0,
+        "value": 0.0
+    },
+    "qualityProfileId": 6,
+    "id": 3
+}

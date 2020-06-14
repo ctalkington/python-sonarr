@@ -4,7 +4,7 @@ Asynchronous Python client for Sonarr API.
 
 ## About
 
-This package allows you to monitor a Sonarr instance.
+This package allows you to manage a Sonarr instance.
 
 ## Installation
 
@@ -23,8 +23,8 @@ from sonarr import Sonarr
 async def main():
     """Show example of connecting to your Sonarr instance."""
     async with Sonarr("192.168.1.100", "API_TOKEN") as sonarr:
-        info = sonarr.update()
-        print(info)
+        series = await sonarr.get_all_series()
+        print(series)
 
 
 if __name__ == "__main__":

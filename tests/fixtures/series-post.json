@@ -1,0 +1,39 @@
+{
+    "title": "Archer (2009)",
+    "seasons": [
+      {
+        "seasonNumber": 5,
+        "monitored": true
+      },
+      {
+        "seasonNumber": 4,
+        "monitored": true
+      },
+      {
+        "seasonNumber": 3,
+        "monitored": true
+      },
+      {
+        "seasonNumber": 2,
+        "monitored": true
+      },
+      {
+        "seasonNumber": 1,
+        "monitored": true
+      },
+      {
+        "seasonNumber": 0,
+        "monitored": false
+      }
+    ],
+    "path": "T:\\Archer (2009)",
+    "profileId": 1,
+    "seasonFolder": true,
+    "monitored": true,
+    "tvdbId": 110381,
+    "tvRageId": 23354,
+    "cleanTitle": "archer2009",
+    "imdbId": "tt1486217",
+    "titleSlug": "archer-2009",
+    "id": 1
+  }

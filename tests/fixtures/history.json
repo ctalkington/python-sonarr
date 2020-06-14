@@ -1,0 +1,164 @@
+{
+  "page": 1,
+  "pageSize": 10,
+  "sortKey": "date",
+  "sortDirection": "descending",
+  "totalRecords": 8094,
+  "records": [
+    {
+      "episodeId": 5276,
+      "seriesId": 60,
+      "sourceTitle": "Blindspot S01E11 1080p WEB-DL DD5 1 H 264-NTB",
+      "quality": {
+        "quality": {
+          "id": 3,
+          "name": "WEBDL-1080p"
+        },
+        "revision": {
+          "version": 1,
+          "real": 0
+        }
+      },
+      "qualityCutoffNotMet": false,
+      "date": "2016-09-10T20:26:32.2634211Z",
+      "downloadId": "SABnzbd_nzo_tlsnni",
+      "eventType": "downloadFolderImported",
+      "data": {
+        "droppedPath": "d:\\tvshows\\Blindspot S01E11 1080p WEB-DL DD5 1 H 264-NTB\\160223_06.mkv",
+        "importedPath": "F:\\TV_Shows\\Blindspot\\Season 01\\Blindspot.S01E11.Cease.Forcing.Enemy.WEBDL-1080p.mkv",
+        "downloadClient": "Sabnzbd"
+      },
+      "episode": {
+        "seriesId": 60,
+        "episodeFileId": 3464,
+        "seasonNumber": 1,
+        "episodeNumber": 11,
+        "title": "Cease Forcing Enemy",
+        "airDate": "2016-02-29",
+        "airDateUtc": "2016-03-01T01:00:00Z",
+        "overview": "Jane reels from a series of massive revelations about her tattoos and grapples with whether to trust Oscar. Meanwhile, a tattoo leads the team to a shocking discovery in the Black Sea.",
+        "hasFile": true,
+        "monitored": true,
+        "absoluteEpisodeNumber": 11,
+        "unverifiedSceneNumbering": false,
+        "id": 5276
+      },
+      "series": {
+        "title": "Blindspot",
+        "sortTitle": "blindspot",
+        "seasonCount": 0,
+        "status": "continuing",
+        "overview": "A vast international plot explodes when a beautiful Jane Doe is discovered naked in Times Square, completely covered in mysterious, intricate tattoos with no memory of who she is or how she got there. But there's one tattoo that is impossible to miss: the name of FBI agent Kurt Weller, emblazoned across her back. \"Jane,\" Agent Weller and the rest of the FBI quickly realize that each mark on her body is a crime to solve, leading them closer to the truth about her identity and the mysteries to be revealed.",
+        "network": "NBC",
+        "airTime": "20:00",
+        "images": [],
+        "seasons": [],
+        "year": 2015,
+        "path": "F:\\TV_Shows\\Blindspot",
+        "profileId": 6,
+        "seasonFolder": true,
+        "monitored": true,
+        "useSceneNumbering": false,
+        "runtime": 45,
+        "tvdbId": 295647,
+        "tvRageId": 0,
+        "tvMazeId": 1855,
+        "firstAired": "2015-09-21T04:00:00Z",
+        "lastInfoSync": "2016-09-10T09:03:51.98498Z",
+        "seriesType": "standard",
+        "cleanTitle": "blindspot",
+        "imdbId": "tt4474344",
+        "titleSlug": "blindspot",
+        "certification": "TV-14",
+        "genres": [],
+        "tags": [
+          2
+        ],
+        "added": "2015-08-13T01:36:54.4303036Z",
+        "ratings": {
+          "votes": 51,
+          "value": 8.1
+        },
+        "qualityProfileId": 6,
+        "id": 60
+      },
+      "id": 11915
+    },
+    {
+      "episodeId": 5276,
+      "seriesId": 60,
+      "sourceTitle": "F:\\TV_Shows\\Blindspot\\Season 01\\Blindspot.S01E11.Cease.Forcing.Enemy.HDTV-1080p.Proper.mkv",
+      "quality": {
+        "quality": {
+          "id": 9,
+          "name": "HDTV-1080p"
+        },
+        "revision": {
+          "version": 2,
+          "real": 0
+        }
+      },
+      "qualityCutoffNotMet": true,
+      "date": "2016-09-10T20:26:27.9055911Z",
+      "eventType": "episodeFileDeleted",
+      "data": {
+        "reason": "Upgrade"
+      },
+      "episode": {
+        "seriesId": 60,
+        "episodeFileId": 3464,
+        "seasonNumber": 1,
+        "episodeNumber": 11,
+        "title": "Cease Forcing Enemy",
+        "airDate": "2016-02-29",
+        "airDateUtc": "2016-03-01T01:00:00Z",
+        "overview": "Jane reels from a series of massive revelations about her tattoos and grapples with whether to trust Oscar. Meanwhile, a tattoo leads the team to a shocking discovery in the Black Sea.",
+        "hasFile": true,
+        "monitored": true,
+        "absoluteEpisodeNumber": 11,
+        "unverifiedSceneNumbering": false,
+        "id": 5276
+      },
+      "series": {
+        "title": "Blindspot",
+        "sortTitle": "blindspot",
+        "seasonCount": 0,
+        "status": "continuing",
+        "overview": "A vast international plot explodes when a beautiful Jane Doe is discovered naked in Times Square, completely covered in mysterious, intricate tattoos with no memory of who she is or how she got there. But there's one tattoo that is impossible to miss: the name of FBI agent Kurt Weller, emblazoned across her back. \"Jane,\" Agent Weller and the rest of the FBI quickly realize that each mark on her body is a crime to solve, leading them closer to the truth about her identity and the mysteries to be revealed.",
+        "network": "NBC",
+        "airTime": "20:00",
+        "images": [],
+        "seasons": [],
+        "year": 2015,
+        "path": "F:\\TV_Shows\\Blindspot",
+        "profileId": 6,
+        "seasonFolder": true,
+        "monitored": true,
+        "useSceneNumbering": false,
+        "runtime": 45,
+        "tvdbId": 295647,
+        "tvRageId": 0,
+        "tvMazeId": 1855,
+        "firstAired": "2015-09-21T04:00:00Z",
+        "lastInfoSync": "2016-09-10T09:03:51.98498Z",
+        "seriesType": "standard",
+        "cleanTitle": "blindspot",
+        "imdbId": "tt4474344",
+        "titleSlug": "blindspot",
+        "certification": "TV-14",
+        "genres": [],
+        "tags": [
+          2
+        ],
+        "added": "2015-08-13T01:36:54.4303036Z",
+        "ratings": {
+          "votes": 51,
+          "value": 8.1
+        },
+        "qualityProfileId": 6,
+        "id": 60
+      },
+      "id": 11914
+    }
+  ]
+}

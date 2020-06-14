@@ -1,163 +1,84 @@
 [
   {
-    "title": "The Andy Griffith Show",
-    "alternateTitles": [],
-    "sortTitle": "andy griffith show",
-    "seasonCount": 8,
-    "totalEpisodeCount": 253,
-    "episodeCount": 0,
-    "episodeFileCount": 0,
-    "sizeOnDisk": 0,
-    "status": "ended",
-    "overview": "Down-home humor and an endearing cast of characters helped make The Andy Griffith Show one of the most beloved comedies in the history of TV. The show centered around widower Andy Taylor, who divided his time between raising his young son Opie, and his job as sheriff of the sleepy North Carolina town, Mayberry. Andy and Opie live with Andy's Aunt Bee, who serves as a surrogate mother to both father and son. Andy's nervous cousin, Barney Fife, is his deputy sheriff whose incompetence is tolerated because Mayberry is virtually crime-free.",
-    "network": "CBS",
-    "airTime": "21:30",
-    "images": [
-      {
-        "coverType": "fanart",
-        "url": "/MediaCover/105/fanart.jpg?lastWrite=637217160281262470",
-        "remoteUrl": "https://artworks.thetvdb.com/banners/fanart/original/77754-5.jpg"
-      },
-      {
-        "coverType": "banner",
-        "url": "/MediaCover/105/banner.jpg?lastWrite=637217160301222320",
-        "remoteUrl": "https://artworks.thetvdb.com/banners/graphical/77754-g.jpg"
-      },
-      {
-        "coverType": "poster",
-        "url": "/MediaCover/105/poster.jpg?lastWrite=637217160322182160",
-        "remoteUrl": "https://artworks.thetvdb.com/banners/posters/77754-1.jpg"
+    "title": "Marvel's Daredevil",
+    "alternateTitles": [{
+      "title": "Daredevil",
+      "seasonNumber": -1
+    }],
+    "sortTitle": "marvels daredevil",
+    "seasonCount": 2,
+    "totalEpisodeCount": 26,
+    "episodeCount": 26,
+    "episodeFileCount": 26,
+    "sizeOnDisk": 79282273693,
+    "status": "continuing",
+    "overview": "Matt Murdock was blinded in a tragic accident as a boy, but imbued with extraordinary senses. Murdock sets up practice in his old neighborhood of Hell's Kitchen, New York, where he now fights against injustice as a respected lawyer by day and as the masked vigilante Daredevil by night.",
+    "previousAiring": "2016-03-18T04:01:00Z",
+    "network": "Netflix",
+    "airTime": "00:01",
+    "images": [{
+      "coverType": "fanart",
+      "url": "/sonarr/MediaCover/7/fanart.jpg?lastWrite=636072351904299472"
+    },
+    {
+      "coverType": "banner",
+      "url": "/sonarr/MediaCover/7/banner.jpg?lastWrite=636071666185812942"
+    },
+    {
+      "coverType": "poster",
+      "url": "/sonarr/MediaCover/7/poster.jpg?lastWrite=636071666195067584"
+    }],
+    "seasons": [{
+      "seasonNumber": 1,
+      "monitored": false,
+      "statistics": {
+        "previousAiring": "2015-04-10T04:01:00Z",
+        "episodeFileCount": 13,
+        "episodeCount": 13,
+        "totalEpisodeCount": 13,
+        "sizeOnDisk": 22738179333,
+        "percentOfEpisodes": 100
       }
-    ],
-    "seasons": [
-      {
-        "seasonNumber": 0,
-        "monitored": false,
-        "statistics": {
-          "episodeFileCount": 0,
-          "episodeCount": 0,
-          "totalEpisodeCount": 4,
-          "sizeOnDisk": 0,
-          "percentOfEpisodes": 0.0
-        }
-      },
-      {
-        "seasonNumber": 1,
-        "monitored": false,
-        "statistics": {
-          "episodeFileCount": 0,
-          "episodeCount": 0,
-          "totalEpisodeCount": 32,
-          "sizeOnDisk": 0,
-          "percentOfEpisodes": 0.0
-        }
-      },
-      {
-        "seasonNumber": 2,
-        "monitored": false,
-        "statistics": {
-          "episodeFileCount": 0,
-          "episodeCount": 0,
-          "totalEpisodeCount": 31,
-          "sizeOnDisk": 0,
-          "percentOfEpisodes": 0.0
-        }
-      },
-      {
-        "seasonNumber": 3,
-        "monitored": false,
-        "statistics": {
-          "episodeFileCount": 8,
-          "episodeCount": 8,
-          "totalEpisodeCount": 32,
-          "sizeOnDisk": 8000000000,
-          "percentOfEpisodes": 100.0
-        }
-      },
-      {
-        "seasonNumber": 4,
-        "monitored": false,
-        "statistics": {
-          "episodeFileCount": 0,
-          "episodeCount": 0,
-          "totalEpisodeCount": 32,
-          "sizeOnDisk": 0,
-          "percentOfEpisodes": 0.0
-        }
-      },
-      {
-        "seasonNumber": 5,
-        "monitored": false,
-        "statistics": {
-          "episodeFileCount": 0,
-          "episodeCount": 0,
-          "totalEpisodeCount": 32,
-          "sizeOnDisk": 0,
-          "percentOfEpisodes": 0.0
-        }
-      },
-      {
-        "seasonNumber": 6,
-        "monitored": false,
-        "statistics": {
-          "episodeFileCount": 0,
-          "episodeCount": 0,
-          "totalEpisodeCount": 30,
-          "sizeOnDisk": 0,
-          "percentOfEpisodes": 0.0
-        }
-      },
-      {
-        "seasonNumber": 7,
-        "monitored": false,
-        "statistics": {
-          "episodeFileCount": 0,
-          "episodeCount": 0,
-          "totalEpisodeCount": 30,
-          "sizeOnDisk": 0,
-          "percentOfEpisodes": 0.0
-        }
-      },
-      {
-        "seasonNumber": 8,
-        "monitored": true,
-        "statistics": {
-          "episodeFileCount": 0,
-          "episodeCount": 0,
-          "totalEpisodeCount": 30,
-          "sizeOnDisk": 0,
-          "percentOfEpisodes": 0.0
-        }
+    },
+    {
+      "seasonNumber": 2,
+      "monitored": false,
+      "statistics": {
+        "previousAiring": "2016-03-18T04:01:00Z",
+        "episodeFileCount": 13,
+        "episodeCount": 13,
+        "totalEpisodeCount": 13,
+        "sizeOnDisk": 56544094360,
+        "percentOfEpisodes": 100
       }
-    ],
-    "year": 1960,
-    "path": "F:\\The Andy Griffith Show",
-    "profileId": 2,
-    "languageProfileId": 1,
+    }],
+    "year": 2015,
+    "path": "F:\\TV_Shows\\Marvels Daredevil",
+    "profileId": 6,
     "seasonFolder": true,
     "monitored": true,
     "useSceneNumbering": false,
-    "runtime": 25,
-    "tvdbId": 77754,
-    "tvRageId": 5574,
-    "tvMazeId": 3853,
-    "firstAired": "1960-02-15T06:00:00Z",
-    "lastInfoSync": "2020-04-05T20:40:21.545669Z",
+    "runtime": 55,
+    "tvdbId": 281662,
+    "tvRageId": 38796,
+    "tvMazeId": 1369,
+    "firstAired": "2015-04-10T04:00:00Z",
+    "lastInfoSync": "2016-09-09T09:02:49.4402575Z",
     "seriesType": "standard",
-    "cleanTitle": "theandygriffithshow",
-    "imdbId": "tt0053479",
-    "titleSlug": "the-andy-griffith-show",
-    "certification": "TV-G",
-    "genres": [
-      "Comedy"
-    ],
+    "cleanTitle": "marvelsdaredevil",
+    "imdbId": "tt3322312",
+    "titleSlug": "marvels-daredevil",
+    "certification": "TV-MA",
+    "genres": ["Action",
+    "Crime",
+    "Drama"],
     "tags": [],
-    "added": "2020-04-05T20:40:20.050044Z",
+    "added": "2015-05-15T00:20:32.7892744Z",
     "ratings": {
-      "votes": 547,
-      "value": 8.6
+      "votes": 461,
+      "value": 8.9
     },
-    "qualityProfileId": 2,
-    "id": 105
+    "qualityProfileId": 6,
+    "id": 7
   }
 ]

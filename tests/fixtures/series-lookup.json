@@ -1,0 +1,76 @@
+[
+  {
+    "title": "The Blacklist",
+    "sortTitle": "blacklist",
+    "seasonCount": 4,
+    "status": "continuing",
+    "overview": "Raymond \"Red\" Reddington, one of the FBI's most wanted fugitives, surrenders in person at FBI Headquarters in Washington, D.C. He claims that he and the FBI have the same interests: bringing down dangerous criminals and terrorists. In the last two decades, he's made a list of criminals and terrorists that matter the most but the FBI cannot find because it does not know they exist. Reddington calls this \"The Blacklist\".\nReddington will co-operate, but insists that he will speak only to Elizabeth Keen, a rookie FBI profiler.",
+    "network": "NBC",
+    "airTime": "21:00",
+    "images": [
+      {
+        "coverType": "fanart",
+        "url": "http://thetvdb.com/banners/fanart/original/266189-24.jpg"
+      },
+      {
+        "coverType": "banner",
+        "url": "http://thetvdb.com/banners/graphical/266189-g22.jpg"
+      },
+      {
+        "coverType": "poster",
+        "url": "http://thetvdb.com/banners/posters/266189-14.jpg"
+      }
+    ],
+    "remotePoster": "http://thetvdb.com/banners/posters/266189-14.jpg",
+    "seasons": [
+      {
+        "seasonNumber": 0,
+        "monitored": false
+      },
+      {
+        "seasonNumber": 1,
+        "monitored": false
+      },
+      {
+        "seasonNumber": 2,
+        "monitored": false
+      },
+      {
+        "seasonNumber": 3,
+        "monitored": false
+      },
+      {
+        "seasonNumber": 4,
+        "monitored": false
+      }
+    ],
+    "year": 2013,
+    "profileId": 0,
+    "seasonFolder": false,
+    "monitored": false,
+    "useSceneNumbering": false,
+    "runtime": 45,
+    "tvdbId": 266189,
+    "tvRageId": 35048,
+    "tvMazeId": 69,
+    "firstAired": "2013-09-23T05:00:00Z",
+    "seriesType": "standard",
+    "cleanTitle": "theblacklist",
+    "imdbId": "tt2741602",
+    "titleSlug": "the-blacklist",
+    "certification": "TV-14",
+    "genres": [
+      "Action",
+      "Crime",
+      "Drama",
+      "Mystery"
+    ],
+    "tags": [],
+    "added": "0001-01-01T00:00:00Z",
+    "ratings": {
+      "votes": 182,
+      "value": 8.6
+    },
+    "qualityProfileId": 0
+  }
+]
