@@ -16,12 +16,10 @@ from .models import (
 )
 
 
-class Sonarr:
-    """Main class for python interface."""
+class Sonarr(Client):
+    """Main class for Python API."""
 
     _application: Optional[Application] = None
-
-    _client: Optional[Client] = None
 
     def __init__(
         self,
@@ -36,7 +34,7 @@ class Sonarr:
         user_agent: str = None,
     ) -> None:
         """Initialize connection with Sonarr."""
-        self._client = Client(
+        super().__init__(
             host=host,
             api_key=api_key,
             base_path=base_path,
@@ -53,24 +51,19 @@ class Sonarr:
         """Return the cached Application object."""
         return self._application
 
-    @property
-    def client(self) -> Optional[Client]:
-        """Return the cached Client instance."""
-        return self._client
-
     async def update(self, full_update: bool = False) -> Application:
         """Get all information about the application in a single call."""
         if self._application is None or full_update:
-            status = await self._client._request("system/status")
+            status = await self._request("system/status")
             if status is None:
                 raise SonarrError("Sonarr returned an empty API status response")
 
-            diskspace = await self._client._request("diskspace")
+            diskspace = await self._request("diskspace")
 
             self._application = Application({"info": status, "diskspace": diskspace})
             return self._application
 
-        diskspace = await self._client._request("diskspace")
+        diskspace = await self._request("diskspace")
         self._application.update_from_dict({"diskspace": diskspace})
         return self._application
 
@@ -88,31 +81,31 @@ class Sonarr:
         if end is not None:
             params["end"] = str(end)
 
-        results = await self._client._request("calendar", params=params)
+        results = await self._request("calendar", params=params)
 
         return [Episode.from_dict(result) for result in results]
 
     async def commands(self) -> List[CommandItem]:
         """Query the status of all currently started commands."""
-        results = await self._client._request("command")
+        results = await self._request("command")
 
         return [CommandItem.from_dict(result) for result in results]
 
     async def command_status(self, command_id: int) -> CommandItem:
         """Query the status of a previously started command."""
-        result = await self._client._request(f"command/{command_id}")
+        result = await self._request(f"command/{command_id}")
 
         return CommandItem.from_dict(result)
 
     async def queue(self) -> List[QueueItem]:
         """Get currently downloading info."""
-        results = await self._client._request("queue")
+        results = await self._request("queue")
 
         return [QueueItem.from_dict(result) for result in results]
 
     async def series(self) -> List[SeriesItem]:
         """Return all series."""
-        results = await self._client._request("series")
+        results = await self._request("series")
 
         return [SeriesItem.from_dict(result) for result in results]
 
@@ -131,14 +124,14 @@ class Sonarr:
             "sortDir": sort_dir,
         }
 
-        results = await self._client._request("wanted/missing", params=params)
+        results = await self._request("wanted/missing", params=params)
 
         return WantedResults.from_dict(results)
 
     async def close(self) -> None:
         """Close open client session."""
-        if self._client:
-            await self._client.close()
+        if self._session:
+            await self._session.close()
 
     async def __aenter__(self) -> "Sonarr":
         """Async enter."""
