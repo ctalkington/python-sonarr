@@ -365,7 +365,7 @@ class Application:
     def __init__(self, data: dict):
         """Initialize an empty Sonarr application class."""
         # Check if all elements are in the passed dict, else raise an Error
-        if any(k not in data for k in ["info", "diskspace"]):
+        if any(k not in data for k in ["info"]):
             raise SonarrError("Sonarr data is incomplete, cannot construct object")
         self.update_from_dict(data)
 
@@ -374,7 +374,7 @@ class Application:
         if "info" in data and data["info"]:
             self.info = Info.from_dict(data["info"])
 
-        if "diskspace" in data and data["diskspace"]:
+        if "diskspace" in data and data["diskspace"] and data["diskspace"] is not None:
             disks = [Disk.from_dict(disk) for disk in data["diskspace"]]
             self.disks = disks
 
