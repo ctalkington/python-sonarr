@@ -134,4 +134,4 @@ class Sonarr(Client):
 
     async def __aexit__(self, *exc_info) -> None:
         """Async exit."""
-        await self.session_close()
+        await self.close_session()
