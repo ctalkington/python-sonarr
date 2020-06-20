@@ -14,6 +14,12 @@ class SonarrConnectionError(SonarrError):
 
 
 class SonarrAccessRestricted(SonarrError):
-    """Sonarr access restricted."""
+    """Sonarr access restricted exception."""
+
+    pass
+
+
+class SonarrResourceNotFound(SonarrError):
+    """Sonarr resource not found exception."""
 
     pass
