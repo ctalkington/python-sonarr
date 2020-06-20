@@ -9,7 +9,12 @@ import async_timeout
 from yarl import URL
 
 from .__version__ import __version__
-from .exceptions import SonarrAccessRestricted, SonarrConnectionError, SonarrError
+from .exceptions import (
+    SonarrAccessRestricted,
+    SonarrConnectionError,
+    SonarrError,
+    SonarrResourceNotFound,
+)
 
 
 class Client:
