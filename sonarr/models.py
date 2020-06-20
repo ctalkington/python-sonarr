@@ -374,7 +374,7 @@ class Application:
         if "info" in data and data["info"]:
             self.info = Info.from_dict(data["info"])
 
-        if "diskspace" in data and data["diskspace"] and data["diskspace"] is not None:
+        if "diskspace" in data and data["diskspace"]:
             disks = [Disk.from_dict(disk) for disk in data["diskspace"]]
             self.disks = disks
 
