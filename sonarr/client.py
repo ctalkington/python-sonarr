@@ -94,7 +94,7 @@ class Client:
                 "Access restricted. Please ensure valid API Key is provided", {}
             )
 
-        if response.status === 404:
+        if response.status == 404:
             raise SonarrResourceNotFound("Resource not found")
 
         content_type = response.headers.get("Content-Type", "")
