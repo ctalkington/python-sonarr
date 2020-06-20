@@ -9,7 +9,12 @@ import async_timeout
 from yarl import URL
 
 from .__version__ import __version__
-from .exceptions import SonarrAccessRestricted, SonarrConnectionError, SonarrError
+from .exceptions import (
+    SonarrAccessRestricted,
+    SonarrConnectionError,
+    SonarrError,
+    SonarrResourceNotFound,
+)
 
 
 class Client:
@@ -93,6 +98,9 @@ class Client:
             raise SonarrAccessRestricted(
                 "Access restricted. Please ensure valid API Key is provided", {}
             )
+
+        if response.status == 404:
+            raise SonarrResourceNotFound("Resource not found")
 
         content_type = response.headers.get("Content-Type", "")
 

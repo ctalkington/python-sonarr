@@ -4,7 +4,12 @@ import asyncio
 import pytest
 from aiohttp import ClientSession
 from sonarr import Client
-from sonarr.exceptions import SonarrAccessRestricted, SonarrConnectionError, SonarrError
+from sonarr.exceptions import (
+    SonarrAccessRestricted,
+    SonarrConnectionError,
+    SonarrError,
+    SonarrResourceNotFound,
+)
 
 API_KEY = "MOCK_API_KEY"
 HOST = "192.168.1.89"
@@ -169,7 +174,7 @@ async def test_http_error404(aresponses):
 
     async with ClientSession() as session:
         client = Client(HOST, API_KEY, session=session)
-        with pytest.raises(SonarrError):
+        with pytest.raises(SonarrResourceNotFound):
             assert await client._request("system/status")
 
 
