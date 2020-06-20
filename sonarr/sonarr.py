@@ -142,12 +142,7 @@ class Sonarr:
             if status is None:
                 raise SonarrError("Sonarr returned an empty API status response")
 
-            diskspace = await self._request("diskspace")
-            if not diskspace or diskspace is None:
-                raise SonarrError("Sonarr returned an empty API diskspace response")
-
-            self._application = Application({"info": status, "diskspace": diskspace})
-            return self._application
+            self._application = Application({"info": status, "diskspace": None})
 
         diskspace = await self._request("diskspace")
         self._application.update_from_dict({"diskspace": diskspace})
