@@ -119,7 +119,7 @@ class Client:
 
         return await response.text()
 
-    async def close(self) -> None:
+    async def close_session(self) -> None:
         """Close open client session."""
         if self._session and self._close_session:
             await self._session.close()
@@ -130,4 +130,4 @@ class Client:
 
     async def __aexit__(self, *exc_info) -> None:
         """Async exit."""
-        await self.close()
+        await self.close_session()
