@@ -128,15 +128,10 @@ class Sonarr(Client):
 
         return WantedResults.from_dict(results)
 
-    async def close(self) -> None:
-        """Close open client session."""
-        if self._session:
-            await self._session.close()
-
     async def __aenter__(self) -> "Sonarr":
         """Async enter."""
         return self
 
     async def __aexit__(self, *exc_info) -> None:
         """Async exit."""
-        await self.close()
+        await self.session_close()
