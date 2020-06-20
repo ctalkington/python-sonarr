@@ -95,7 +95,7 @@ class Client:
             )
 
         if response.status === 404:
-            raise SonarrResourceNotFound("Resource not found"))
+            raise SonarrResourceNotFound("Resource not found")
 
         content_type = response.headers.get("Content-Type", "")
 
