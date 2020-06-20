@@ -16,6 +16,13 @@ MATCH_HOST = f"{HOST}:{PORT}"
 
 
 @pytest.mark.asyncio
+async def test_loop():
+    """Test loop usage is handled correctly."""
+    async with Sonarr(HOST, API_KEY) as sonarr:
+        assert isinstance(sonarr, Sonarr)
+
+
+@pytest.mark.asyncio
 async def test_app(aresponses):
     """Test app property is handled correctly."""
     aresponses.add(
