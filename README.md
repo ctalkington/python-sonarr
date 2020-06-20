@@ -23,7 +23,7 @@ from sonarr import Sonarr
 async def main():
     """Show example of connecting to your Sonarr instance."""
     async with Sonarr("192.168.1.100", "API_TOKEN") as sonarr:
-        info = sonarr.update()
+        info = await sonarr.update()
         print(info)
 
 
