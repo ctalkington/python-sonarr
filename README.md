@@ -42,9 +42,6 @@ async def main():
         wanted = await sonarr.wanted()
         print(wanted)
 
-        # advanced: full API read/write support.
-        client = sonarr.client()
-
 
 if __name__ == "__main__":
     loop = asyncio.get_event_loop()
