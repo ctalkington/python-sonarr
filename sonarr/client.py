@@ -2,7 +2,7 @@
 import asyncio
 import json
 from socket import gaierror as SocketGIAError
-from typing import Any, List, Mapping, Optional
+from typing import Any, Mapping, Optional
 
 import aiohttp
 import async_timeout
