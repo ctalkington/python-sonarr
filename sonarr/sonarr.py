@@ -1,9 +1,8 @@
 """Asynchronous Python client for Sonarr."""
-from typing import Any, List, Mapping, Optional
+from typing import List, Optional
 
 from aiohttp.client import ClientSession
 
-from .__version__ import __version__
 from .client import Client
 from .exceptions import SonarrError
 from .models import (
