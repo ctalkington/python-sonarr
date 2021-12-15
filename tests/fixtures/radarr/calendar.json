@@ -1,0 +1,414 @@
+[
+  {
+    "title": "No Time to Die",
+    "originalTitle": "No Time to Die",
+    "alternateTitles": [
+      {
+        "sourceType": "tmdb",
+        "movieId": 1352,
+        "title": "James Bond: No Time to DIe",
+        "sourceId": 370172,
+        "votes": 0,
+        "voteCount": 0,
+        "language": {
+          "id": 1,
+          "name": "English"
+        },
+        "id": 4269
+      },
+      {
+        "sourceType": "tmdb",
+        "movieId": 1352,
+        "title": "007: Не время умирать",
+        "sourceId": 0,
+        "votes": 0,
+        "voteCount": 0,
+        "language": {
+          "id": 11,
+          "name": "Russian"
+        },
+        "id": 12390
+      },
+      {
+        "sourceType": "tmdb",
+        "movieId": 1352,
+        "title": "James Bond: Ölmek İçin Zaman Yok",
+        "sourceId": 0,
+        "votes": 0,
+        "voteCount": 0,
+        "language": {
+          "id": 17,
+          "name": "Turkish"
+        },
+        "id": 13894
+      },
+      {
+        "sourceType": "tmdb",
+        "movieId": 1352,
+        "title": "พยัคฆ์ร้ายฝ่าเวลามรณะ",
+        "sourceId": 0,
+        "votes": 0,
+        "voteCount": 0,
+        "language": {
+          "id": 28,
+          "name": "Thai"
+        },
+        "id": 14220
+      },
+      {
+        "sourceType": "tmdb",
+        "movieId": 1352,
+        "title": "25 No Time to Die",
+        "sourceId": 0,
+        "votes": 0,
+        "voteCount": 0,
+        "language": {
+          "id": 1,
+          "name": "English"
+        },
+        "id": 14529
+      },
+      {
+        "sourceType": "tmdb",
+        "movieId": 1352,
+        "title": "James Bond 25 - No Time To Die",
+        "sourceId": 0,
+        "votes": 0,
+        "voteCount": 0,
+        "language": {
+          "id": 1,
+          "name": "English"
+        },
+        "id": 14574
+      },
+      {
+        "sourceType": "tmdb",
+        "movieId": 1352,
+        "title": "007 - Mourir Peut Attendre",
+        "sourceId": 0,
+        "votes": 0,
+        "voteCount": 0,
+        "language": {
+          "id": 2,
+          "name": "French"
+        },
+        "id": 14611
+      },
+      {
+        "sourceType": "tmdb",
+        "movieId": 1352,
+        "title": "James Bond - Mourir peut attendre",
+        "sourceId": 0,
+        "votes": 0,
+        "voteCount": 0,
+        "language": {
+          "id": 2,
+          "name": "French"
+        },
+        "id": 14661
+      },
+      {
+        "sourceType": "tmdb",
+        "movieId": 1352,
+        "title": "James Bond 25 - Mourir Peut Attendre",
+        "sourceId": 0,
+        "votes": 0,
+        "voteCount": 0,
+        "language": {
+          "id": 2,
+          "name": "French"
+        },
+        "id": 14743
+      },
+      {
+        "sourceType": "tmdb",
+        "movieId": 1352,
+        "title": "007 26 - Sem Tempo Para Morrer",
+        "sourceId": 0,
+        "votes": 0,
+        "voteCount": 0,
+        "language": {
+          "id": 1,
+          "name": "English"
+        },
+        "id": 14783
+      },
+      {
+        "sourceType": "tmdb",
+        "movieId": 1352,
+        "title": "(2021) Sem Tempo para Morrer",
+        "sourceId": 0,
+        "votes": 0,
+        "voteCount": 0,
+        "language": {
+          "id": 1,
+          "name": "English"
+        },
+        "id": 14809
+      },
+      {
+        "sourceType": "tmdb",
+        "movieId": 1352,
+        "title": "007 25 No Time to Die",
+        "sourceId": 0,
+        "votes": 0,
+        "voteCount": 0,
+        "language": {
+          "id": 1,
+          "name": "English"
+        },
+        "id": 14814
+      }
+    ],
+    "secondaryYearSourceId": 0,
+    "sortTitle": "no time to die",
+    "sizeOnDisk": 11814319970,
+    "status": "released",
+    "overview": "Bond has left active service and is enjoying a tranquil life in Jamaica. His peace is short-lived when his old friend Felix Leiter from the CIA turns up asking for help. The mission to rescue a kidnapped scientist turns out to be far more treacherous than expected, leading Bond onto the trail of a mysterious villain armed with dangerous new technology.",
+    "inCinemas": "2021-09-29T00:00:00Z",
+    "physicalRelease": "2021-12-16T00:00:00Z",
+    "digitalRelease": "2021-11-09T00:00:00Z",
+    "images": [
+      {
+        "coverType": "poster",
+        "url": "https://image.tmdb.org/t/p/original/iUgygt3fscRoKWCV1d0C7FbM9TP.jpg"
+      },
+      {
+        "coverType": "fanart",
+        "url": "https://image.tmdb.org/t/p/original/r2GAjd4rNOHJh6i6Y0FntmYuPQW.jpg"
+      }
+    ],
+    "website": "https://www.007.com/no-time-to-die/",
+    "year": 2021,
+    "hasFile": true,
+    "youTubeTrailerId": "N_gD9-Oa0fg",
+    "studio": "Eon Productions",
+    "path": "/movies/No Time To Die (2020)",
+    "qualityProfileId": 7,
+    "monitored": true,
+    "minimumAvailability": "released",
+    "isAvailable": true,
+    "folderName": "/movies/No Time To Die (2020)",
+    "runtime": 163,
+    "cleanTitle": "notimetodie",
+    "imdbId": "tt2382320",
+    "tmdbId": 370172,
+    "titleSlug": "370172",
+    "certification": "PG-13",
+    "genres": [
+      "Adventure",
+      "Action",
+      "Thriller"
+    ],
+    "tags": [],
+    "added": "2019-08-29T18:40:35Z",
+    "ratings": {
+      "votes": 2543,
+      "value": 7.6
+    },
+    "movieFile": {
+      "movieId": 1352,
+      "relativePath": "No Time to Die (2021) [imdb-tt2382320][WEBDL-1080p][EAC3 5.1][h264]-TEPES.mkv",
+      "path": "/movies/No Time To Die (2020)/No Time to Die (2021) [imdb-tt2382320][WEBDL-1080p][EAC3 5.1][h264]-TEPES.mkv",
+      "size": 11814319970,
+      "dateAdded": "2021-11-09T07:22:50Z",
+      "sceneName": "No.Time.To.Die.2021.REPACK.1080p.AMZN.WEB-DL.DDP5.1.H.264-TEPES",
+      "indexerFlags": 0,
+      "quality": {
+        "quality": {
+          "id": 3,
+          "name": "WEBDL-1080p",
+          "source": "webdl",
+          "resolution": 1080,
+          "modifier": "none"
+        },
+        "revision": {
+          "version": 2,
+          "real": 0,
+          "isRepack": true
+        }
+      },
+      "mediaInfo": {
+        "audioAdditionalFeatures": "",
+        "audioBitrate": 640000,
+        "audioChannels": 5.1,
+        "audioCodec": "EAC3",
+        "audioLanguages": "English",
+        "audioStreamCount": 1,
+        "videoBitDepth": 8,
+        "videoBitrate": 8998386,
+        "videoCodec": "h264",
+        "videoFps": 23.976,
+        "resolution": "1920x800",
+        "runTime": "2:43:23",
+        "scanType": "Progressive",
+        "subtitles": "English / English"
+      },
+      "originalFilePath": "No.Time.To.Die.2021.REPACK.1080p.AMZN.WEB-DL.DDP5.1.H.264-TEPES/No.Time.To.Die.2021.REPACK.1080p.AMZN.WEB-DL.DDP5.1.H.264-TEPES.mkv",
+      "qualityCutoffNotMet": false,
+      "languages": [
+        {
+          "id": 1,
+          "name": "English"
+        }
+      ],
+      "releaseGroup": "TEPES",
+      "edition": "",
+      "id": 2337
+    },
+    "collection": {
+      "name": "James Bond Collection",
+      "tmdbId": 645,
+      "images": []
+    },
+    "id": 1352
+  },
+  {
+    "title": "The Matrix Resurrections",
+    "originalTitle": "The Matrix Resurrections",
+    "alternateTitles": [
+      {
+        "sourceType": "tmdb",
+        "movieId": 1622,
+        "title": "骇客帝国4",
+        "sourceId": 0,
+        "votes": 0,
+        "voteCount": 0,
+        "language": {
+          "id": 1,
+          "name": "English"
+        },
+        "id": 10558
+      },
+      {
+        "sourceType": "tmdb",
+        "movieId": 1622,
+        "title": "骇客任务4",
+        "sourceId": 0,
+        "votes": 0,
+        "voteCount": 0,
+        "language": {
+          "id": 1,
+          "name": "English"
+        },
+        "id": 10559
+      },
+      {
+        "sourceType": "tmdb",
+        "movieId": 1622,
+        "title": "The Matrix 4",
+        "sourceId": 0,
+        "votes": 0,
+        "voteCount": 0,
+        "language": {
+          "id": 1,
+          "name": "English"
+        },
+        "id": 11804
+      },
+      {
+        "sourceType": "tmdb",
+        "movieId": 1622,
+        "title": "Матриця 4",
+        "sourceId": 0,
+        "votes": 0,
+        "voteCount": 0,
+        "language": {
+          "id": 1,
+          "name": "English"
+        },
+        "id": 13428
+      },
+      {
+        "sourceType": "tmdb",
+        "movieId": 1622,
+        "title": "매트릭스 4",
+        "sourceId": 0,
+        "votes": 0,
+        "voteCount": 0,
+        "language": {
+          "id": 1,
+          "name": "English"
+        },
+        "id": 13650
+      },
+      {
+        "sourceType": "tmdb",
+        "movieId": 1622,
+        "title": "Matrix 4",
+        "sourceId": 0,
+        "votes": 0,
+        "voteCount": 0,
+        "language": {
+          "id": 1,
+          "name": "English"
+        },
+        "id": 13666
+      },
+      {
+        "sourceType": "tmdb",
+        "movieId": 1622,
+        "title": "Матрицата: Възкресения",
+        "sourceId": 0,
+        "votes": 0,
+        "voteCount": 0,
+        "language": {
+          "id": 29,
+          "name": "Bulgarian"
+        },
+        "id": 14838
+      }
+    ],
+    "secondaryYearSourceId": 0,
+    "sortTitle": "matrix resurrections",
+    "sizeOnDisk": 0,
+    "status": "announced",
+    "overview": "Plagued by strange memories, Neo's life takes an unexpected turn when he finds himself back inside the Matrix.",
+    "inCinemas": "2021-12-16T00:00:00Z",
+    "digitalRelease": "2021-12-22T00:00:00Z",
+    "images": [
+      {
+        "coverType": "poster",
+        "url": "https://image.tmdb.org/t/p/original/xLNtaLaHudIzOqdEZ7R3lcDLrQQ.jpg"
+      },
+      {
+        "coverType": "fanart",
+        "url": "https://image.tmdb.org/t/p/original/3NiiRAKt2L5bUuAvSOkv6Yn7u6T.jpg"
+      }
+    ],
+    "website": "https://www.whatisthematrix.com",
+    "year": 2021,
+    "hasFile": false,
+    "youTubeTrailerId": "nNpvWBuTfrc",
+    "studio": "Warner Bros. Pictures",
+    "path": "/movies/The Matrix 4 (2021)",
+    "qualityProfileId": 7,
+    "monitored": true,
+    "minimumAvailability": "released",
+    "isAvailable": false,
+    "folderName": "/movies/The Matrix 4 (2021)",
+    "runtime": 148,
+    "cleanTitle": "thematrixresurrections",
+    "imdbId": "tt10838180",
+    "tmdbId": 624860,
+    "titleSlug": "624860",
+    "certification": "R",
+    "genres": [
+      "Action",
+      "Adventure",
+      "Science Fiction"
+    ],
+    "tags": [],
+    "added": "2020-12-03T12:51:52Z",
+    "ratings": {
+      "votes": 11,
+      "value": 8.9
+    },
+    "collection": {
+      "name": "The Matrix Collection",
+      "tmdbId": 2344,
+      "images": []
+    },
+    "id": 1622
+  }
+]

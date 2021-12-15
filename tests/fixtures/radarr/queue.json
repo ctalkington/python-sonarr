@@ -1,0 +1,47 @@
+{
+  "page": 1,
+  "pageSize": 20,
+  "sortKey": "timeLeft",
+  "sortDirection": "ascending",
+  "totalRecords": 1,
+  "records": [
+    {
+      "movieId": 2008,
+      "languages": [
+        {
+          "id": 1,
+          "name": "English"
+        }
+      ],
+      "quality": {
+        "quality": {
+          "id": 3,
+          "name": "WEBDL-1080p",
+          "source": "webdl",
+          "resolution": 1080,
+          "modifier": "none"
+        },
+        "revision": {
+          "version": 1,
+          "real": 0,
+          "isRepack": false
+        }
+      },
+      "customFormats": [],
+      "size": 9599909429,
+      "title": "Army.of.Thieves.2021.1080p.WEB-DL.AAC.2.0.x264-Telly",
+      "sizeleft": 8478892583,
+      "timeleft": "00:08:11",
+      "estimatedCompletionTime": "2021-12-15T12:00:39Z",
+      "status": "downloading",
+      "trackedDownloadStatus": "ok",
+      "trackedDownloadState": "downloading",
+      "statusMessages": [],
+      "downloadId": "9ab937f649974510b36245d1d29b67e8",
+      "protocol": "usenet",
+      "downloadClient": "Nzbget",
+      "indexer": "Nzbs.in (Prowlarr)",
+      "id": 1065103901
+    }
+  ]
+}

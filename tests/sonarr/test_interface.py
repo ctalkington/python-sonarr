@@ -2,10 +2,8 @@
 from typing import List
 
 import pytest
-
 from aiohttp import ClientSession
 
-from arr.models import Application, CommandItem, Info
 from sonarr import Sonarr
 from sonarr.models import Episode, QueueItem, SeriesItem, Series, Season, WantedResults
 from tests import load_fixture
@@ -18,46 +16,6 @@ MATCH_HOST = f"{HOST}:{PORT}"
 
 
 @pytest.mark.asyncio
-async def test_loop():
-    """Test loop usage is handled correctly."""
-    async with Sonarr(HOST, API_KEY) as sonarr:
-        assert isinstance(sonarr, Sonarr)
-
-
-@pytest.mark.asyncio
-async def test_app(aresponses):
-    """Test app property is handled correctly."""
-    aresponses.add(
-        MATCH_HOST,
-        "/api/system/status",
-        "GET",
-        aresponses.Response(
-            status=200,
-            headers={"Content-Type": "application/json"},
-            text=load_fixture("system-status.json"),
-        ),
-    )
-
-    aresponses.add(
-        MATCH_HOST,
-        "/api/diskspace",
-        "GET",
-        aresponses.Response(
-            status=200,
-            headers={"Content-Type": "application/json"},
-            text=load_fixture("diskspace.json"),
-        ),
-    )
-
-    async with ClientSession() as session:
-        client = Sonarr(HOST, API_KEY, session=session)
-        await client.update()
-
-        assert client.app
-        assert isinstance(client.app, Application)
-
-
-@pytest.mark.asyncio
 async def test_calendar(aresponses):
     """Test calendar method is handled correctly."""
     aresponses.add(
@@ -67,7 +25,7 @@ async def test_calendar(aresponses):
         aresponses.Response(
             status=200,
             headers={"Content-Type": "application/json"},
-            text=load_fixture("calendar.json"),
+            text=load_fixture("sonarr/calendar.json"),
         ),
         match_querystring=True,
     )
@@ -84,53 +42,6 @@ async def test_calendar(aresponses):
 
 
 @pytest.mark.asyncio
-async def test_commands(aresponses):
-    """Test commands method is handled correctly."""
-    aresponses.add(
-        MATCH_HOST,
-        "/api/command",
-        "GET",
-        aresponses.Response(
-            status=200,
-            headers={"Content-Type": "application/json"},
-            text=load_fixture("command.json"),
-        ),
-    )
-
-    async with ClientSession() as session:
-        client = Sonarr(HOST, API_KEY, session=session)
-        response = await client.commands()
-
-        assert response
-        assert isinstance(response, List)
-
-        assert response[0]
-        assert isinstance(response[0], CommandItem)
-
-
-@pytest.mark.asyncio
-async def test_command_status(aresponses):
-    """Test command_status method is handled correctly."""
-    aresponses.add(
-        MATCH_HOST,
-        "/api/command/368630",
-        "GET",
-        aresponses.Response(
-            status=200,
-            headers={"Content-Type": "application/json"},
-            text=load_fixture("command-id.json"),
-        ),
-    )
-
-    async with ClientSession() as session:
-        client = Sonarr(HOST, API_KEY, session=session)
-        response = await client.command_status(368630)
-
-        assert response
-        assert isinstance(response, CommandItem)
-
-
-@pytest.mark.asyncio
 async def test_queue(aresponses):
     """Test queue method is handled correctly."""
     aresponses.add(
@@ -140,7 +51,7 @@ async def test_queue(aresponses):
         aresponses.Response(
             status=200,
             headers={"Content-Type": "application/json"},
-            text=load_fixture("queue.json"),
+            text=load_fixture("sonarr/queue.json"),
         ),
     )
 
@@ -167,7 +78,7 @@ async def test_series(aresponses):
         aresponses.Response(
             status=200,
             headers={"Content-Type": "application/json"},
-            text=load_fixture("series.json"),
+            text=load_fixture("sonarr/series.json"),
         ),
     )
 
@@ -191,57 +102,6 @@ async def test_series(aresponses):
 
 
 @pytest.mark.asyncio
-async def test_update(aresponses):
-    """Test update method is handled correctly."""
-    aresponses.add(
-        MATCH_HOST,
-        "/api/system/status",
-        "GET",
-        aresponses.Response(
-            status=200,
-            headers={"Content-Type": "application/json"},
-            text=load_fixture("system-status.json"),
-        ),
-    )
-
-    aresponses.add(
-        MATCH_HOST,
-        "/api/diskspace",
-        "GET",
-        aresponses.Response(
-            status=200,
-            headers={"Content-Type": "application/json"},
-            text=load_fixture("diskspace.json"),
-        ),
-    )
-
-    aresponses.add(
-        MATCH_HOST,
-        "/api/diskspace",
-        "GET",
-        aresponses.Response(
-            status=200,
-            headers={"Content-Type": "application/json"},
-            text=load_fixture("diskspace.json"),
-        ),
-    )
-
-    async with ClientSession() as session:
-        client = Sonarr(HOST, API_KEY, session=session)
-        response = await client.update()
-
-        assert response
-        assert isinstance(response.info, Info)
-        assert isinstance(response.disks, List)
-
-        response = await client.update()
-
-        assert response
-        assert isinstance(response.info, Info)
-        assert isinstance(response.disks, List)
-
-
-@pytest.mark.asyncio
 async def test_wanted(aresponses):
     """Test queue method is handled correctly."""
     aresponses.add(
@@ -251,7 +111,7 @@ async def test_wanted(aresponses):
         aresponses.Response(
             status=200,
             headers={"Content-Type": "application/json"},
-            text=load_fixture("wanted-missing.json"),
+            text=load_fixture("sonarr/wanted-missing.json"),
         ),
         match_querystring=True,
     )

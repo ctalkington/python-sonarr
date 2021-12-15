@@ -1,0 +1,9 @@
+{
+  "page": 1,
+  "pageSize": 10,
+  "sortKey": "airDateUtc",
+  "sortDirection": "descending",
+  "totalRecords": 2,
+  "records": [
+  ]
+}

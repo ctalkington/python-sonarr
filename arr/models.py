@@ -127,6 +127,10 @@ class QueueItem:
     status: str
     eta: datetime
     time_remaining: str
+    # languages: List[Language]
+    # quality: List[Quality]
+    # customFormats: List[CustomFormat]
+    # statusMessages: List[StatusMessage]
 
     @staticmethod
     def from_dict(data: dict):
