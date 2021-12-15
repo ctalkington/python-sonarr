@@ -4,10 +4,12 @@ from datetime import datetime, timezone
 from typing import List
 
 import pytest
-import sonarr.models as models
-from sonarr import SonarrError
 
-from . import load_fixture
+import arr.models
+import sonarr.models as models
+from sonarr import ArrError
+
+from tests import load_fixture
 
 INFO = json.loads(load_fixture("system-status.json"))
 CALENDAR = json.loads(load_fixture("calendar.json"))
@@ -22,39 +24,39 @@ APPLICATION = {"info": INFO, "diskspace": DISKSPACE}
 
 def test_application() -> None:
     """Test the Application model."""
-    app = models.Application(APPLICATION)
+    app = arr.models.Application(APPLICATION)
 
     assert app
 
     assert app.info
-    assert isinstance(app.info, models.Info)
+    assert isinstance(app.info, arr.models.Info)
 
     assert app.disks
     assert len(app.disks) == 1
-    assert isinstance(app.disks[0], models.Disk)
+    assert isinstance(app.disks[0], arr.models.Disk)
 
 
 def test_application_no_data() -> None:
     """Test the Device model."""
-    with pytest.raises(SonarrError):
-        models.Application({})
+    with pytest.raises(ArrError):
+        arr.models.Application({})
 
 
 def test_dt_str_to_dt() -> None:
     """Test the dt_str_to_dt method."""
-    dt = models.dt_str_to_dt("2018-05-14T19:02:13.101496Z")
+    dt = arr.models.dt_str_to_dt("2018-05-14T19:02:13.101496Z")
     assert dt == datetime(2018, 5, 14, 19, 2, 13, 100000, tzinfo=timezone.utc)
 
 
 def test_dt_str_to_dt_long_microseconds() -> None:
     """Test the dt_str_to_dt method with long microseconds."""
-    dt = models.dt_str_to_dt("2018-05-14T19:02:13.1014986Z")
+    dt = arr.models.dt_str_to_dt("2018-05-14T19:02:13.1014986Z")
     assert dt == datetime(2018, 5, 14, 19, 2, 13, 100000, tzinfo=timezone.utc)
 
 
 def test_info() -> None:
     """Test the Info model."""
-    info = models.Info.from_dict(INFO)
+    info = arr.models.Info.from_dict(INFO)
 
     assert info
     assert info.app_name == "Sonarr"
@@ -63,7 +65,7 @@ def test_info() -> None:
 
 def test_command_item() -> None:
     """Test the CommandItem model."""
-    item = models.CommandItem.from_dict(COMMAND[0])
+    item = arr.models.CommandItem.from_dict(COMMAND[0])
 
     assert item
     assert item.name == "RefreshSeries"
@@ -75,7 +77,7 @@ def test_command_item() -> None:
     assert item.queued == datetime(2020, 4, 6, 16, 54, 6, 410000, tzinfo=timezone.utc)
     assert item.changed == datetime(2020, 4, 6, 16, 54, 6, 420000, tzinfo=timezone.utc)
 
-    item = models.CommandItem.from_dict(COMMAND[1])
+    item = arr.models.CommandItem.from_dict(COMMAND[1])
 
     assert item
     assert item.name == "RefreshSeries"
@@ -116,7 +118,7 @@ former pro football star Connie Frye to be the celebrity endorser."""
 
 def test_disk() -> None:
     """Test the Disk model."""
-    disk = models.Disk.from_dict(DISKSPACE[0])
+    disk = arr.models.Disk.from_dict(DISKSPACE[0])
 
     assert disk
     assert disk.path == "C:\\"

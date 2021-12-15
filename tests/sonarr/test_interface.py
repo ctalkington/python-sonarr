@@ -2,11 +2,13 @@
 from typing import List
 
 import pytest
-import sonarr.models as models
-from aiohttp import ClientSession
-from sonarr import Sonarr
 
-from . import load_fixture
+from aiohttp import ClientSession
+
+from arr.models import Application, CommandItem, Info
+from sonarr import Sonarr
+from sonarr.models import Episode, QueueItem, SeriesItem, Series, Season, WantedResults
+from tests import load_fixture
 
 API_KEY = "MOCK_API_KEY"
 HOST = "192.168.1.89"
@@ -52,7 +54,7 @@ async def test_app(aresponses):
         await client.update()
 
         assert client.app
-        assert isinstance(client.app, models.Application)
+        assert isinstance(client.app, Application)
 
 
 @pytest.mark.asyncio
@@ -78,7 +80,7 @@ async def test_calendar(aresponses):
         assert isinstance(response, List)
 
         assert response[0]
-        assert isinstance(response[0], models.Episode)
+        assert isinstance(response[0], Episode)
 
 
 @pytest.mark.asyncio
@@ -103,7 +105,7 @@ async def test_commands(aresponses):
         assert isinstance(response, List)
 
         assert response[0]
-        assert isinstance(response[0], models.CommandItem)
+        assert isinstance(response[0], CommandItem)
 
 
 @pytest.mark.asyncio
@@ -125,7 +127,7 @@ async def test_command_status(aresponses):
         response = await client.command_status(368630)
 
         assert response
-        assert isinstance(response, models.CommandItem)
+        assert isinstance(response, CommandItem)
 
 
 @pytest.mark.asyncio
@@ -150,9 +152,9 @@ async def test_queue(aresponses):
         assert isinstance(response, List)
 
         assert response[0]
-        assert isinstance(response[0], models.QueueItem)
+        assert isinstance(response[0], QueueItem)
         assert response[0].episode
-        assert isinstance(response[0].episode, models.Episode)
+        assert isinstance(response[0].episode, Episode)
 
 
 @pytest.mark.asyncio
@@ -177,15 +179,15 @@ async def test_series(aresponses):
         assert isinstance(response, List)
 
         assert response[0]
-        assert isinstance(response[0], models.SeriesItem)
+        assert isinstance(response[0], SeriesItem)
         assert response[0].series
-        assert isinstance(response[0].series, models.Series)
+        assert isinstance(response[0].series, Series)
 
         assert response[0].seasons
         assert isinstance(response[0].seasons, List)
 
         assert response[0].seasons[0]
-        assert isinstance(response[0].seasons[0], models.Season)
+        assert isinstance(response[0].seasons[0], Season)
 
 
 @pytest.mark.asyncio
@@ -229,13 +231,13 @@ async def test_update(aresponses):
         response = await client.update()
 
         assert response
-        assert isinstance(response.info, models.Info)
+        assert isinstance(response.info, Info)
         assert isinstance(response.disks, List)
 
         response = await client.update()
 
         assert response
-        assert isinstance(response.info, models.Info)
+        assert isinstance(response.info, Info)
         assert isinstance(response.disks, List)
 
 
@@ -259,7 +261,7 @@ async def test_wanted(aresponses):
         response = await client.wanted()
 
         assert response
-        assert isinstance(response, models.WantedResults)
+        assert isinstance(response, WantedResults)
 
         assert response.page == 1
         assert response.per_page == 10
@@ -272,4 +274,4 @@ async def test_wanted(aresponses):
         assert len(response.episodes) == 2
 
         assert response.episodes[0]
-        assert isinstance(response.episodes[0], models.Episode)
+        assert isinstance(response.episodes[0], Episode)

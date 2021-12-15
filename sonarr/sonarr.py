@@ -1,24 +1,16 @@
 """Asynchronous Python client for Sonarr."""
-from typing import List, Optional
+from typing import List
 
 from aiohttp.client import ClientSession
 
-from .client import Client
-from .exceptions import SonarrError
+from arr.client import Client
 from .models import (
-    Application,
-    CommandItem,
-    Episode,
-    QueueItem,
-    SeriesItem,
-    WantedResults,
+    SeriesItem, Episode, QueueItem, WantedResults,
 )
 
 
 class Sonarr(Client):
     """Main class for Python API."""
-
-    _application: Optional[Application] = None
 
     def __init__(
         self,
@@ -45,27 +37,6 @@ class Sonarr(Client):
             user_agent=user_agent,
         )
 
-    @property
-    def app(self) -> Optional[Application]:
-        """Return the cached Application object."""
-        return self._application
-
-    async def update(self, full_update: bool = False) -> Application:
-        """Get all information about the application in a single call."""
-        if self._application is None or full_update:
-            status = await self._request("system/status")
-            if status is None:
-                raise SonarrError("Sonarr returned an empty API status response")
-
-            diskspace = await self._request("diskspace")
-
-            self._application = Application({"info": status, "diskspace": diskspace})
-            return self._application
-
-        diskspace = await self._request("diskspace")
-        self._application.update_from_dict({"diskspace": diskspace})
-        return self._application
-
     async def calendar(self, start: str = None, end: str = None) -> List[Episode]:
         """Get upcoming episodes.
 
@@ -83,18 +54,6 @@ class Sonarr(Client):
         results = await self._request("calendar", params=params)
 
         return [Episode.from_dict(result) for result in results]
-
-    async def commands(self) -> List[CommandItem]:
-        """Query the status of all currently started commands."""
-        results = await self._request("command")
-
-        return [CommandItem.from_dict(result) for result in results]
-
-    async def command_status(self, command_id: int) -> CommandItem:
-        """Query the status of a previously started command."""
-        result = await self._request(f"command/{command_id}")
-
-        return CommandItem.from_dict(result)
 
     async def queue(self) -> List[QueueItem]:
         """Get currently downloading info."""
@@ -130,7 +89,3 @@ class Sonarr(Client):
     async def __aenter__(self) -> "Sonarr":
         """Async enter."""
         return self
-
-    async def __aexit__(self, *exc_info) -> None:
-        """Async exit."""
-        await self.close_session()

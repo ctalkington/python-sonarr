@@ -1,19 +1,20 @@
-"""Tests for Sonarr."""
+"""Tests for Arr."""
 import asyncio
 
 import pytest
 from aiohttp import ClientSession
-from sonarr import Client
-from sonarr.exceptions import (
-    SonarrAccessRestricted,
-    SonarrConnectionError,
-    SonarrError,
-    SonarrResourceNotFound,
+
+from arr import Client
+from arr.exceptions import (
+    ArrAccessRestricted,
+    ArrConnectionError,
+    ArrError,
+    ArrResourceNotFound,
 )
 
 API_KEY = "MOCK_API_KEY"
 HOST = "192.168.1.89"
-PORT = 8989
+PORT = 8080
 
 MATCH_HOST = f"{HOST}:{PORT}"
 NON_STANDARD_PORT = 3333
@@ -133,7 +134,7 @@ async def test_timeout(aresponses):
 
     async with ClientSession() as session:
         client = Client(HOST, API_KEY, session=session, request_timeout=1)
-        with pytest.raises(SonarrConnectionError):
+        with pytest.raises(ArrConnectionError):
             assert await client._request("system/status")
 
 
@@ -142,7 +143,7 @@ async def test_client_error():
     """Test HTTP client error."""
     async with ClientSession() as session:
         client = Client("#", API_KEY, session=session)
-        with pytest.raises(SonarrConnectionError):
+        with pytest.raises(ArrConnectionError):
             assert await client._request("system/status")
 
 
@@ -158,7 +159,7 @@ async def test_http_error403(aresponses):
 
     async with ClientSession() as session:
         client = Client(HOST, API_KEY, session=session)
-        with pytest.raises(SonarrAccessRestricted):
+        with pytest.raises(ArrAccessRestricted):
             assert await client._request("system/status")
 
 
@@ -174,7 +175,7 @@ async def test_http_error404(aresponses):
 
     async with ClientSession() as session:
         client = Client(HOST, API_KEY, session=session)
-        with pytest.raises(SonarrResourceNotFound):
+        with pytest.raises(ArrResourceNotFound):
             assert await client._request("system/status")
 
 
@@ -190,7 +191,7 @@ async def test_http_error500(aresponses):
 
     async with ClientSession() as session:
         client = Client(HOST, API_KEY, session=session)
-        with pytest.raises(SonarrError):
+        with pytest.raises(ArrError):
             assert await client._request("system/status")
 
 
@@ -210,7 +211,7 @@ async def test_http_error500_json(aresponses):
 
     async with ClientSession() as session:
         client = Client(HOST, API_KEY, session=session)
-        with pytest.raises(SonarrError):
+        with pytest.raises(ArrError):
             response = await client._request("system/status")
             assert response
             assert response["status"] == "NOK"

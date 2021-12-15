@@ -2,30 +2,33 @@
 import asyncio
 import json
 from socket import gaierror as SocketGIAError
-from typing import Any, Mapping, Optional
+from typing import Any, Mapping, Optional, List
 
 import aiohttp
 import async_timeout
 from yarl import URL
 
-from .__version__ import __version__
-from .exceptions import (
-    SonarrAccessRestricted,
-    SonarrConnectionError,
-    SonarrError,
-    SonarrResourceNotFound,
+from arr.__version__ import __version__
+from arr.exceptions import (
+    ArrAccessRestricted,
+    ArrConnectionError,
+    ArrError,
+    ArrResourceNotFound,
 )
+from arr.models import Application, CommandItem, QueueItem, WantedResults
 
 
 class Client:
     """Main class for handling connections with Sonarr API."""
+
+    _application: Optional[Application] = None
 
     def __init__(
         self,
         host: str,
         api_key: str,
         base_path: str = "/api/",
-        port: int = 8989,
+        port: int = 8080,
         request_timeout: int = 8,
         session: aiohttp.client.ClientSession = None,
         tls: bool = False,
@@ -46,7 +49,7 @@ class Client:
         self.user_agent = user_agent
 
         if user_agent is None:
-            self.user_agent = f"PythonSonarr/{__version__}"
+            self.user_agent = f"PythonArr/{__version__}"
 
         if self.base_path[-1] != "/":
             self.base_path += "/"
@@ -86,21 +89,21 @@ class Client:
                     ssl=self.verify_ssl,
                 )
         except asyncio.TimeoutError as exception:
-            raise SonarrConnectionError(
+            raise ArrConnectionError(
                 "Timeout occurred while connecting to API"
             ) from exception
         except (aiohttp.ClientError, SocketGIAError) as exception:
-            raise SonarrConnectionError(
+            raise ArrConnectionError(
                 "Error occurred while communicating with API"
             ) from exception
 
         if response.status == 403:
-            raise SonarrAccessRestricted(
+            raise ArrAccessRestricted(
                 "Access restricted. Please ensure valid API Key is provided", {}
             )
 
         if response.status == 404:
-            raise SonarrResourceNotFound("Resource not found")
+            raise ArrResourceNotFound("Resource not found")
 
         content_type = response.headers.get("Content-Type", "")
 
@@ -109,11 +112,11 @@ class Client:
             response.close()
 
             if content_type == "application/json":
-                raise SonarrError(
+                raise ArrError(
                     f"HTTP {response.status}", json.loads(content.decode("utf8"))
                 )
 
-            raise SonarrError(
+            raise ArrError(
                 f"HTTP {response.status}",
                 {
                     "content-type": content_type,
@@ -140,3 +143,62 @@ class Client:
     async def __aexit__(self, *exc_info) -> None:
         """Async exit."""
         await self.close_session()
+
+    async def update(self, full_update: bool = False) -> Application:
+        """Get all information about the application in a single call."""
+        if self._application is None or full_update:
+            status = await self._request("system/status")
+            if status is None:
+                raise ArrError("{} returned an empty API status response".format(self.__class__.__name__))
+
+            diskspace = await self._request("diskspace")
+
+            self._application = Application({"info": status, "diskspace": diskspace})
+            return self._application
+
+        diskspace = await self._request("diskspace")
+        self._application.update_from_dict({"diskspace": diskspace})
+        return self._application
+
+    async def commands(self) -> List[CommandItem]:
+        """Query the status of all currently started commands."""
+        results = await self._request("command")
+
+        return [CommandItem.from_dict(result) for result in results]
+
+    async def command_status(self, command_id: int) -> CommandItem:
+        """Query the status of a previously started command."""
+        result = await self._request(f"command/{command_id}")
+
+        return CommandItem.from_dict(result)
+
+    async def queue(self) -> List[QueueItem]:
+        """Get currently downloading info."""
+        results = await self._request("queue")
+
+        return [QueueItem.from_dict(result) for result in results]
+
+    async def wanted(
+        self,
+        sort_key: str = "airDateUtc",
+        page: int = 1,
+        page_size: int = 10,
+        sort_dir: str = "desc",
+    ) -> WantedResults:
+        """Get wanted missing episodes."""
+        params = {
+            "sortKey": sort_key,
+            "page": str(page),
+            "pageSize": str(page_size),
+            "sortDir": sort_dir,
+        }
+
+        results = await self._request("wanted/missing", params=params)
+
+        return WantedResults.from_dict(results)
+
+    @property
+    def app(self) -> Optional[Application]:
+        """Return the cached Application object."""
+        return self._application
+
