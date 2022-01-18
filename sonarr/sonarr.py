@@ -43,15 +43,7 @@ class Sonarr(Client):
         If start/end are not supplied, episodes airing
         today and tomorrow will be returned.
         """
-        params = {}
-
-        if start is not None:
-            params["start"] = str(start)
-
-        if end is not None:
-            params["end"] = str(end)
-
-        results = await self._request("calendar", params=params)
+        results = await super().calendar(start, end)
 
         return [Episode.from_dict(result) for result in results]
 

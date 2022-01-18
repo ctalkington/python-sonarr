@@ -197,6 +197,19 @@ class Client:
 
         return WantedResults.from_dict(results)
 
+    async def calendar(self, start: str = None, end: str = None) -> List:
+        params = {}
+
+        if start is not None:
+            params["start"] = str(start)
+
+        if end is not None:
+            params["end"] = str(end)
+
+        results = await self._request("calendar", params=params)
+
+        return results
+
     @property
     def app(self) -> Optional[Application]:
         """Return the cached Application object."""
