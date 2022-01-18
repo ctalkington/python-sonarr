@@ -1,0 +1,253 @@
+{
+  "title": "Doctor Strange",
+  "originalTitle": "Doctor Strange",
+  "alternateTitles": [
+    {
+      "sourceType": "tmdb",
+      "movieId": 34,
+      "title": "Dr. Strange",
+      "sourceId": 284052,
+      "votes": 0,
+      "voteCount": 0,
+      "language": {
+        "id": 1,
+        "name": "English"
+      },
+      "id": 1131
+    },
+    {
+      "sourceType": "tmdb",
+      "movieId": 34,
+      "title": "Marvel's Doctor Strange",
+      "sourceId": 284052,
+      "votes": 0,
+      "voteCount": 0,
+      "language": {
+        "id": 1,
+        "name": "English"
+      },
+      "id": 4106
+    },
+    {
+      "sourceType": "tmdb",
+      "movieId": 34,
+      "title": "마블 닥터 스트레인지",
+      "sourceId": 0,
+      "votes": 0,
+      "voteCount": 0,
+      "language": {
+        "id": 1,
+        "name": "English"
+      },
+      "id": 5648
+    },
+    {
+      "sourceType": "tmdb",
+      "movieId": 34,
+      "title": "Doctor Strange: Hechicero Supremo",
+      "sourceId": 0,
+      "votes": 0,
+      "voteCount": 0,
+      "language": {
+        "id": 1,
+        "name": "English"
+      },
+      "id": 5649
+    },
+    {
+      "sourceType": "tmdb",
+      "movieId": 34,
+      "title": "Dr. Strange (Doctor Extraño)",
+      "sourceId": 0,
+      "votes": 0,
+      "voteCount": 0,
+      "language": {
+        "id": 3,
+        "name": "Spanish"
+      },
+      "id": 5650
+    },
+    {
+      "sourceType": "tmdb",
+      "movieId": 34,
+      "title": "Doctor Extraño",
+      "sourceId": 0,
+      "votes": 0,
+      "voteCount": 0,
+      "language": {
+        "id": 3,
+        "name": "Spanish"
+      },
+      "id": 5651
+    },
+    {
+      "sourceType": "tmdb",
+      "movieId": 34,
+      "title": "Doktor Strejnxh",
+      "sourceId": 0,
+      "votes": 0,
+      "voteCount": 0,
+      "language": {
+        "id": 1,
+        "name": "English"
+      },
+      "id": 5652
+    },
+    {
+      "sourceType": "tmdb",
+      "movieId": 34,
+      "title": "Дoктор Стрэндж",
+      "sourceId": 0,
+      "votes": 0,
+      "voteCount": 0,
+      "language": {
+        "id": 11,
+        "name": "Russian"
+      },
+      "id": 10712
+    },
+    {
+      "sourceType": "tmdb",
+      "movieId": 34,
+      "title": "Doktor Strange",
+      "sourceId": 0,
+      "votes": 0,
+      "voteCount": 0,
+      "language": {
+        "id": 1,
+        "name": "English"
+      },
+      "id": 10805
+    },
+    {
+      "sourceType": "tmdb",
+      "movieId": 34,
+      "title": "Doctor Strange 3D",
+      "sourceId": 0,
+      "votes": 0,
+      "voteCount": 0,
+      "language": {
+        "id": 1,
+        "name": "English"
+      },
+      "id": 11531
+    },
+    {
+      "sourceType": "tmdb",
+      "movieId": 34,
+      "title": "Marvel Studios' Doctor Strange",
+      "sourceId": 0,
+      "votes": 0,
+      "voteCount": 0,
+      "language": {
+        "id": 1,
+        "name": "English"
+      },
+      "id": 12396
+    }
+  ],
+  "secondaryYearSourceId": 0,
+  "sortTitle": "doctor strange",
+  "sizeOnDisk": 13390271583,
+  "status": "released",
+  "overview": "After his career is destroyed, a brilliant but arrogant surgeon gets a new lease on life when a sorcerer takes him under her wing and trains him to defend the world against evil.",
+  "inCinemas": "2016-10-25T00:00:00Z",
+  "physicalRelease": "2017-02-28T00:00:00Z",
+  "digitalRelease": "2017-02-14T00:00:00Z",
+  "images": [
+    {
+      "coverType": "poster",
+      "url": "/MediaCover/34/poster.jpg?lastWrite=637665417917810448",
+      "remoteUrl": "https://image.tmdb.org/t/p/original/xf8PbyQcR5ucXErmZNzdKR0s8ya.jpg"
+    },
+    {
+      "coverType": "fanart",
+      "url": "/MediaCover/34/fanart.jpg?lastWrite=637719344172284646",
+      "remoteUrl": "https://image.tmdb.org/t/p/original/eQN31P4IEhyp6NkdccvppJnyuJ4.jpg"
+    }
+  ],
+  "website": "http://marvel.com/doctorstrange",
+  "year": 2016,
+  "hasFile": true,
+  "youTubeTrailerId": "HSzx-zryEgM",
+  "studio": "Marvel Studios",
+  "path": "/movies/Doctor Strange (2016)",
+  "qualityProfileId": 7,
+  "monitored": true,
+  "minimumAvailability": "released",
+  "isAvailable": true,
+  "folderName": "/movies/Doctor Strange (2016)",
+  "runtime": 115,
+  "cleanTitle": "doctorstrange",
+  "imdbId": "tt1211837",
+  "tmdbId": 284052,
+  "titleSlug": "284052",
+  "certification": "PG-13",
+  "genres": [
+    "Action",
+    "Adventure",
+    "Fantasy"
+  ],
+  "tags": [],
+  "added": "2017-02-26T19:40:16Z",
+  "ratings": {
+    "votes": 17873,
+    "value": 7.4
+  },
+  "movieFile": {
+    "movieId": 34,
+    "relativePath": "Doctor Strange (2016) [imdb-tt1211837][Bluray-1080p][DTS 5.1][x264]-HiFi.mkv",
+    "path": "/movies/Doctor Strange (2016)/Doctor Strange (2016) [imdb-tt1211837][Bluray-1080p][DTS 5.1][x264]-HiFi.mkv",
+    "size": 13390271583,
+    "dateAdded": "2021-11-26T15:27:59Z",
+    "sceneName": "Doctor.Strange.2016.1080p.BluRay.DTS.x264-HiFi",
+    "indexerFlags": 0,
+    "quality": {
+      "quality": {
+        "id": 7,
+        "name": "Bluray-1080p",
+        "source": "bluray",
+        "resolution": 1080,
+        "modifier": "none"
+      },
+      "revision": {
+        "version": 1,
+        "real": 0,
+        "isRepack": false
+      }
+    },
+    "mediaInfo": {
+      "audioAdditionalFeatures": "",
+      "audioBitrate": 1509000,
+      "audioChannels": 5.1,
+      "audioCodec": "DTS",
+      "audioLanguages": "English / English",
+      "audioStreamCount": 2,
+      "videoBitDepth": 8,
+      "videoBitrate": 13823679,
+      "videoCodec": "x264",
+      "videoFps": 23.976,
+      "resolution": "1920x804",
+      "runTime": "1:54:58",
+      "scanType": "Progressive",
+      "subtitles": "English / English / English / French / French"
+    },
+    "originalFilePath": "Doctor.Strange.2016.1080p.BluRay.DTS.x264-HiFi/Doctor.Strange.2016.1080p.BluRay.DTS.x264-HiFi.mkv",
+    "qualityCutoffNotMet": false,
+    "languages": [
+      {
+        "id": 1,
+        "name": "English"
+      }
+    ],
+    "releaseGroup": "HiFi",
+    "edition": "",
+    "id": 2424
+  },
+  "collection": {
+    "name": "Doctor Strange Collection",
+    "tmdbId": 618529,
+    "images": []
+  },
+  "id": 34
+}

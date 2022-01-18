@@ -1,5 +1,118 @@
 [
   {
+    "title": "Ray Donovan: The Movie",
+    "originalTitle": "Ray Donovan: The Movie",
+    "alternateTitles": [
+      {
+        "sourceType": "tmdb",
+        "movieId": 2041,
+        "title": "Ray Donovan Finale",
+        "sourceId": 0,
+        "votes": 0,
+        "voteCount": 0,
+        "language": {
+          "id": 1,
+          "name": "English"
+        },
+        "id": 15334
+      }
+    ],
+    "secondaryYearSourceId": 0,
+    "sortTitle": "ray donovan movie",
+    "sizeOnDisk": 6741454396,
+    "status": "released",
+    "overview": "A showdown decades in the making brings the Donovan family legacy full circle. As the events that made Ray who he is today finally come to light, the Donovans find themselves drawn back to Boston to face the past. Each of them struggles to overcome their violent upbringing, but destiny dies hard, and only their fierce love for each other keeps them in the fight.",
+    "digitalRelease": "2022-01-14T00:00:00Z",
+    "images": [
+      {
+        "coverType": "poster",
+        "url": "https://image.tmdb.org/t/p/original/5sw1EvOeXMGRZGWr18R4EiZs036.jpg"
+      },
+      {
+        "coverType": "fanart",
+        "url": "https://image.tmdb.org/t/p/original/tUYotMWdNGXtH22cs7p3a7c19PS.jpg"
+      }
+    ],
+    "website": "https://www.sho.com/titles/3508117/ray-donovan-the-movie",
+    "year": 2022,
+    "hasFile": true,
+    "youTubeTrailerId": "Pe29-eLHbZY",
+    "studio": "Showtime Networks",
+    "path": "/data/media/movies/Ray Donovan The Movie (2022)",
+    "qualityProfileId": 7,
+    "monitored": true,
+    "minimumAvailability": "announced",
+    "isAvailable": true,
+    "folderName": "/data/media/movies/Ray Donovan The Movie (2022)",
+    "runtime": 100,
+    "cleanTitle": "raydonovanmovie",
+    "imdbId": "tt14124268",
+    "tmdbId": 800425,
+    "titleSlug": "800425",
+    "certification": "R",
+    "genres": [
+      "Drama",
+      "TV Movie"
+    ],
+    "tags": [],
+    "added": "2022-01-14T08:49:50Z",
+    "ratings": {
+      "votes": 15,
+      "value": 6.7
+    },
+    "movieFile": {
+      "movieId": 2041,
+      "relativePath": "Ray Donovan The Movie (2022) [imdb-tt14124268][WEBDL-1080p][8bit][h264][EAC3 5.1]-EVO.mkv",
+      "path": "/data/media/movies/Ray Donovan The Movie (2022)/Ray Donovan The Movie (2022) [imdb-tt14124268][WEBDL-1080p][8bit][h264][EAC3 5.1]-EVO.mkv",
+      "size": 6741454396,
+      "dateAdded": "2022-01-14T09:49:17Z",
+      "sceneName": "Ray.Donovan.The.Movie.2022.1080p.AMZN.WEB-DL.DDP5.1.H.264-EVO",
+      "indexerFlags": 1,
+      "quality": {
+        "quality": {
+          "id": 3,
+          "name": "WEBDL-1080p",
+          "source": "webdl",
+          "resolution": 1080,
+          "modifier": "none"
+        },
+        "revision": {
+          "version": 1,
+          "real": 0,
+          "isRepack": false
+        }
+      },
+      "mediaInfo": {
+        "audioAdditionalFeatures": "",
+        "audioBitrate": 640000,
+        "audioChannels": 5.1,
+        "audioCodec": "EAC3",
+        "audioLanguages": "English",
+        "audioStreamCount": 1,
+        "videoBitDepth": 8,
+        "videoBitrate": 8314902,
+        "videoCodec": "h264",
+        "videoFps": 23.976,
+        "resolution": "1920x1080",
+        "runTime": "1:40:21",
+        "scanType": "Progressive",
+        "subtitles": ""
+      },
+      "originalFilePath": "Ray.Donovan.The.Movie.2022.1080p.AMZN.WEB-DL.DDP5.1.H.264-EVO.mkv",
+      "qualityCutoffNotMet": true,
+      "languages": [
+        {
+          "id": 1,
+          "name": "English"
+        }
+      ],
+      "releaseGroup": "EVO",
+      "edition": "",
+      "id": 2689
+    },
+    "id": 2041
+  },
+  {
     "title": "No Time to Die",
     "originalTitle": "No Time to Die",
     "alternateTitles": [

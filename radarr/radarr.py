@@ -5,7 +5,7 @@ from aiohttp.client import ClientSession
 
 from arr.client import Client
 from .models import (
-    Movie,
+    Movie, QueueItem,
 )
 
 
@@ -40,18 +40,10 @@ class Radarr(Client):
     async def calendar(self, start: str = None, end: str = None) -> List[Movie]:
         """Get upcoming movies.
 
-        If start/end are not supplied, episodes airing
+        If start/end are not supplied, movies airing
         today and tomorrow will be returned.
         """
-        params = {}
-
-        if start is not None:
-            params["start"] = str(start)
-
-        if end is not None:
-            params["end"] = str(end)
-
-        results = await self._request("calendar", params=params)
+        results = await super().calendar(start, end)
 
         return [Movie.from_dict(result) for result in results]
 
@@ -59,33 +51,8 @@ class Radarr(Client):
         """Get currently downloading info."""
         results = await self._request("queue")
 
-        return [QueueItem.from_dict(result) for result in results]
+        return [QueueItem.from_dict(result) for result in results['records']]
 
-    async def series(self) -> List[SeriesItem]:
-        """Return all series."""
-        results = await self._request("series")
-
-        return [SeriesItem.from_dict(result) for result in results]
-
-    async def wanted(
-        self,
-        sort_key: str = "airDateUtc",
-        page: int = 1,
-        page_size: int = 10,
-        sort_dir: str = "desc",
-    ) -> WantedResults:
-        """Get wanted missing episodes."""
-        params = {
-            "sortKey": sort_key,
-            "page": str(page),
-            "pageSize": str(page_size),
-            "sortDir": sort_dir,
-        }
-
-        results = await self._request("wanted/missing", params=params)
-
-        return WantedResults.from_dict(results)
-
-    async def __aenter__(self) -> "Sonarr":
+    async def __aenter__(self) -> "Radarr":
         """Async enter."""
         return self

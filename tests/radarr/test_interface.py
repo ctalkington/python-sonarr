@@ -65,32 +65,30 @@ async def test_queue(aresponses):
 
         assert response[0]
         assert isinstance(response[0], QueueItem)
-        assert response[0].episode
-        assert isinstance(response[0].episode, Movie)
 
 
-@pytest.mark.asyncio
-async def test_movie(aresponses):
-    """Test series method is handled correctly."""
-    aresponses.add(
-        MATCH_HOST,
-        "/api/movie",
-        "GET",
-        aresponses.Response(
-            status=200,
-            headers={"Content-Type": "application/json"},
-            text=load_fixture("radarr/movie.json"),
-        ),
-    )
-
-    async with ClientSession() as session:
-        client = Radarr(HOST, API_KEY, session=session)
-        response = await client.series()
-
-        assert response
-        assert isinstance(response, List)
-
-        assert response[0]
-        assert isinstance(response[0], MovieFile)
-        assert response[0].series
-        assert isinstance(response[0].series, Movie)
+# @pytest.mark.asyncio
+# async def test_movie(aresponses):
+#     """Test movies method is handled correctly."""
+#     aresponses.add(
+#         MATCH_HOST,
+#         "/api/movie",
+#         "GET",
+#         aresponses.Response(
+#             status=200,
+#             headers={"Content-Type": "application/json"},
+#             text=load_fixture("radarr/movie.json"),
+#         ),
+#     )
+#
+#     async with ClientSession() as session:
+#         client = Radarr(HOST, API_KEY, session=session)
+#         response = await client.movies()
+#
+#         assert response
+#         assert isinstance(response, List)
+#
+#         assert response[0]
+#         assert isinstance(response[0], MovieFile)
+#         assert response[0].series
+#         assert isinstance(response[0].series, Movie)

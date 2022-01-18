@@ -8,6 +8,25 @@ from arr.models import QueueItem as ArrQueueItem
 class QueueItem(ArrQueueItem):
     movie_id: int
 
+    @staticmethod
+    def from_dict(data: dict):
+        """Return QueueItem object from Radarr API response."""
+        arr_queue = ArrQueueItem.from_dict(data)
+
+        return QueueItem(
+            queue_id=arr_queue.queue_id,
+            download_id=arr_queue.download_id,
+            download_status=arr_queue.download_status,
+            title=arr_queue.title,
+            movie_id=data.get('movieId'),
+            protocol=arr_queue.protocol,
+            size=arr_queue.size,
+            size_remaining=arr_queue.size_remaining,
+            status=arr_queue.status,
+            eta=arr_queue.eta,
+            time_remaining=arr_queue.time_remaining,
+        )
+
 
 @dataclass(frozen=True)
 class Image:
@@ -147,9 +166,9 @@ class Movie:
         for image in data.get('images', []):
             images.append(Image.from_dict(image))
 
-        rating = Rating.from_dict(data.get('rating'))
-        collection = Collection.from_dict(data.get('collection'))
-        movie_file = MovieFile.from_dict(data.get('movieFile', []))
+        rating = Rating.from_dict(data.get('ratings'))
+        collection = Collection.from_dict(data.get('collection')) if data.get('collection', False) else None
+        movie_file = MovieFile.from_dict(data.get('movieFile', [])) if data.get('movieFile', False) else None
 
         return Movie(
             id=data.get('id'),
