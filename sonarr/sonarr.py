@@ -16,7 +16,7 @@ class Sonarr(Client):
         self,
         host: str,
         api_key: str,
-        base_path: str = "/api/",
+        base_path: str = "/api/v3/",
         port: int = 8989,
         request_timeout: int = 8,
         session: ClientSession = None,
@@ -51,7 +51,7 @@ class Sonarr(Client):
         """Get currently downloading info."""
         results = await self._request("queue")
 
-        return [QueueItem.from_dict(result) for result in results]
+        return [QueueItem.from_dict(result) for result in results['records']]
 
     async def series(self) -> List[SeriesItem]:
         """Return all series."""

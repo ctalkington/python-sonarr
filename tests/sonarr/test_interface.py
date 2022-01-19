@@ -20,7 +20,7 @@ async def test_calendar(aresponses):
     """Test calendar method is handled correctly."""
     aresponses.add(
         MATCH_HOST,
-        "/api/calendar?start=2014-01-26&end=2014-01-27",
+        "/api/v3/calendar?start=2014-01-26&end=2014-01-27",
         "GET",
         aresponses.Response(
             status=200,
@@ -46,7 +46,7 @@ async def test_queue(aresponses):
     """Test queue method is handled correctly."""
     aresponses.add(
         MATCH_HOST,
-        "/api/queue",
+        "/api/v3/queue",
         "GET",
         aresponses.Response(
             status=200,
@@ -73,7 +73,7 @@ async def test_series(aresponses):
     """Test series method is handled correctly."""
     aresponses.add(
         MATCH_HOST,
-        "/api/series",
+        "/api/v3/series",
         "GET",
         aresponses.Response(
             status=200,
@@ -106,7 +106,7 @@ async def test_wanted(aresponses):
     """Test queue method is handled correctly."""
     aresponses.add(
         MATCH_HOST,
-        "/api/wanted/missing?sortKey=airDateUtc&page=1&pageSize=10&sortDir=desc",
+        "/api/v3/wanted/missing?sortKey=airDateUtc&page=1&pageSize=10&sortDir=desc",
         "GET",
         aresponses.Response(
             status=200,

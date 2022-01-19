@@ -40,18 +40,18 @@ former pro football star Connie Frye to be the celebrity endorser."""
 
 def test_queue_item() -> None:
     """Test the QueueItem model."""
-    item = models.QueueItem.from_dict(QUEUE[0])
+    item = models.QueueItem.from_dict(QUEUE['records'][0])
 
-    assert item.queue_id == 1503378561
-    assert item.download_id == "SABnzbd_nzo_Mq2f_b"
-    assert item.download_status == "Ok"
-    assert item.status == "Downloading"
-    assert item.title == "The.Andy.Griffith.Show.S01E01.x264-GROUP"
+    assert item.queue_id == 33682007
+    assert item.download_id == "SABnzbd_nzo_8kc3adsl"
+    assert item.download_status == "ok"
+    assert item.status == "downloading"
+    assert item.title == "Superman.and.Lois.S02E02.The.Ties.That.Bind.1080p.AMZN.WEB-DL.DDP5.1.H.264-NTb"
     assert item.protocol == "usenet"
-    assert item.size == 4472186820
-    assert item.size_remaining == 0
-    assert item.eta == datetime(2016, 2, 5, 22, 46, 52, 440000, tzinfo=timezone.utc)
-    assert item.time_remaining == "00:00:00"
+    assert item.size == 2199230873.0
+    assert item.size_remaining == 1682230476.0
+    assert item.eta == datetime(2022, 1, 19, 18, 34, 57, 710000, tzinfo=timezone.utc)
+    assert item.time_remaining == "00:01:29"
 
     assert item.episode
     assert isinstance(item.episode, models.Episode)
