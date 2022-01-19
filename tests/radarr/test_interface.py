@@ -11,7 +11,7 @@ from tests import load_fixture
 
 API_KEY = "MOCK_API_KEY"
 HOST = "192.168.1.89"
-PORT = 8989
+PORT = 7878
 
 MATCH_HOST = f"{HOST}:{PORT}"
 
@@ -21,7 +21,7 @@ async def test_calendar(aresponses):
     """Test calendar method is handled correctly."""
     aresponses.add(
         MATCH_HOST,
-        "/api/calendar?start=2014-01-26&end=2014-01-27",
+        "/api/v3/calendar?start=2014-01-26&end=2014-01-27",
         "GET",
         aresponses.Response(
             status=200,
@@ -47,7 +47,7 @@ async def test_queue(aresponses):
     """Test queue method is handled correctly."""
     aresponses.add(
         MATCH_HOST,
-        "/api/queue",
+        "/api/v3/queue",
         "GET",
         aresponses.Response(
             status=200,

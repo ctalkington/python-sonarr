@@ -1,4 +1,5 @@
 """Asynchronous Python client for Radarr."""
+from datetime import timedelta, date
 from typing import List
 
 from aiohttp.client import ClientSession
@@ -13,16 +14,16 @@ class Radarr(Client):
     """Main class for Python API."""
 
     def __init__(
-        self,
-        host: str,
-        api_key: str,
-        base_path: str = "/api/",
-        port: int = 8989,
-        request_timeout: int = 8,
-        session: ClientSession = None,
-        tls: bool = False,
-        verify_ssl: bool = True,
-        user_agent: str = None,
+            self,
+            host: str,
+            api_key: str,
+            base_path: str = "/api/v3/",
+            port: int = 7878,
+            request_timeout: int = 8,
+            session: ClientSession = None,
+            tls: bool = False,
+            verify_ssl: bool = True,
+            user_agent: str = None,
     ) -> None:
         """Initialize connection with Sonarr."""
         super().__init__(
@@ -41,8 +42,15 @@ class Radarr(Client):
         """Get upcoming movies.
 
         If start/end are not supplied, movies airing
-        today and tomorrow will be returned.
+        this week will be returned.
         """
+        dt = date.today()
+        if start is None:
+            start = dt - timedelta(days=dt.weekday())
+
+        if end is None:
+            end = start + timedelta(days=6)
+
         results = await super().calendar(start, end)
 
         return [Movie.from_dict(result) for result in results]
@@ -52,6 +60,12 @@ class Radarr(Client):
         results = await self._request("queue")
 
         return [QueueItem.from_dict(result) for result in results['records']]
+
+    async def movies(self) -> List[Movie]:
+        """Return all movies."""
+        results = await self._request("movie")
+
+        return [Movie.from_dict(result) for result in results]
 
     async def __aenter__(self) -> "Radarr":
         """Async enter."""

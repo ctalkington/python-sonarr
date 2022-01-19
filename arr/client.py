@@ -178,25 +178,6 @@ class Client:
 
         return [QueueItem.from_dict(result) for result in results]
 
-    async def wanted(
-        self,
-        sort_key: str = "airDateUtc",
-        page: int = 1,
-        page_size: int = 10,
-        sort_dir: str = "desc",
-    ) -> WantedResults:
-        """Get wanted missing episodes."""
-        params = {
-            "sortKey": sort_key,
-            "page": str(page),
-            "pageSize": str(page_size),
-            "sortDir": sort_dir,
-        }
-
-        results = await self._request("wanted/missing", params=params)
-
-        return WantedResults.from_dict(results)
-
     async def calendar(self, start: str = None, end: str = None) -> List:
         params = {}
 

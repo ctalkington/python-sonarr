@@ -22,9 +22,6 @@ async def main():
         movies = await radarr.movies()
         print(movies)
 
-        wanted = await radarr.wanted()
-        print(wanted)
-
 
 if __name__ == "__main__":
     loop = asyncio.get_event_loop()
