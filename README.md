@@ -1,3 +1,7 @@
+# Deprecated
+
+This package is officially deprecated as of June 25th, 2022. Consider using [pyaioarr](https://github.com/tkdrob/aiopyarr)
+
 # Python: Sonarr Client
 
 Asynchronous Python client for Sonarr API.
